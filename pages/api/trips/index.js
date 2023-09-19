@@ -1,12 +1,14 @@
-import Trip from "@/db/models/Trip";
-import connect from "@/db/connect";
+import Trip from "@/db/models/Trip.js";
+import connect from "@/db/connect.js";
 
 export default async function handler(request, response) {
   await connect();
 
   if (request.method === "GET") {
-    const trips = await Trip.find({});
-    console.log(trips);
+    const trips = await Trip.find({})
+      .sort({ createdAt: -1 })
+      .limit(request.query.limit);
+    //console.log(trips);
     return response.status(200).json(trips);
   } else {
     return response.status(405).json({

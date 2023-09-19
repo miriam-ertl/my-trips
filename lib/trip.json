@@ -169,5 +169,14 @@
     "country": "Austria",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
     "description": "Discover the classical music heritage of Vienna."
+  },
+  {
+    "title": "Zagreb Tours",
+    "startDate": "17.01.2022",
+    "endDate": "22.01.2022",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Discover the classical romantic city vibes in Zagreb."
   }
 ]
