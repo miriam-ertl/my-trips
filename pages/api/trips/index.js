@@ -8,6 +8,11 @@ export default async function handler(request, response) {
     console.log(trips);
     return response.status(200).json(trips);
   } else {
-    return response.status(405).json({ message: "something went wrong" });
+    return response
+      .status(405)
+      .json({
+        message:
+          "...Ooops, something went wrong. You cannot access your list of trips",
+      });
   }
 }
