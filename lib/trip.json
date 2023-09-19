@@ -1,0 +1,173 @@
+[
+  {
+    "title": "Paris Adventure",
+    "startDate": "15.07.2023",
+    "endingDate": "20.07.2023",
+    "city": "Paris",
+    "country": "France",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Explore the romantic city of Paris."
+  },
+  {
+    "title": "New York City Getaway",
+    "startDate": "10.08.2023",
+    "endingDate": "15.08.2023",
+    "city": "New York City",
+    "country": "United States",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Experience the hustle and bustle of the Big Apple."
+  },
+  {
+    "title": "Tokyo Adventure",
+    "startDate": "25.09.2023",
+    "endingDate": "30.09.2023",
+    "city": "Tokyo",
+    "country": "Japan",
+    "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
+    "description": "Discover the vibrant culture of Tokyo."
+  },
+  {
+    "title": "Rome Excursion",
+    "startDate": "05.06.2023",
+    "endingDate": "10.06.2023",
+    "city": "Rome",
+    "country": "Italy",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Explore the ancient history of Rome."
+  },
+  {
+    "title": "London Adventure",
+    "startDate": "18.07.2023",
+    "endingDate": "23.07.2023",
+    "city": "London",
+    "country": "United Kingdom",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Experience the iconic landmarks of London."
+  },
+  {
+    "title": "Sydney Getaway",
+    "startDate": "12.11.2023",
+    "endingDate": "17.11.2023",
+    "city": "Sydney",
+    "country": "Australia",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Enjoy the beautiful beaches of Sydney."
+  },
+  {
+    "title": "Istanbul Adventure",
+    "startDate": "03.09.2023",
+    "endingDate": "08.09.2023",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
+    "description": "Experience the blend of cultures in Istanbul."
+  },
+  {
+    "title": "Cape Town Excursion",
+    "startDate": "20.05.2023",
+    "endingDate": "25.05.2023",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Discover the stunning landscapes of Cape Town."
+  },
+  {
+    "title": "Bangkok Adventure",
+    "startDate": "08.10.2023",
+    "endingDate": "13.10.2023",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
+    "description": "Explore the vibrant street life of Bangkok."
+  },
+  {
+    "title": "San Francisco Getaway",
+    "startDate": "01.04.2023",
+    "endingDate": "06.04.2023",
+    "city": "San Francisco",
+    "country": "United States",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Experience the beauty of San Francisco Bay."
+  },
+  {
+    "title": "Dubai Adventure",
+    "startDate": "14.12.2023",
+    "endingDate": "19.12.2023",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
+    "description": "Explore the modern marvels of Dubai."
+  },
+  {
+    "title": "Barcelona Excursion",
+    "startDate": "28.08.2023",
+    "endingDate": "02.09.2023",
+    "city": "Barcelona",
+    "country": "Spain",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Discover the art and architecture of Barcelona."
+  },
+  {
+    "title": "Toronto Adventure",
+    "startDate": "06.07.2023",
+    "endingDate": "11.07.2023",
+    "city": "Toronto",
+    "country": "Canada",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Experience the multicultural vibe of Toronto."
+  },
+  {
+    "title": "Rio de Janeiro Getaway",
+    "startDate": "19.01.2023",
+    "endingDate": "24.01.2023",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Enjoy the beautiful beaches of Rio de Janeiro."
+  },
+  {
+    "title": "Marrakech Adventure",
+    "startDate": "11.11.2023",
+    "endingDate": "16.11.2023",
+    "city": "Marrakech",
+    "country": "Morocco",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Explore the vibrant markets of Marrakech."
+  },
+  {
+    "title": "Amsterdam Excursion",
+    "startDate": "22.02.2023",
+    "endingDate": "27.02.2023",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
+    "description": "Discover the historic canals of Amsterdam."
+  },
+  {
+    "title": "Prague Adventure",
+    "startDate": "09.06.2023",
+    "endingDate": "14.06.2023",
+    "city": "Prague",
+    "country": "Czech Republic",
+    "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
+    "description": "Experience the medieval charm of Prague."
+  },
+  {
+    "title": "Hong Kong Getaway",
+    "startDate": "04.10.2023",
+    "endingDate": "09.10.2023",
+    "city": "Hong Kong",
+    "country": "China",
+    "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
+    "description": "Explore the bustling streets of Hong Kong."
+  },
+  {
+    "title": "Vienna Adventure",
+    "startDate": "17.03.2023",
+    "endingDate": "22.03.2023",
+    "city": "Vienna",
+    "country": "Austria",
+    "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
+    "description": "Discover the classical music heritage of Vienna."
+  }
+]
