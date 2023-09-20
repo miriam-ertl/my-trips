@@ -9,12 +9,12 @@ export default function Trip({
   country,
 }) {
   return (
-    <>
+    <li>
       <Image src={image} width={100} height={50} alt="" />
       <p>
         name: {title} startDate: {startDate} endDate:
         {endDate} city: {city} country: {country}
       </p>
-    </>
+    </li>
   );
 }
