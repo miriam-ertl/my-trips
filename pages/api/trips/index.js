@@ -8,7 +8,6 @@ export default async function handler(request, response) {
     const trips = await Trip.find({})
       .sort({ createdAt: -1 })
       .limit(request.query.limit);
-    //console.log(trips);
     return response.status(200).json(trips);
   } else {
     return response.status(405).json({
