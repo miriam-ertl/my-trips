@@ -7,21 +7,20 @@ export default function TripList() {
     return <h1>... is loading</h1>;
   }
   return (
-    <>
+    <ul>
       {trips.map((trip) => {
         return (
-          <ul key={trip._id}>
-            <Trip
-              image={trip.image}
-              title={trip.title}
-              startDate={trip.startDate}
-              endDate={trip.endDate}
-              city={trip.city}
-              country={trip.country}
-            />
-          </ul>
+          <Trip
+            key={trip._id}
+            image={trip.image}
+            title={trip.title}
+            startDate={trip.startDate}
+            endDate={trip.endDate}
+            city={trip.city}
+            country={trip.country}
+          />
         );
       })}
-    </>
+    </ul>
   );
 }
