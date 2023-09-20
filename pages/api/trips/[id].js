@@ -7,7 +7,7 @@ export default async function handler(request, response) {
   const { id } = request.query;
 
   if (request.method === "GET") {
-    const trip = await Trip.findById(request.query.id);
+    const trip = await Trip.findById(id);
     if (!trip) {
       response.status(404).json({ message: "Trip not found" });
       return;
