@@ -12,8 +12,7 @@ export default function Trip({
     <li>
       <Image src={image} width={100} height={50} alt="" />
       <p>
-        name: {title} startDate: {startDate} endDate:
-        {endDate} city: {city} country: {country}
+        <h2>{title}</h2> {startDate} - {endDate} <br></br> {city}, {country}
       </p>
     </li>
   );
