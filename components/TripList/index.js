@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Trip from "../Trip";
 import useSWR from "swr";
 
@@ -12,17 +11,15 @@ export default function TripList() {
       {trips.map((trip) => {
         return (
           <>
-            <Link href={`/trips/${trip._id}`}>
-              <Trip
-                key={trip._id}
-                image={trip.image}
-                title={trip.title}
-                startDate={trip.startDate}
-                endDate={trip.endDate}
-                city={trip.city}
-                country={trip.country}
-              />
-            </Link>
+            <Trip
+              key={trip._id}
+              image={trip.image}
+              title={trip.title}
+              startDate={trip.startDate}
+              endDate={trip.endDate}
+              city={trip.city}
+              country={trip.country}
+            />
           </>
         );
       })}

@@ -11,7 +11,7 @@ export default function TripDetails({
   description,
 }) {
   return (
-    <>
+    <main>
       <Link href="/">&larr;</Link>
       <h1>My Trips</h1>
       <section>
@@ -20,9 +20,9 @@ export default function TripDetails({
         {city}, {country}
         <br></br>
         {startDate} - {endDate}
-        <p>My plans</p>
-        {description}
+        <h3>My plans</h3>
+        <p>{description}</p>
       </section>
-    </>
+    </main>
   );
 }
