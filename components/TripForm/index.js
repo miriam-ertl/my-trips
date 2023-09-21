@@ -1,7 +1,12 @@
 import useSWR from "swr";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function TripForm() {
   const { mutate } = useSWR("/api/trips");
+
+  const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -19,6 +24,7 @@ export default function TripForm() {
       return;
     }
     mutate();
+    router.push("/confirmation");
     event.target.reset();
   }
 
@@ -75,11 +81,13 @@ export default function TripForm() {
           id="description"
           name="description"
           type="text"
+          required
           placeholder="Enter your description"
         ></textarea>
         <p>
           <span>150</span> characters left
         </p>
+
         <button type="submit"> + Add Trip</button>
       </fieldset>
     </form>
