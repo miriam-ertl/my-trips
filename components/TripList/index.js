@@ -10,17 +10,16 @@ export default function TripList() {
     <ul>
       {trips.map((trip) => {
         return (
-          <>
-            <Trip
-              key={trip._id}
-              image={trip.image}
-              title={trip.title}
-              startDate={trip.startDate}
-              endDate={trip.endDate}
-              city={trip.city}
-              country={trip.country}
-            />
-          </>
+          <Trip
+            key={trip._id}
+            id={trip._id}
+            image={trip.image}
+            title={trip.title}
+            startDate={trip.startDate}
+            endDate={trip.endDate}
+            city={trip.city}
+            country={trip.country}
+          />
         );
       })}
     </ul>
