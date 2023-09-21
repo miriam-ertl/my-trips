@@ -12,6 +12,7 @@ export default function TripList() {
         return (
           <Trip
             key={trip._id}
+            id={trip._id}
             image={trip.image}
             title={trip.title}
             startDate={trip.startDate}

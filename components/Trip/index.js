@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Trip({
+  id,
   image,
   title,
   startDate,
@@ -10,11 +12,14 @@ export default function Trip({
 }) {
   return (
     <li>
-      <Image src={image} width={100} height={50} alt="" />
-      <p>
-        name: {title} startDate: {startDate} endDate:
-        {endDate} city: {city} country: {country}
-      </p>
+      <Link href={`/trips/${id}`}>
+        <Image src={image} width={100} height={50} alt="" />
+
+        <h2>{title}</h2>
+        <p>
+          {startDate} - {endDate} <br></br> {city}, {country}
+        </p>
+      </Link>
     </li>
   );
 }
