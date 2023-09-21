@@ -67,7 +67,7 @@ export default function TripForm() {
           required
         ></input>
 
-        <label htmlFor="description">Description (max. 250 characters)*</label>
+        <label htmlFor="description">Description (max. 150 characters)*</label>
         <textarea
           rows="8"
           cols="30"
