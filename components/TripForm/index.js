@@ -30,7 +30,7 @@ export default function TripForm() {
           id="title"
           name="title"
           type="text"
-          maxlength="30"
+          maxLength="30"
           required
         ></input>
 
@@ -45,7 +45,7 @@ export default function TripForm() {
           id="city"
           name="city"
           type="text"
-          maxlength="30"
+          maxLength="30"
           required
         ></input>
 
@@ -54,7 +54,7 @@ export default function TripForm() {
           id="country"
           name="country"
           type="text"
-          maxlength="30"
+          maxLength="30"
           required
         ></input>
 
@@ -71,14 +71,14 @@ export default function TripForm() {
         <textarea
           rows="8"
           cols="30"
-          maxlength="10"
+          maxLength="150"
           id="description"
           name="description"
           type="text"
           placeholder="Enter your description"
         ></textarea>
         <p>
-          <span>10</span> characters left
+          <span>150</span> characters left
         </p>
         <button type="submit"> + Add Trip</button>
       </fieldset>
