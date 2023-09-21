@@ -90,6 +90,7 @@ export default function TripForm() {
 
         <button type="submit"> + Add Trip</button>
       </fieldset>
+      <p>* required form field</p>
     </form>
   );
 }
