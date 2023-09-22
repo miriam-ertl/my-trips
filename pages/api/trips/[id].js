@@ -14,6 +14,9 @@ export default async function handler(request, response) {
     }
     response.status(200).json(trip);
     return;
+  } else if (request.method === "DELETE") {
+    await Trip.findByIdAndDelete(id);
+    return response.status(200).json({ message: "Trip deleted!" });
   }
   response.status(405).json({ message: "Method not allowed" });
 }

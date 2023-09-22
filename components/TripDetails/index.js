@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ConfirmDelete from "../ConfirmDelete";
 
 export default function TripDetails({
   image,
@@ -9,10 +10,12 @@ export default function TripDetails({
   startDate,
   endDate,
   description,
+  handleDeleteTrip,
 }) {
   return (
     <main>
       <Link href="/">&larr;</Link>
+      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
       <h1>My Trips</h1>
       <section>
         <Image src={image} width={100} height={50} alt="" />
