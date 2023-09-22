@@ -25,7 +25,6 @@ export default function TripForm() {
     }
     mutate();
     router.push("/confirmation");
-    event.target.reset();
   }
 
   return (
@@ -87,9 +86,7 @@ export default function TripForm() {
             required
             placeholder="Enter your description"
           ></textarea>
-          <p>
-            <span>150</span> characters left
-          </p>
+          <p>150 characters left</p>
 
           <button type="submit"> + Add Trip</button>
         </fieldset>

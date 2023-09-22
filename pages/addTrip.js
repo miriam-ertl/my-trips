@@ -1,5 +1,4 @@
 import TripForm from "@/components/TripForm";
-import Link from "next/link";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 
 export default function AddTrip() {
