@@ -92,8 +92,6 @@ export default function TripForm() {
         </fieldset>
         <p>* required form field</p>
       </form>
-
-      <ConfirmationMessage button={"Cancel"} />
     </>
   );
 }
