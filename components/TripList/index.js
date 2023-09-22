@@ -6,7 +6,10 @@ export default function TripList() {
   if (!trips || isLoading) {
     return <h1>... is loading</h1>;
   }
-  return (
+
+  return trips.length === 0 ? (
+    <h2>Where are you heading to? Please add a new trip.</h2>
+  ) : (
     <ul>
       {trips.map((trip) => {
         return (
