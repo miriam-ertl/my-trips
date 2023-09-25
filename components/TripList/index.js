@@ -4,7 +4,7 @@ import useSWR from "swr";
 export default function TripList() {
   const { data: trips, isLoading } = useSWR(`/api/trips`);
   if (!trips || isLoading) {
-    return <h1>... is loading</h1>;
+    return <h2>... is loading</h2>;
   }
 
   return trips.length === 0 ? (

@@ -14,7 +14,9 @@ export default function TripDetails({
 }) {
   return (
     <main>
-      <Link href="/">&larr;</Link>
+      <Link href="/" aria-label="Go back to homepage">
+        &larr;
+      </Link>
       <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
       <h1>My Trips</h1>
       <section>

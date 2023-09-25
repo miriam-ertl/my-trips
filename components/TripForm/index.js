@@ -1,10 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
-import ConfirmationMessage from "../ConfirmationMessage";
 
 export default function TripForm() {
-  const { mutate } = useSWR("/api/trips");
-
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -23,7 +20,7 @@ export default function TripForm() {
       console.error(response.status);
       return;
     }
-    mutate();
+
     router.push("/confirmation");
   }
 
@@ -32,28 +29,16 @@ export default function TripForm() {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="title">Title (max. 30 characters)*</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            maxLength="30"
-            required
-          ></input>
+          <input id="title" name="title" type="text" maxLength="30" required />
 
           <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
-          <input id="startDate" name="startDate" type="date" required></input>
+          <input id="startDate" name="startDate" type="date" required />
 
           <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
-          <input id="endDate" name="endDate" type="date" required></input>
+          <input id="endDate" name="endDate" type="date" required />
 
           <label htmlFor="city">City (max. 30 characters)*</label>
-          <input
-            id="city"
-            name="city"
-            type="text"
-            maxLength="30"
-            required
-          ></input>
+          <input id="city" name="city" type="text" maxLength="30" required />
 
           <label htmlFor="country">Country (max. 30 characters)*</label>
           <input
@@ -62,7 +47,7 @@ export default function TripForm() {
             type="text"
             maxLength="30"
             required
-          ></input>
+          />
 
           <label htmlFor="image">Image (URL)*</label>
           <input
@@ -71,7 +56,7 @@ export default function TripForm() {
             type="text"
             placeholder="For example www.my-image.com"
             required
-          ></input>
+          />
 
           <label htmlFor="description">
             Description (max. 150 characters)*
