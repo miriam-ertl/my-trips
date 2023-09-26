@@ -36,10 +36,8 @@ export default function EditTrip() {
       mutate();
     }
     router.push("/");
-    /*{
-      method: "DELETE";
-    }*/
   }
+
   async function handleDeleteTrip() {
     await fetch(`/api/trips/${id}`, {
       method: "DELETE",
