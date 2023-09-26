@@ -1,6 +1,9 @@
+import Link from "next/link";
 import { useState } from "react";
+
 export default function ConfirmDelete({ handleDeleteTrip }) {
   const [showMessage, setShowMessage] = useState(false);
+
   if (!showMessage) {
     return (
       <div>
@@ -12,10 +15,12 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
   }
   return (
     <div>
-      <p>Are you sure ?</p>
-      <button type="button" onClick={handleDeleteTrip}>
-        Yes
-      </button>
+      <p>Are you sure?</p>
+      <Link href="/">
+        <button type="button" onClick={handleDeleteTrip}>
+          Yes
+        </button>
+      </Link>
       <button type="button" onClick={() => setShowMessage(false)}>
         No
       </button>

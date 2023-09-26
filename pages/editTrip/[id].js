@@ -1,3 +1,4 @@
+import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -34,6 +35,15 @@ export default function EditTrip() {
     if (response.ok) {
       mutate();
     }
+    router.push("/");
+    /*{
+      method: "DELETE";
+    }*/
+  }
+  async function handleDeleteTrip() {
+    await fetch(`/api/trips/${id}`, {
+      method: "DELETE",
+    });
     router.push("/");
   }
 
@@ -125,6 +135,7 @@ export default function EditTrip() {
         </form>
 
         <ConfirmationMessage button={"Cancel"} />
+        <ConfirmDelete button={"Delete"} handleDeleteTrip={handleDeleteTrip} />
       </main>
     </>
   );
