@@ -19,4 +19,19 @@ export default async function handler(request, response) {
     return response.status(200).json({ message: "Trip deleted!" });
   }
   response.status(405).json({ message: "Method not allowed" });
+
+  if (request.method === "PUT") {
+    try {
+      const trip = await Trip.findOneAndUpdate(
+        { _id: request.query.id },
+        request.body,
+        { new: true }
+      );
+      response.status(200).json(trip);
+    } catch (error) {
+      response.status(500).json({ message: "Error updating trip" });
+    }
+    return;
+  }
+  response.status(405).json({ message: "Method not allowed" });
 }
