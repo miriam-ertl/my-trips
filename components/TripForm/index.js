@@ -1,5 +1,5 @@
-import useSWR from "swr";
 import { useRouter } from "next/router";
+import useSWR from "swr";
 
 export default function TripForm() {
   const router = useRouter();
@@ -73,7 +73,7 @@ export default function TripForm() {
           ></textarea>
           <p>150 characters left</p>
 
-          <button type="submit"> + Add Trip</button>
+          <button type="submit">+ Add Trip</button>
         </fieldset>
         <p>* required form field</p>
       </form>

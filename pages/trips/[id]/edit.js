@@ -131,7 +131,7 @@ export default function EditTrip() {
           ></textarea>
           <p>150 characters left</p>
 
-          <button type="submit"> Edit Trip</button>
+          <button type="submit">Edit trip</button>
         </fieldset>
         <p>* required form field</p>
       </form>
