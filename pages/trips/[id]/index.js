@@ -16,19 +16,11 @@ export default function DetailsPage() {
     });
     router.push("/");
   }
+
   return (
     <>
-      <Link href={`/editTrip/${id}`}>Edit Trip</Link>
-      <TripDetails
-        image={trip.image}
-        title={trip.title}
-        city={trip.city}
-        country={trip.country}
-        startDate={trip.startDate}
-        endDate={trip.endDate}
-        description={trip.description}
-        handleDeleteTrip={handleDeleteTrip}
-      />
+      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+      <TripDetails {...trip} handleDeleteTrip={handleDeleteTrip} />
     </>
   );
 }

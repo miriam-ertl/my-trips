@@ -16,11 +16,9 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
   return (
     <div>
       <p>Are you sure?</p>
-      <Link href="/">
-        <button type="button" onClick={handleDeleteTrip}>
-          Yes
-        </button>
-      </Link>
+      <button type="button" onClick={handleDeleteTrip}>
+        Yes
+      </button>
       <button type="button" onClick={() => setShowMessage(false)}>
         No
       </button>
