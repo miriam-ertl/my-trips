@@ -42,11 +42,6 @@ export default function EditTrip() {
     await fetch(`/api/trips/${id}`, {
       method: "DELETE",
     });
-
-    if (response.ok) {
-      mutate("/api/trips");
-    }
-
     router.push("/");
   }
 
