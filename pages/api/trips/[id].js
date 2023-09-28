@@ -18,5 +18,19 @@ export default async function handler(request, response) {
     await Trip.findByIdAndDelete(id);
     return response.status(200).json({ message: "Trip deleted!" });
   }
+
+  if (request.method === "PUT") {
+    try {
+      const trip = await Trip.findOneAndUpdate(
+        { _id: request.query.id },
+        request.body,
+        { new: true }
+      );
+      response.status(200).json(trip);
+    } catch (error) {
+      response.status(500).json({ message: "Error updating trip" });
+    }
+    return;
+  }
   response.status(405).json({ message: "Method not allowed" });
 }

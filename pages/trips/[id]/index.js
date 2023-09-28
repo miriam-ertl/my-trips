@@ -1,6 +1,8 @@
+import Link from "next/link";
 import TripDetails from "@/components/TripDetails";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+
 export default function DetailsPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -14,16 +16,11 @@ export default function DetailsPage() {
     });
     router.push("/");
   }
+
   return (
-    <TripDetails
-      image={trip.image}
-      title={trip.title}
-      city={trip.city}
-      country={trip.country}
-      startDate={trip.startDate}
-      endDate={trip.endDate}
-      description={trip.description}
-      handleDeleteTrip={handleDeleteTrip}
-    />
+    <>
+      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+      <TripDetails {...trip} handleDeleteTrip={handleDeleteTrip} />
+    </>
   );
 }

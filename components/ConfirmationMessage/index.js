@@ -1,5 +1,5 @@
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ConfirmationMessage({ button }) {
   const [showMessage, setShowMessage] = useState(false);
@@ -24,7 +24,7 @@ export default function ConfirmationMessage({ button }) {
         <button type="button">Yes</button>
       </Link>
       <button type="button" onClick={() => setShowMessage(false)}>
-        Continue
+        No
       </button>
     </div>
   );
