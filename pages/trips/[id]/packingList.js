@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 //import useSWR from "swr";
 
-export default function AddPackingListItem() {
+export default function AddPackingListItem({ item }) {
   const router = useRouter();
 
   async function handleSubmit(event) {

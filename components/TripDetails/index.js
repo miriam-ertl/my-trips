@@ -13,6 +13,7 @@ export default function TripDetails({
   description,
   handleDeleteTrip,
   packingList,
+  item,
 }) {
   return (
     <main>
@@ -30,7 +31,7 @@ export default function TripDetails({
         <h3>My plans</h3>
         <p>{description}</p>
         <h3>{`${title} packing list:`}</h3>
-        <AddPackingListItem />
+        <AddPackingListItem item={item} />
         <ul>
           {packingList.map((item) => {
             return <li key={item._id}>{item.name}</li>;
