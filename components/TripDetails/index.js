@@ -1,6 +1,7 @@
+import AddPackingListItem from "@/pages/trips/[id]/packingList";
+import ConfirmDelete from "../ConfirmDelete";
 import Image from "next/image";
 import Link from "next/link";
-import ConfirmDelete from "../ConfirmDelete";
 
 export default function TripDetails({
   image,
@@ -11,6 +12,7 @@ export default function TripDetails({
   endDate,
   description,
   handleDeleteTrip,
+  packingList,
 }) {
   return (
     <main>
@@ -27,6 +29,13 @@ export default function TripDetails({
         {startDate} - {endDate}
         <h3>My plans</h3>
         <p>{description}</p>
+        <h3>{`${title} packing list:`}</h3>
+        <AddPackingListItem />
+        <ul>
+          {packingList.map((item) => {
+            return <li key={item._id}>{item.name}</li>;
+          })}
+        </ul>
       </section>
     </main>
   );

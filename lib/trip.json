@@ -6,7 +6,11 @@
     "city": "Paris",
     "country": "France",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Explore the romantic city of Paris."
+    "description": "Explore the romantic city of Paris.",
+    "packingList": [
+      { "name": "sunglases" },
+      { "name": "shoes", "checked": true }
+    ]
   },
   {
     "title": "New York City Getaway",
@@ -15,7 +19,8 @@
     "city": "New York City",
     "country": "United States",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Experience the hustle and bustle of the Big Apple."
+    "description": "Experience the hustle and bustle of the Big Apple.",
+    "packingList": []
   },
   {
     "title": "Tokyo Adventure",
@@ -24,7 +29,8 @@
     "city": "Tokyo",
     "country": "Japan",
     "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
-    "description": "Discover the vibrant culture of Tokyo."
+    "description": "Discover the vibrant culture of Tokyo.",
+    "packingList": []
   },
   {
     "title": "Rome Excursion",
@@ -33,7 +39,8 @@
     "city": "Rome",
     "country": "Italy",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Explore the ancient history of Rome."
+    "description": "Explore the ancient history of Rome.",
+    "packingList": []
   },
   {
     "title": "London Adventure",
@@ -42,7 +49,8 @@
     "city": "London",
     "country": "United Kingdom",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Experience the iconic landmarks of London."
+    "description": "Experience the iconic landmarks of London.",
+    "packingList": []
   },
   {
     "title": "Sydney Getaway",
@@ -51,7 +59,8 @@
     "city": "Sydney",
     "country": "Australia",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Enjoy the beautiful beaches of Sydney."
+    "description": "Enjoy the beautiful beaches of Sydney.",
+    "packingList": []
   },
   {
     "title": "Istanbul Adventure",
@@ -60,7 +69,8 @@
     "city": "Istanbul",
     "country": "Turkey",
     "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
-    "description": "Experience the blend of cultures in Istanbul."
+    "description": "Experience the blend of cultures in Istanbul.",
+    "packingList": []
   },
   {
     "title": "Cape Town Excursion",
@@ -69,7 +79,8 @@
     "city": "Cape Town",
     "country": "South Africa",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Discover the stunning landscapes of Cape Town."
+    "description": "Discover the stunning landscapes of Cape Town.",
+    "packingList": []
   },
   {
     "title": "Bangkok Adventure",
@@ -78,7 +89,8 @@
     "city": "Bangkok",
     "country": "Thailand",
     "image": "https://dummyimage.com/600x400/135c0f/fff.jpg",
-    "description": "Explore the vibrant street life of Bangkok."
+    "description": "Explore the vibrant street life of Bangkok.",
+    "packingList": []
   },
   {
     "title": "San Francisco Getaway",
@@ -87,7 +99,8 @@
     "city": "San Francisco",
     "country": "United States",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Experience the beauty of San Francisco Bay."
+    "description": "Experience the beauty of San Francisco Bay.",
+    "packingList": []
   },
   {
     "title": "Dubai Adventure",
@@ -96,7 +109,8 @@
     "city": "Dubai",
     "country": "United Arab Emirates",
     "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
-    "description": "Explore the modern marvels of Dubai."
+    "description": "Explore the modern marvels of Dubai.",
+    "packingList": []
   },
   {
     "title": "Barcelona Excursion",
@@ -105,7 +119,8 @@
     "city": "Barcelona",
     "country": "Spain",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Discover the art and architecture of Barcelona."
+    "description": "Discover the art and architecture of Barcelona.",
+    "packingList": []
   },
   {
     "title": "Toronto Adventure",
@@ -114,7 +129,8 @@
     "city": "Toronto",
     "country": "Canada",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Experience the multicultural vibe of Toronto."
+    "description": "Experience the multicultural vibe of Toronto.",
+    "packingList": []
   },
   {
     "title": "Rio de Janeiro Getaway",
@@ -123,7 +139,8 @@
     "city": "Rio de Janeiro",
     "country": "Brazil",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Enjoy the beautiful beaches of Rio de Janeiro."
+    "description": "Enjoy the beautiful beaches of Rio de Janeiro.",
+    "packingList": []
   },
   {
     "title": "Marrakech Adventure",
@@ -132,7 +149,8 @@
     "city": "Marrakech",
     "country": "Morocco",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Explore the vibrant markets of Marrakech."
+    "description": "Explore the vibrant markets of Marrakech.",
+    "packingList": []
   },
   {
     "title": "Amsterdam Excursion",
@@ -141,7 +159,8 @@
     "city": "Amsterdam",
     "country": "Netherlands",
     "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
-    "description": "Discover the historic canals of Amsterdam."
+    "description": "Discover the historic canals of Amsterdam.",
+    "packingList": []
   },
   {
     "title": "Prague Adventure",
@@ -150,7 +169,8 @@
     "city": "Prague",
     "country": "Czech Republic",
     "image": "https://dummyimage.com/600x400/0f305e/fff.jpg",
-    "description": "Experience the medieval charm of Prague."
+    "description": "Experience the medieval charm of Prague.",
+    "packingList": []
   },
   {
     "title": "Hong Kong Getaway",
@@ -159,7 +179,8 @@
     "city": "Hong Kong",
     "country": "China",
     "image": "https://dummyimage.com/600x400/b51f51/fff.jpg",
-    "description": "Explore the bustling streets of Hong Kong."
+    "description": "Explore the bustling streets of Hong Kong.",
+    "packingList": []
   },
   {
     "title": "Vienna Adventure",
@@ -168,7 +189,8 @@
     "city": "Vienna",
     "country": "Austria",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Discover the classical music heritage of Vienna."
+    "description": "Discover the classical music heritage of Vienna.",
+    "packingList": []
   },
   {
     "title": "Zagreb Tours",
@@ -177,6 +199,7 @@
     "city": "Zagreb",
     "country": "Croatia",
     "image": "https://dummyimage.com/600x400/b526b5/fff.jpg",
-    "description": "Discover the classical romantic city vibes in Zagreb."
+    "description": "Discover the classical romantic city vibes in Zagreb.",
+    "packingList": []
   }
 ]
