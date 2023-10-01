@@ -2,7 +2,6 @@ import ConfirmDelete from "@/components/ConfirmDelete";
 import Image from "next/image";
 import Link from "next/link";
 import PackingListForm from "@/components/PackingListForm";
-//import TripDetails from "@/components/TripDetails";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -47,8 +46,6 @@ export default function DetailsPage() {
   }
   return (
     <main>
-      {/*TripDetails wird gelöscht und Inhalt hier eingefügt: Änderung: von "image" zu trip.image ...*/}
-      {/* <TripDetails {...trip} handleDeleteTrip={handleDeleteTrip} /> */}
       <Link href="/" aria-label="Go back to hompage">
         &larr;
       </Link>
@@ -57,7 +54,12 @@ export default function DetailsPage() {
 
       <h1>My Trips</h1>
       <section>
-        <Image src={trip.image} width={100} height={50} alt="" />
+        <Image
+          src={trip.image}
+          width={100}
+          height={50}
+          alt="Image of favorite Trip"
+        />
         <h2> {trip.title} </h2>
         {trip.city}, {trip.country}
         <br></br>
