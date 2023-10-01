@@ -3,8 +3,8 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
     event.preventDefault();
 
     const newItem = event.target.name.value;
-    console.log("submit", newItem);
     onHandleAddToPackingList(newItem);
+    event.target.name.value = "";
   }
 
   return (
