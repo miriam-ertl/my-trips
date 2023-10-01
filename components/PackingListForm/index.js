@@ -1,28 +1,34 @@
-import { useRouter } from "next/router";
-//import useSWR from "swr";
+//import { useRouter } from "next/router";
 
-export default function AddPackingListItem() {
-  const router = useRouter();
-
+export default function AddPackingListItem({ onHandleAddToPackingList }) {
+  //add prop (onHandleAddToPackingList)
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const tripData = Object.fromEntries(formData);
-    const response = await fetch("/api/trips", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(tripData),
-    });
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    }
-
-    router.push("/confirmation");
+    const newItem = event.target.name.value;
+    console.log("submit", newItem);
+    onHandleAddToPackingList(newItem);
   }
+  // add: onHandleAddToPackingList + newItem, dass mit dem Event verbunden ist
+
+  //const router = useRouter(); ->wird nicht mehr gebraucht
+
+  //falsche Methode:  Statt neue Daten, wollen wir die Liste updaten
+  // const formData = new FormData(event.target);
+  //     const tripData = Object.fromEntries(formData);
+  //     const response = await fetch("/api/trips", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(tripData),
+  //     });
+  //     if (!response.ok) {
+  //       console.error(response.status);
+  //       return;
+  //     }
+
+  //     router.push("/confirmation");
 
   // const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -57,19 +63,19 @@ export default function AddPackingListItem() {
   //       router.push("/");
   //     }
   //   }
+
+  //fieldset wird nicht benötigt
   return (
     <main>
       <form onSubmit={handleSubmit}>
-        <fieldset>
-          <label htmlFor="name">Item</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            maxLength="30"
-            required
-          ></input>
-        </fieldset>
+        <label htmlFor="name">Item Name:</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          maxLength="30"
+          required
+        ></input>
         <button type="submit"> Add Item</button>
       </form>
     </main>
