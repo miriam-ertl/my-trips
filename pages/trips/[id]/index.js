@@ -68,11 +68,17 @@ export default function DetailsPage() {
         <p>{trip.description}</p>
         <h3>{`${trip.title} packing list:`}</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
-        <ul>
-          {trip.packingList.map((item) => {
-            return <li key={item._id}>{item.name}</li>;
-          })}
-        </ul>
+        {trip.packingList.length === 0 ? (
+          <p>
+            Your packing list is empty. <br></br> Do you want to add something?
+          </p>
+        ) : (
+          <ul>
+            {trip.packingList.map((item) => {
+              return <li key={item._id}>{item.name}</li>;
+            })}
+          </ul>
+        )}
       </section>
     </main>
   );
