@@ -9,7 +9,6 @@ import useSWR from "swr";
 export default function DetailsPage() {
   const router = useRouter();
   const { id } = router.query;
-
   const {
     data: trip,
     isLoading,
@@ -18,12 +17,13 @@ export default function DetailsPage() {
   if (!trip || isLoading) {
     return "... is loading";
   }
-  //wird verlegt
-  // async function handleDeleteTrip() {
-  //   await fetch(`/api/trips/${id}`, {
-  //     method: "DELETE",
-  //   });
-  router.push("/");
+
+  async function handleDeleteTrip() {
+    await fetch(`/api/trips/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/");
+  }
 
   async function handleAddToPackingList(item) {
     const updatedTrip = {
@@ -65,7 +65,7 @@ export default function DetailsPage() {
         <h3>My plans</h3>
         <p>{trip.description}</p>
         <h3>{`${trip.title} packing list:`}</h3>
-        <PackingListForm onHandleAddtoPackingList={handleAddToPackingList} />
+        <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         <ul>
           {trip.packingList.map((item) => {
             return <li key={item._id}>{item.name}</li>;
