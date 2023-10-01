@@ -1,6 +1,6 @@
 //import { useRouter } from "next/router";
 
-export default function AddPackingListItem({ onHandleAddToPackingList }) {
+export default function PackingListItem({ onHandleAddToPackingList }) {
   //add prop (onHandleAddToPackingList)
   async function handleSubmit(event) {
     event.preventDefault();

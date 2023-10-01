@@ -1,8 +1,8 @@
 import Link from "next/link";
-import TripDetails from "@/components/TripDetails";
+import PackingListItem from "@/components/PackingListForm";
+//import TripDetails from "@/components/TripDetails";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-
 export default function DetailsPage() {
   const router = useRouter();
   const { id } = router.query;
