@@ -62,11 +62,10 @@ export default function DetailsPage() {
         />
         <h2> {trip.title} </h2>
         {trip.city}, {trip.country}
-        <br></br>
         {trip.startDate} - {trip.endDate}
         <h3>My plans</h3>
         <p>{trip.description}</p>
-        <h3>{`${trip.title} packing list:`}</h3>
+        <h3>{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
           <p>
@@ -74,8 +73,8 @@ export default function DetailsPage() {
           </p>
         ) : (
           <ul>
-            {trip.packingList.map((item) => {
-              return <li key={item._id}>{item.name}</li>;
+            {trip.packingList.map(({ _id, name }) => {
+              <li key={_id}>{name}</li>;
             })}
           </ul>
         )}
