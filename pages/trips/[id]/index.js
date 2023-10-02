@@ -97,7 +97,15 @@ export default function DetailsPage() {
         ) : (
           <ul>
             {trip.packingList.map(({ _id, name }) => (
-              <li key={_id}>{name}</li>
+              <li key={_id}>
+                {name}
+                <button
+                  type="button"
+                  onClick={() => handleDeleteFromPackingList(_id)}
+                >
+                  &#10060;
+                </button>
+              </li>
             ))}
           </ul>
         )}
