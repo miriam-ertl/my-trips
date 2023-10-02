@@ -31,6 +31,12 @@ const tripSchema = new Schema(
       type: String,
       required: true,
     },
+    packingList: [
+      {
+        name: { type: String, required: true },
+        checked: { type: Boolean },
+      },
+    ],
   },
   { timestamps: true }
 );

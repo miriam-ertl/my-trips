@@ -1,5 +1,5 @@
-import TripList from "@/components/TripList";
 import Link from "next/link";
+import TripList from "@/components/TripList";
 
 export default function HomePage() {
   return (

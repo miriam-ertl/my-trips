@@ -132,7 +132,7 @@ export default function EditTrip() {
       </form>
 
       <ConfirmationMessage button={"Cancel"} />
-      <ConfirmDelete button={"Delete"} handleDeleteTrip={handleDeleteTrip} />
+      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
     </main>
   );
 }
