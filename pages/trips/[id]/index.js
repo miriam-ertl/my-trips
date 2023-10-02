@@ -73,9 +73,9 @@ export default function DetailsPage() {
           </p>
         ) : (
           <ul>
-            {trip.packingList.map(({ _id, name }) => {
-              <li key={_id}>{name}</li>;
-            })}
+            {trip.packingList.map(({ _id, name }) => (
+              <li key={_id}>{name}</li>
+            ))}
           </ul>
         )}
       </section>
