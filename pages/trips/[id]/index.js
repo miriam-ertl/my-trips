@@ -27,7 +27,7 @@ export default function DetailsPage() {
   async function handleAddToPackingList(item) {
     const updatedTrip = {
       ...trip,
-      packingList: [...trip.packingList, { name: item }],
+      packingList: [{ name: item }, ...trip.packingList],
     };
     const response = await fetch(`/api/trips/${id}`, {
       method: "PUT",
@@ -49,8 +49,11 @@ export default function DetailsPage() {
       <Link href="/" aria-label="Go back to hompage">
         &larr;
       </Link>
-      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
       <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+      <Link href="#packingList" type="button">
+        <button>go to packing list</button>
+      </Link>
 
       <h1>My Trips</h1>
       <section>
@@ -64,8 +67,28 @@ export default function DetailsPage() {
         {trip.city}, {trip.country}
         {trip.startDate} - {trip.endDate}
         <h3>My plans</h3>
-        <p>{trip.description}</p>
-        <h3>{trip.title} packing list:</h3>
+        <p>
+          {trip.description}
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+          amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+          erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+          et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+          Lorem ipsum dolor sit amet.
+        </p>
+        <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
           <p>
