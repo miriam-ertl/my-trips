@@ -44,6 +44,32 @@ export default function DetailsPage() {
 
     mutate();
   }
+
+  async function handleDeleteFromPackingList(_id) {
+    const residualItems = trip.packingList.filter(
+      (deleteItem) => deleteItem._id !== _id
+    );
+    const updatedTrip = {
+      ...trip,
+      packingList: [...residualItems],
+    };
+
+    const response = await fetch(`/api/trips/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTrip),
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+
+    mutate();
+  }
+
   return (
     <main>
       <Link href="/" aria-label="Go back to hompage">
