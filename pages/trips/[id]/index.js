@@ -63,7 +63,7 @@ export default function DetailsPage() {
     });
 
     if (!response.ok) {
-      console.error(response.status);
+      alert("Error updating trip");
       return;
     }
 
