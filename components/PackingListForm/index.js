@@ -4,23 +4,18 @@ const StyledPackingListForm = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
-  border-width: 1px;
+  border-bottom-style: dashed;
+  border-width: 2px;
   flex-wrap: nowrap;
-  flex-basis: 100%;
+  padding: 5px;
+  align-items: baseline;
 `;
-
-const StyledPackingListFormInputField = styled.input`
-  display: flex;
-  flex-grow: 50px;
-`;
-const StyledPackingListFormInputlabel = styled.label`
-  display: flex;
-  flex-grow: 50px;
-`;
-
 const StyledAddItemButton = styled.button`
+  width: 50px;
+  height: 20px;
+  margin: 2px 2px 2px 5px;
   display: flex;
+  justify-content: center;
 `;
 
 export default function PackingListForm({ onHandleAddToPackingList }) {
@@ -34,17 +29,9 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
 
   return (
     <StyledPackingListForm onSubmit={handleSubmit}>
-      <StyledPackingListFormInputlabel htmlFor="name">
-        Item Name:
-      </StyledPackingListFormInputlabel>
-      <StyledPackingListFormInputField
-        id="name"
-        name="name"
-        type="text"
-        maxLength="30"
-        required
-      ></StyledPackingListFormInputField>
-      <StyledAddItemButton type="submit"> Add Item</StyledAddItemButton>
+      <label htmlFor="name">{/* Item Name: */}</label>
+      <input id="name" name="name" type="text" maxLength="30" required></input>
+      <StyledAddItemButton type="submit">Add</StyledAddItemButton>
     </StyledPackingListForm>
   );
 }
