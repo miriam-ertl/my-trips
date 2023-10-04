@@ -10,18 +10,43 @@ const StyledHeaderDetailPage = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  width: 100%;
 `;
 
-const StyledButtonsAreaDetailPage = styled.div`
+const StyledRightSideDetailPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 `;
 
-const StyledBackButtonArea = styled.button`
+const StyledBackButtonArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+const StyledBackButton = styled.button``;
+
+const StyledEditTripButton = styled.button``;
+
+const StyledDetailPageContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: solid;
+  border-width: 1px;
+  width: 80%;
+`;
+
+const StyledBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  border-width: 1px;
+  width: 90%;
 `;
 
 export default function DetailsPage() {
@@ -64,23 +89,27 @@ export default function DetailsPage() {
     mutate();
   }
   return (
-    <main>
+    <StyledBody>
       <StyledHeaderDetailPage>
         <StyledBackButtonArea>
-          <Link href="/" aria-label="Go back to hompage">
-            &larr;
-          </Link>
+          <StyledBackButton>
+            <Link href="/" aria-label="Go back to hompage">
+              &larr;
+            </Link>
+          </StyledBackButton>
         </StyledBackButtonArea>
         <h1>My Trips</h1>
-        <StyledButtonsAreaDetailPage>
+        <StyledRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
-          <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+          <StyledEditTripButton>
+            <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+          </StyledEditTripButton>
           <Link href="#packingList" type="button">
             <button>go to packing list</button>
           </Link>
-        </StyledButtonsAreaDetailPage>
+        </StyledRightSideDetailPage>
       </StyledHeaderDetailPage>
-      <section>
+      <StyledDetailPageContent>
         <Image
           src={trip.image}
           width={100}
@@ -125,7 +154,7 @@ export default function DetailsPage() {
             ))}
           </ul>
         )}
-      </section>
-    </main>
+      </StyledDetailPageContent>
+    </StyledBody>
   );
 }
