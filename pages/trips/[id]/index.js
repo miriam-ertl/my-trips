@@ -4,6 +4,7 @@ import Link from "next/link";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useState } from "react";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -138,4 +139,18 @@ export default function DetailsPage() {
       </section>
     </main>
   );
+}
+
+function PackingListEntry({
+  _id,
+  name,
+  handleDeleteFromPackingList,
+  handleEditFromPackingList,
+}) {
+  const [isEditing, setEditing] = useState(false);
+}
+function onSubmit(event) {
+  event.preventDefault();
+  handleEdit(_id, event.target.name.value);
+  setEditing(false);
 }
