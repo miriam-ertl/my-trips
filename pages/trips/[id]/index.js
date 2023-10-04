@@ -71,6 +71,30 @@ export default function DetailsPage() {
     mutate();
   }
 
+  async function handleEditFromPackingList(_id, name) {
+  const updatedPackingList =  trip.packingList.map((listItem) => (listItem._id=== _id ? {...listItem, name} : listItem))
+      
+  const updatedTrip = {
+    ...trip,
+    packingList: [...updatedPackingList],
+  };
+    
+    const response = await fetch(`/api/trips/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTrip),
+    });
+
+    if (!response.ok) {
+      alert("Error updating trip");
+      return;
+    }
+
+    mutate();
+    
+  }
   return (
     <main>
       <Link href="/" aria-label="Go back to hompage">
@@ -127,9 +151,10 @@ export default function DetailsPage() {
               <li key={_id}>
                 
                 <PackingListEntry 
-                _id= {..._id}
-                name= {...name}
-               handleDeleteFromPackingList={handleDeleteFromPackingList}
+                 _id= {..._id}
+                 name= {...name}
+                 handleDeleteFromPackingList={handleDeleteFromPackingList}
+                 handleEditFromPackingList={handleEditFromPackingList}
                 />
               </li>
             ))}
@@ -159,7 +184,7 @@ function PackingListEntry({
       {isEditing ? (
         <form onSubmit={onSubmit}>
           <label>
-            New name
+            
             <input
               name="name"
               placeholder="Edit your item"
@@ -168,16 +193,16 @@ function PackingListEntry({
               autoFocus
             />
           </label>
-          <button>Save</button>
+          <button>&#10003;</button>
           <button type="button" onClick={() => setEditing(false)}>
-            Cancel
+          &#10680;
           </button>
         </form>
       ) : (
         <>
           <span>
             {name}
-            <button onClick={() => setEditing(true)}>Edit</button>
+            <button onClick={() => setEditing(true)}>&#9998;</button>
             <button onClick={() => handleDeleteFromPackingList(_id)}>
               &#10060;
             </button>
