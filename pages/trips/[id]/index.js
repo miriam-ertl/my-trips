@@ -125,13 +125,12 @@ export default function DetailsPage() {
           <ul>
             {trip.packingList.map(({ _id, name }) => (
               <li key={_id}>
-                {name}
-                <button
-                  type="button"
-                  onClick={() => handleDeleteFromPackingList(_id)}
-                >
-                  &#10060;
-                </button>
+                
+                <PackingListEntry 
+                _id= {..._id}
+                name= {...name}
+               handleDeleteFromPackingList={handleDeleteFromPackingList}
+                />
               </li>
             ))}
           </ul>
@@ -148,9 +147,43 @@ function PackingListEntry({
   handleEditFromPackingList,
 }) {
   const [isEditing, setEditing] = useState(false);
-}
-function onSubmit(event) {
-  event.preventDefault();
-  handleEdit(_id, event.target.name.value);
-  setEditing(false);
+
+  function onSubmit(event) {
+    event.preventDefault();
+    handleEditFromPackingList(_id, event.target.name.value);
+    setEditing(false);
+  }
+
+  return (
+    <section>
+      {isEditing ? (
+        <form onSubmit={onSubmit}>
+          <label>
+            New name
+            <input
+              name="name"
+              placeholder="Edit your item"
+              defaultValue={name}
+              required
+              autoFocus
+            />
+          </label>
+          <button>Save</button>
+          <button type="button" onClick={() => setEditing(false)}>
+            Cancel
+          </button>
+        </form>
+      ) : (
+        <>
+          <span>
+            {name}
+            <button onClick={() => setEditing(true)}>Edit</button>
+            <button onClick={() => handleDeleteFromPackingList(_id)}>
+              &#10060;
+            </button>
+          </span>
+        </>
+      )}
+    </section>
+  );
 }
