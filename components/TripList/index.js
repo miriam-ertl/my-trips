@@ -1,5 +1,14 @@
 import Trip from "../Trip";
+import styled from "styled-components";
 import useSWR from "swr";
+
+const StyledList = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #7dcbfa;
+`;
 
 export default function TripList() {
   const { data: trips, isLoading } = useSWR(`/api/trips`);
@@ -10,7 +19,7 @@ export default function TripList() {
   return trips.length === 0 ? (
     <h2>Where are you heading to? Please add a new trip.</h2>
   ) : (
-    <ul>
+    <StyledList>
       {trips.map((trip) => {
         return (
           <Trip
@@ -25,6 +34,6 @@ export default function TripList() {
           />
         );
       })}
-    </ul>
+    </StyledList>
   );
 }

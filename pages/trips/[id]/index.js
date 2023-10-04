@@ -2,8 +2,27 @@ import ConfirmDelete from "@/components/ConfirmDelete";
 import Image from "next/image";
 import Link from "next/link";
 import PackingListForm from "@/components/PackingListForm";
+import styled from "styled-components";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+
+const StyledHeaderDetailPage = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+`;
+
+const StyledButtonsAreaDetailPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const StyledBackButtonArea = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -46,16 +65,21 @@ export default function DetailsPage() {
   }
   return (
     <main>
-      <Link href="/" aria-label="Go back to hompage">
-        &larr;
-      </Link>
-      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
-      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
-      <Link href="#packingList" type="button">
-        <button>go to packing list</button>
-      </Link>
-
-      <h1>My Trips</h1>
+      <StyledHeaderDetailPage>
+        <StyledBackButtonArea>
+          <Link href="/" aria-label="Go back to hompage">
+            &larr;
+          </Link>
+        </StyledBackButtonArea>
+        <h1>My Trips</h1>
+        <StyledButtonsAreaDetailPage>
+          <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+          <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
+          <Link href="#packingList" type="button">
+            <button>go to packing list</button>
+          </Link>
+        </StyledButtonsAreaDetailPage>
+      </StyledHeaderDetailPage>
       <section>
         <Image
           src={trip.image}
