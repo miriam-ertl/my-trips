@@ -209,7 +209,7 @@ export default function DetailsPage() {
           src={trip.image}
           width={300}
           height={200}
-          alt="Image of favorite Trip"
+          alt="Image of favourite Trip"
         />
         <StyledContent>
           <h2> {trip.title} </h2>
@@ -251,19 +251,6 @@ export default function DetailsPage() {
             Your packing list is empty. <br></br> Do you want to add something?
           </p>
         ) : (
-<<<<<<< HEAD
-          <StyledUL>
-            {trip.packingList.map(({ _id, name }) => (
-              <StyledLi key={_id}>
-                {name}
-                <button
-                  type="button"
-                  onClick={() => handleDeleteFromPackingList(_id)}
-                >
-                  &#10060;
-                </button>
-              </StyledLi>
-=======
           <ul>
             {trip.packingList.map(({ _id: id, name }) => (
               <li key={id}>
@@ -274,7 +261,6 @@ export default function DetailsPage() {
                   handleEditFromPackingList={handleEditFromPackingList}
                 />
               </li>
->>>>>>> main
             ))}
           </StyledUL>
         )}
