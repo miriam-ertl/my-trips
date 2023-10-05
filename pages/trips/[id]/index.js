@@ -4,6 +4,7 @@ import Link from "next/link";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useState } from "react";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -105,6 +106,31 @@ export default function DetailsPage() {
     (listItem) => !listItem.checked
   );
 
+  async function handleEditFromPackingList(_id, name) {
+    const updatedPackingList = trip.packingList.map((listItem) =>
+      listItem._id === _id ? { ...listItem, name } : listItem
+    );
+
+    const updatedTrip = {
+      ...trip,
+      packingList: [...updatedPackingList],
+    };
+
+    const response = await fetch(`/api/trips/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTrip),
+    });
+
+    if (!response.ok) {
+      alert("Error updating trip");
+      return;
+    }
+
+    mutate();
+  }
   return (
     <main>
       <Link href="/" aria-label="Go back to homepage">
@@ -135,65 +161,66 @@ export default function DetailsPage() {
             Your packing list is empty.<br></br> Do you want to add something?
           </p>
         ) : (
-          <>
-            <ul>
-              {unpackedListItems.map(({ _id, name, checked }) => (
-                <li key={_id}>
-                  <input
-                    type="checkbox"
-                    defaultChecked={false}
-                    checked={checked}
-                    onChange={() => handleCompletePackingList(_id)}
-                  />
-                  <span
-                    style={{
-                      textDecoration: checked ? "line-through" : "none",
-                    }}
-                  >
-                    {name}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteFromPackingList(_id)}
-                  >
-                    &#10060;
-                  </button>
-                </li>
-              ))}
-            </ul>
-            {packedListItems.length > 0 && (
-              <>
-                <h3>Done:</h3>
-                <ul>
-                  {packedListItems.map(({ _id, name, checked }) => (
-                    <li key={_id}>
-                      <input
-                        type="checkbox"
-                        defaultChecked={false}
-                        checked={checked}
-                        onChange={() => handleCompletePackingList(_id)}
-                      />
-                      <span
-                        style={{
-                          textDecoration: checked ? "line-through" : "none",
-                        }}
-                      >
-                        {name}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => handleDeleteFromPackingList(_id)}
-                      >
-                        &#10060;
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </>
+          <ul>
+            {trip.packingList.map(({ _id, name }) => (
+              <li key={_id}>
+                {name}
+                <button
+                  type="button"
+                  onClick={() => handleDeleteFromPackingList(_id)}
+                >
+                  &#10060;
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
       </section>
     </main>
+  );
+}
+
+function PackingListEntry({
+  id,
+  name,
+  handleDeleteFromPackingList,
+  handleEditFromPackingList,
+}) {
+  const [isEditing, setEditing] = useState(false);
+
+  function onSubmit(event) {
+    event.preventDefault();
+    handleEditFromPackingList(id, event.target.name.value);
+    setEditing(false);
+  }
+
+  return (
+    <section>
+      {isEditing ? (
+        <form onSubmit={onSubmit}>
+          <label>
+            <input
+              name="name"
+              placeholder="Edit your item"
+              defaultValue={name}
+              required
+              autoFocus
+            />
+          </label>
+          <button>&#10003;</button>
+          <button type="button" onClick={() => setEditing(false)}>
+            &#10680;
+          </button>
+        </form>
+      ) : (
+        <span>
+          {name}
+          <button onClick={() => setEditing(true)}>&#9998;</button>
+          <button onClick={() => handleDeleteFromPackingList(id)}>
+            &#10060;
+          </button>
+        </span>
+      )}
+    </section>
   );
 }
