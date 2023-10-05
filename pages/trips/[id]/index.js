@@ -198,15 +198,13 @@ function PackingListEntry({
           </button>
         </form>
       ) : (
-        <>
-          <span>
-            {name}
-            <button onClick={() => setEditing(true)}>&#9998;</button>
-            <button onClick={() => handleDeleteFromPackingList(id)}>
-              &#10060;
-            </button>
-          </span>
-        </>
+        <span>
+          {name}
+          <button onClick={() => setEditing(true)}>&#9998;</button>
+          <button onClick={() => handleDeleteFromPackingList(id)}>
+            &#10060;
+          </button>
+        </span>
       )}
     </section>
   );
