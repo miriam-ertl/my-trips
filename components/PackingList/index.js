@@ -1,3 +1,5 @@
+import ItemList from "../ItemList";
+
 export default function PackingList({ packingList, onCheck, onRemove }) {
   const checkedItems = packingList.filter((listItem) => listItem.checked);
   const uncheckedItems = packingList.filter((listItem) => !listItem.checked);

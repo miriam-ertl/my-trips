@@ -126,10 +126,6 @@ export default function DetailsPage() {
     mutate();
   }
 
-  function PackingList({packingList, onCheck, onRemove}){
-    const checkedItems = packingList.filter(listItem) => listItem.checked;
-    const uncheckedItems = packingList.filter(listItem) => !listItem.checked;
-
   return (
     <main>
       <Link href="/" aria-label="Go back to homepage">
@@ -154,35 +150,37 @@ export default function DetailsPage() {
         <h3>My plans</h3>
         <p>{trip.description}</p>
         <h3 id="packingList">{trip.title} packing list:</h3>
-        {checkedItems.length ? (
-        <section>
-          <h2>Checked Items</h2>
-          <ItemList
-            items={checkedItems}
-            onCheck={onCheck}
-            onRemove={onRemove}
-          />
-          {checkedItems.length === packingList.length ? (
-            <p>Congratulations, you have checked everything!</p>
-          ) : null}
-        </section>
-      ) : null }
-      {uncheckedItems.length ? (
-        <section>
-          <h2>Unchecked Items</h2>
-          <ItemList
-            items={checkedItems}
-            onCheck={onCheck}
-            onRemove={onRemove}
-          />
-        </section>
-      ): null });}
+        <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
+        {trip.packingList.length === 0 ? (
+          <p>
+            Your packing list is empty.<br></br> Do you want to add something?
+          </p>
+        ) : (
+          <ul>
+            {trip.packingList.map(({ _id, name }) => (
+              <li key={_id}>
+                {name}
+                <button
+                  type="button"
+                  onClick={() => handleDeleteFromPackingList(_id)}
+                >
+                  &#10060;
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </main>
   );
 }
-}
-/*function PackingListEntry({
+
+/*{ !trip.packingList.length
+  ? <p>Your packing list is empty.</p>
+  : <PackingList packingList={trip.packingList} .../>
+}*/
+
+function PackingListEntry({
   id,
   name,
   handleDeleteFromPackingList,
