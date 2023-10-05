@@ -72,13 +72,15 @@ export default function DetailsPage() {
   }
 
   async function handleEditFromPackingList(_id, name) {
-  const updatedPackingList =  trip.packingList.map((listItem) => (listItem._id=== _id ? {...listItem, name} : listItem))
-      
-  const updatedTrip = {
-    ...trip,
-    packingList: [...updatedPackingList],
-  };
-    
+    const updatedPackingList = trip.packingList.map((listItem) =>
+      listItem._id === _id ? { ...listItem, name } : listItem
+    );
+
+    const updatedTrip = {
+      ...trip,
+      packingList: [...updatedPackingList],
+    };
+
     const response = await fetch(`/api/trips/${id}`, {
       method: "PUT",
       headers: {
@@ -93,7 +95,6 @@ export default function DetailsPage() {
     }
 
     mutate();
-    
   }
   return (
     <main>
@@ -147,14 +148,13 @@ export default function DetailsPage() {
           </p>
         ) : (
           <ul>
-            {trip.packingList.map(({ _id, name }) => (
-              <li key={_id}>
-                
-                <PackingListEntry 
-                 id= {..._id}
-                 name= {...name}
-                 handleDeleteFromPackingList={handleDeleteFromPackingList}
-                 handleEditFromPackingList={handleEditFromPackingList}
+            {trip.packingList.map(({ _id: id, name }) => (
+              <li key={id}>
+                <PackingListEntry
+                  id={id}
+                  name={name}
+                  handleDeleteFromPackingList={handleDeleteFromPackingList}
+                  handleEditFromPackingList={handleEditFromPackingList}
                 />
               </li>
             ))}
@@ -184,7 +184,6 @@ function PackingListEntry({
       {isEditing ? (
         <form onSubmit={onSubmit}>
           <label>
-            
             <input
               name="name"
               placeholder="Edit your item"
@@ -195,7 +194,7 @@ function PackingListEntry({
           </label>
           <button>&#10003;</button>
           <button type="button" onClick={() => setEditing(false)}>
-          &#10680;
+            &#10680;
           </button>
         </form>
       ) : (
@@ -203,7 +202,7 @@ function PackingListEntry({
           <span>
             {name}
             <button onClick={() => setEditing(true)}>&#9998;</button>
-            <button onClick={() => handleDeleteFromPackingList(_id)}>
+            <button onClick={() => handleDeleteFromPackingList(id)}>
               &#10060;
             </button>
           </span>
