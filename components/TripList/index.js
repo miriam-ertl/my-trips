@@ -6,8 +6,11 @@ const StyledList = styled.ul`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-color: #7dcbfa;
+  gap: 1rem;
+  margin: 1rem;
+  padding-inline-start: 0;
 `;
 
 export default function TripList() {

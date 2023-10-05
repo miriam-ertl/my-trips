@@ -5,17 +5,30 @@ import styled from "styled-components";
 const StyledTrip = styled.li`
   background-color: #bee5fd;
   display: flex;
-  border-radius: 30px;
+  border-radius: 3rem;
+  border: solid;
+
+  width: 100vb;
+  flex-wrap: nowrap;
+`;
+
+const StyledTripElement = styled.div`
+  display: flex;
   border: solid;
   flex-direction: row;
-  justify-content: flex-start;
+  flex-wrap: nowrap;
 `;
-
-const StyledImage = styled.image`
-  border-radius: 30px;
-  border: solid;
+const StyledImage = styled(Image)`
+  border-radius: 1rem;
+  margin: 1rem;
+  display: flex;
+  order: 1;
 `;
-
+const StyledTripContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  order: 2;
+`;
 export default function Trip({
   id,
   image,
@@ -27,17 +40,18 @@ export default function Trip({
 }) {
   return (
     <StyledTrip>
-      <Link href={`/trips/${id}`}>
-        <StyledImage>
-          <Image src={image} width={100} height={50} alt="" />
-        </StyledImage>
-        <div>
-          <h2>{title}</h2>
-          <p>
-            {startDate} - {endDate} <br></br> {city}, {country}
-          </p>
-        </div>
-      </Link>
+      <StyledTripElement>
+        <Link href={`/trips/${id}`}>
+          <StyledImage src={image} width={70} height={70} alt="" />
+
+          <StyledTripContent>
+            <h2>{title}</h2>
+            <p>
+              {startDate} - {endDate} <br></br> {city}, {country}
+            </p>
+          </StyledTripContent>
+        </Link>
+      </StyledTripElement>
     </StyledTrip>
   );
 }
