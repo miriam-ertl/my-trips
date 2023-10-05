@@ -151,7 +151,7 @@ export default function DetailsPage() {
               <li key={_id}>
                 
                 <PackingListEntry 
-                 _id= {..._id}
+                 id= {..._id}
                  name= {...name}
                  handleDeleteFromPackingList={handleDeleteFromPackingList}
                  handleEditFromPackingList={handleEditFromPackingList}
@@ -166,7 +166,7 @@ export default function DetailsPage() {
 }
 
 function PackingListEntry({
-  _id,
+  id,
   name,
   handleDeleteFromPackingList,
   handleEditFromPackingList,
@@ -175,7 +175,7 @@ function PackingListEntry({
 
   function onSubmit(event) {
     event.preventDefault();
-    handleEditFromPackingList(_id, event.target.name.value);
+    handleEditFromPackingList(id, event.target.name.value);
     setEditing(false);
   }
 
