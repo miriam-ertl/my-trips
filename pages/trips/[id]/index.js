@@ -75,13 +75,15 @@ const StyledPackingList = styled.div`
   padding: 1rem;
   width: 100%;
 `;
-
+const StyledUL = styled.ul`
+  list-style: none;
+`;
+const StyledLi = styled.li``;
 const StyledInformation = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: left;
-  flex-basis: 2rem;
 `;
 
 const StyledDateInformation = styled.div`
@@ -89,7 +91,6 @@ const StyledDateInformation = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: left;
-  flex-basis: 2rem;
 `;
 export default function DetailsPage() {
   const router = useRouter();
@@ -224,9 +225,9 @@ export default function DetailsPage() {
             Your packing list is empty. <br></br> Do you want to add something?
           </p>
         ) : (
-          <ul>
+          <StyledUL>
             {trip.packingList.map(({ _id, name }) => (
-              <li key={_id}>
+              <StyledLi key={_id}>
                 {name}
                 <button
                   type="button"
@@ -234,9 +235,9 @@ export default function DetailsPage() {
                 >
                   &#10060;
                 </button>
-              </li>
+              </StyledLi>
             ))}
-          </ul>
+          </StyledUL>
         )}
       </StyledPackingList>
     </StyledBody>
