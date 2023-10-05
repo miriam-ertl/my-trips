@@ -262,7 +262,7 @@ export default function DetailsPage() {
                 />
               </li>
             ))}
-          </StyledUL>
+          </ul>
         )}
       </StyledPackingList>
     </StyledBody>
