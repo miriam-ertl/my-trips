@@ -6,7 +6,8 @@ export default function ItemList({ items, onCheck, onRemove }) {
           <input
             type="checkbox"
             defaultChecked={false}
-            onCheck={() => handleCompletePackingList(_id)}
+            onCheck={onCheck}
+            //onCheck={() => handleCompletePackingList(_id)}
           />
           <span
             style={{
@@ -17,7 +18,8 @@ export default function ItemList({ items, onCheck, onRemove }) {
           </span>
           <button
             type="button"
-            onRemove={() => handleDeleteFromPackingList(_id)}
+            onRemove={onRemove}
+            //onRemove={() => handleDeleteFromPackingList(_id)}
           >
             &#10060;
           </button>
