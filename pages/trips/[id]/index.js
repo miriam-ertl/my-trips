@@ -1,10 +1,12 @@
 import ConfirmDelete from "@/components/ConfirmDelete";
 import Image from "next/image";
+import ItemList from "@/components/ItemList";
 import Link from "next/link";
+import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { useState } from "react";
+//import { useState } from "react";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -156,19 +158,12 @@ export default function DetailsPage() {
             Your packing list is empty.<br></br> Do you want to add something?
           </p>
         ) : (
-          <ul>
-            {trip.packingList.map(({ _id, name }) => (
-              <li key={_id}>
-                {name}
-                <button
-                  type="button"
-                  onClick={() => handleDeleteFromPackingList(_id)}
-                >
-                  &#10060;
-                </button>
-              </li>
-            ))}
-          </ul>
+          <PackingList
+            packingList={trip.packingList}
+            onCheck={handleEditFromPackingList}
+            onEdit={handleEditFromPackingList}
+            onRemove={handleDeleteFromPackingList}
+          />
         )}
       </section>
     </main>
@@ -180,7 +175,7 @@ export default function DetailsPage() {
   : <PackingList packingList={trip.packingList} .../>
 }*/
 
-function PackingListEntry({
+/*function PackingListEntry({
   id,
   name,
   handleDeleteFromPackingList,
@@ -208,19 +203,19 @@ function PackingListEntry({
             />
           </label>
           <button>&#10003;</button>
-          <button type="button" onClick={() => setEditing(false)}>
+          <button type="button" onEdit={() => setEditing(false)}>
             &#10680;
           </button>
         </form>
       ) : (
         <span>
           {name}
-          <button onClick={() => setEditing(true)}>&#9998;</button>
-          <button onClick={() => handleDeleteFromPackingList(id)}>
+          <button onEdit={() => setEditing(true)}>&#9998;</button>
+          <button onRemove={() => handleDeleteFromPackingList(id)}>
             &#10060;
           </button>
         </span>
       )}
     </section>
   );
-}
+}*/

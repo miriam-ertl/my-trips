@@ -1,6 +1,11 @@
 import ItemList from "../ItemList";
 
-export default function PackingList({ packingList, onCheck, onRemove }) {
+export default function PackingList({
+  packingList,
+  onCheck,
+  onEdit,
+  onRemove,
+}) {
   const checkedItems = packingList.filter((listItem) => listItem.checked);
   const uncheckedItems = packingList.filter((listItem) => !listItem.checked);
 
@@ -8,10 +13,11 @@ export default function PackingList({ packingList, onCheck, onRemove }) {
     <>
       {checkedItems.length ? (
         <section>
-          <h2>Checked Items</h2>
+          <h2>Done:</h2>
           <ItemList
             items={checkedItems}
             onCheck={onCheck}
+            onEdit={onEdit}
             onRemove={onRemove}
           />
           {checkedItems.length === packingList.length ? (
@@ -23,8 +29,10 @@ export default function PackingList({ packingList, onCheck, onRemove }) {
         <section>
           <h2>Unchecked Items</h2>
           <ItemList
-            items={checkedItems}
+            items={uncheckedItems}
+            // items={checkedItems}
             onCheck={onCheck}
+            onEdit={onEdit}
             onRemove={onRemove}
           />
         </section>
@@ -32,3 +40,8 @@ export default function PackingList({ packingList, onCheck, onRemove }) {
     </>
   );
 }
+
+/*
+{ !trip.packingList.length
+    ? <p>Your packing list is empty.</p>
+    : <PackingList packingList={trip.packingList} .../>*/
