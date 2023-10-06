@@ -160,7 +160,7 @@ export default function DetailsPage() {
         ) : (
           <PackingList
             packingList={trip.packingList}
-            onCheck={handleEditFromPackingList}
+            onCheck={handleCompletePackingList}
             onEdit={handleEditFromPackingList}
             onRemove={handleDeleteFromPackingList}
           />
@@ -203,15 +203,15 @@ export default function DetailsPage() {
             />
           </label>
           <button>&#10003;</button>
-          <button type="button" onEdit={() => setEditing(false)}>
+          <button type="button" onClick={() => setEditing(false)}>
             &#10680;
           </button>
         </form>
       ) : (
         <span>
           {name}
-          <button onEdit={() => setEditing(true)}>&#9998;</button>
-          <button onRemove={() => handleDeleteFromPackingList(id)}>
+          <button onClick={() => setEditing(true)}>&#9998;</button>
+          <button onClick={() => handleDeleteFromPackingList(id)}>
             &#10060;
           </button>
         </span>

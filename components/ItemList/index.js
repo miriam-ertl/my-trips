@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export default function ItemList({ name, items, onCheck, onRemove }) {
+export default function ItemList({ name, items, onCheck, onRemove, onEdit }) {
   const [isEditing, setEditing] = useState(false);
 
   function onSubmit(event) {
     event.preventDefault();
-    handleEditFromPackingList(id, event.target.name.value);
+    onEdit(_id, event.target.name.value);
     setEditing(false);
   }
 
@@ -22,8 +22,8 @@ export default function ItemList({ name, items, onCheck, onRemove }) {
               autoFocus
             />
           </label>
-          <button>&#10003;</button>
-          <button type="button" onEdit={() => setEditing(false)}>
+          <button type="submit">&#10003;</button>
+          <button type="button" onClick={() => setEditing(false)}>
             &#10680;
           </button>
         </form>
@@ -31,7 +31,11 @@ export default function ItemList({ name, items, onCheck, onRemove }) {
         <ul>
           {items.map(({ _id, name, checked }) => (
             <li key={_id}>
-              <input type="checkbox" defaultChecked={false} onCheck={onCheck} />
+              <input
+                type="checkbox"
+                defaultChecked={checked}
+                onChange={() => onCheck(_id)}
+              />
               <span
                 style={{
                   textDecoration: checked ? "line-through" : "none",
@@ -39,8 +43,8 @@ export default function ItemList({ name, items, onCheck, onRemove }) {
               >
                 {name}
               </span>
-              <button onEdit={() => setEditing(true)}>&#9998;</button>
-              <button type="button" onRemove={onRemove}>
+              <button onClick={() => setEditing(true)}>&#9998;</button>
+              <button type="button" onClick={() => onRemove(_id)}>
                 &#10060;
               </button>
             </li>
