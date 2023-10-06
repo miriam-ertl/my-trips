@@ -1,50 +1,48 @@
 import { useState } from "react";
 
-export default function ItemList({ name, items, onCheck, onRemove, onEdit }) {
-  const [isEditing, setEditing] = useState(false);
+export default function ItemList({ items, onCheck, onRemove, onEdit }) {
+  const [itemToEdit, setItemToEdit] = useState(null);
 
   function onSubmit(event) {
     event.preventDefault();
-    onEdit(_id, event.target.name.value);
-    setEditing(false);
+    onEdit(itemToEdit._id, event.target.name.value);
+    setItemToEdit(null);
   }
 
   return (
     <section>
-      {isEditing ? (
+      {itemToEdit ? (
         <form onSubmit={onSubmit}>
-          <label>
-            <input
-              name="name"
-              placeholder="Edit your item"
-              defaultValue={name}
-              required
-              autoFocus
-            />
-          </label>
+          <input
+            name="name"
+            defaultValue={itemToEdit.name}
+            required
+            autoFocus
+          />
+
           <button type="submit">&#10003;</button>
-          <button type="button" onClick={() => setEditing(false)}>
+          <button type="button" onClick={() => setItemToEdit(null)}>
             &#10680;
           </button>
         </form>
       ) : (
         <ul>
-          {items.map(({ _id, name, checked }) => (
-            <li key={_id}>
+          {items.map((item) => (
+            <li key={item._id}>
               <input
                 type="checkbox"
-                defaultChecked={checked}
-                onChange={() => onCheck(_id)}
+                defaultChecked={item.checked}
+                onChange={() => onCheck(item._id)}
               />
               <span
                 style={{
-                  textDecoration: checked ? "line-through" : "none",
+                  textDecoration: item.checked ? "line-through" : "none",
                 }}
               >
-                {name}
+                {item.name}
               </span>
-              <button onClick={() => setEditing(true)}>&#9998;</button>
-              <button type="button" onClick={() => onRemove(_id)}>
+              <button onClick={() => setItemToEdit(item)}>&#9998;</button>
+              <button type="button" onClick={() => onRemove(item._id)}>
                 &#10060;
               </button>
             </li>
