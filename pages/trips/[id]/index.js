@@ -1,6 +1,5 @@
 import ConfirmDelete from "@/components/ConfirmDelete";
 import Image from "next/image";
-import ItemList from "@/components/ItemList";
 import Link from "next/link";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
@@ -19,7 +18,6 @@ export default function DetailsPage() {
   if (!trip || isLoading) {
     return "... is loading";
   }
-  console.log(trip);
   async function handleDeleteTrip() {
     await fetch(`/api/trips/${id}`, {
       method: "DELETE",
@@ -83,7 +81,6 @@ export default function DetailsPage() {
       ...trip,
       packingList: [...completeItems],
     };
-    console.log(updatedTrip);
 
     const response = await fetch(`/api/trips/${id}`, {
       method: "PUT",
