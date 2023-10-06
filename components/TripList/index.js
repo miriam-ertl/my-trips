@@ -4,8 +4,6 @@ import useSWR from "swr";
 
 const StyledList = styled.ul`
   list-style-type: none;
-  display: flex;
-  flex-direction: column;
   height: 100%;
   background-color: #7dcbfa;
   gap: 1rem;
