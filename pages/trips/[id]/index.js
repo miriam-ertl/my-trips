@@ -6,7 +6,6 @@ import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-//import { useState } from "react";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -169,53 +168,3 @@ export default function DetailsPage() {
     </main>
   );
 }
-
-/*{ !trip.packingList.length
-  ? <p>Your packing list is empty.</p>
-  : <PackingList packingList={trip.packingList} .../>
-}*/
-
-/*function PackingListEntry({
-  id,
-  name,
-  handleDeleteFromPackingList,
-  handleEditFromPackingList,
-}) {
-  const [isEditing, setEditing] = useState(false);
-
-  function onSubmit(event) {
-    event.preventDefault();
-    handleEditFromPackingList(id, event.target.name.value);
-    setEditing(false);
-  }
-
-  return (
-    <section>
-      {isEditing ? (
-        <form onSubmit={onSubmit}>
-          <label>
-            <input
-              name="name"
-              placeholder="Edit your item"
-              defaultValue={name}
-              required
-              autoFocus
-            />
-          </label>
-          <button>&#10003;</button>
-          <button type="button" onClick={() => setEditing(false)}>
-            &#10680;
-          </button>
-        </form>
-      ) : (
-        <span>
-          {name}
-          <button onClick={() => setEditing(true)}>&#9998;</button>
-          <button onClick={() => handleDeleteFromPackingList(id)}>
-            &#10060;
-          </button>
-        </span>
-      )}
-    </section>
-  );
-}*/
