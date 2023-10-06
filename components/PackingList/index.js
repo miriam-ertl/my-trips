@@ -13,15 +13,12 @@ export default function PackingList({
     <>
       {uncheckedItems.length ? (
         <section>
-          <h2>Unchecked Items</h2>
           <ItemList
             items={uncheckedItems}
-            // items={checkedItems}
             onCheck={onCheck}
             onEdit={onEdit}
             onRemove={onRemove}
           />
-
           {checkedItems.length === packingList.length ? (
             <p>Congratulations, you have checked everything!</p>
           ) : null}
