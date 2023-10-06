@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
   body {
     display: flex;
-    margin: 0;
+  justify-content: center;
     font-family: system-ui;
   }
   
