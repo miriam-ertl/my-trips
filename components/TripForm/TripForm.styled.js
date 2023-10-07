@@ -64,8 +64,10 @@ export const StyledDescriptionAddTrip = styled.div`
 
 export const StyledHeadAddTrip = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-items: center;
+  flex-direction: row;
+  justify-items: flex-start;
+  align-items: center;
+  gap: 5rem;
 `;
 
 export const StyledInputAddTrip = styled.input`

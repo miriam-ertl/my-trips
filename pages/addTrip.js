@@ -8,9 +8,8 @@ export default function AddTrip() {
       <StyledHeadAddTrip>
         <ConfirmationMessage button="&larr;" />
         <h1>My Trips</h1>
-        <h2>Add a trip</h2>
       </StyledHeadAddTrip>
-
+      <h2>Add a trip</h2>
       <TripForm />
     </main>
   );
