@@ -8,6 +8,7 @@ export const StyledFormAddTrip = styled.div`
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  padding-bottom: 0;
 `;
 
 export const StyledFieldsetAddTrip = styled.fieldset`
@@ -86,4 +87,8 @@ export const StyledButtonPostionAddTrip = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const StyledPNoteAddTrip = styled.p`
+  display: flex;
 `;

@@ -8,6 +8,7 @@ import {
   StyledFormAddTrip,
   StyledImageAddTrip,
   StyledInputAddTrip,
+  StyledPNoteAddTrip,
   StyledStartDateAddTrip,
   StyledTextareaAddTrip,
   StyledTitleAddTrip,
@@ -138,7 +139,7 @@ export default function TripForm() {
           <ConfirmationMessage button={"Cancel"} />
         </StyledButtonPostionAddTrip>
       </StyledFieldsetAddTrip>
-      <p>* required form field</p>
+      <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
     </StyledFormAddTrip>
   );
 }
