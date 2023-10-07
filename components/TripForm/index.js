@@ -132,9 +132,10 @@ export default function TripForm() {
           ></StyledTextareaAddTrip>
           <p>150 characters left</p>
         </StyledDescriptionAddTrip>
-
-        <button type="submit">+ Add Trip</button>
-        <ConfirmationMessage button={"Cancel"} />
+        <div>
+          <button type="submit">+ Add Trip</button>
+          <ConfirmationMessage button={"Cancel"} />
+        </div>
       </StyledFieldsetAddTrip>
       <p>* required form field</p>
     </StyledFormAddTrip>

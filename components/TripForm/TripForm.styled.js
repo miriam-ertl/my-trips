@@ -63,7 +63,8 @@ export const StyledDescriptionAddTrip = styled.div`
 `;
 
 export const StyledHeadAddTrip = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
 `;
 

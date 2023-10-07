@@ -5,6 +5,7 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
+  
   }
 
   body {
@@ -12,6 +13,7 @@ export default createGlobalStyle`
   justify-content: center;
     font-family: system-ui;
   }
-  
+ 
+ 
 
 `;

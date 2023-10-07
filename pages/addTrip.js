@@ -10,8 +10,8 @@ export default function AddTrip() {
         <h1>My Trips</h1>
         <h2>Add a trip</h2>
       </StyledHeadAddTrip>
+
       <TripForm />
     </main>
   );
 }
-s;
