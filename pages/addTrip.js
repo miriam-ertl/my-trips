@@ -11,7 +11,7 @@ export default function AddTrip() {
         <h2>Add a trip</h2>
       </StyledHeadAddTrip>
       <TripForm />
-      <ConfirmationMessage button={"Cancel"} />
     </main>
   );
 }
+s;

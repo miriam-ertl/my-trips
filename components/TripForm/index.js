@@ -6,10 +6,14 @@ import {
   StyledFieldsetAddTrip,
   StyledFormAddTrip,
   StyledImageAddTrip,
+  StyledInputAddTrip,
   StyledStartDateAddTrip,
+  StyledTextareaAddTrip,
   StyledTitleAddTrip,
+  StyledlabelAddTrip,
 } from "./TripForm.styled";
 
+import ConfirmationMessage from "../ConfirmationMessage";
 import { useRouter } from "next/router";
 
 export default function TripForm() {
@@ -39,26 +43,60 @@ export default function TripForm() {
     <StyledFormAddTrip onSubmit={handleSubmit}>
       <StyledFieldsetAddTrip>
         <StyledTitleAddTrip>
-          <label htmlFor="title">Title (max. 30 characters)*</label>
-          <input id="title" name="title" type="text" maxLength="30" required />
+          <StyledlabelAddTrip htmlFor="title">
+            Title (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="title"
+            name="title"
+            type="text"
+            maxLength="30"
+            required
+          />
         </StyledTitleAddTrip>
+
         <StyledStartDateAddTrip>
-          <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
-          <input id="startDate" name="startDate" type="date" required />
+          <StyledlabelAddTrip htmlFor="startDate">
+            Starting date (dd/mm/yyyy)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="startDate"
+            name="startDate"
+            type="date"
+            required
+          />
         </StyledStartDateAddTrip>
+
         <StyledEndDateAddTrip>
-          <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
-          <input id="endDate" name="endDate" type="date" required />
+          <StyledlabelAddTrip htmlFor="endDate">
+            Ending date (dd/mm/yyyy)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="endDate"
+            name="endDate"
+            type="date"
+            required
+          />
         </StyledEndDateAddTrip>
 
         <StyledCityAddTrip>
-          <label htmlFor="city">City (max. 30 characters)*</label>
-          <input id="city" name="city" type="text" maxLength="30" required />
+          <StyledlabelAddTrip htmlFor="city">
+            City (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="city"
+            name="city"
+            type="text"
+            maxLength="30"
+            required
+          />
         </StyledCityAddTrip>
 
         <StyledCountryAddTrip>
-          <label htmlFor="country">Country (max. 30 characters)*</label>
-          <input
+          <StyledlabelAddTrip htmlFor="country">
+            Country (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
             id="country"
             name="country"
             type="text"
@@ -68,8 +106,8 @@ export default function TripForm() {
         </StyledCountryAddTrip>
 
         <StyledImageAddTrip>
-          <label htmlFor="image">Image (URL)*</label>
-          <input
+          <StyledlabelAddTrip htmlFor="image">Image (URL)*</StyledlabelAddTrip>
+          <StyledInputAddTrip
             id="image"
             name="image"
             type="text"
@@ -79,10 +117,10 @@ export default function TripForm() {
         </StyledImageAddTrip>
 
         <StyledDescriptionAddTrip>
-          <label htmlFor="description">
+          <StyledlabelAddTrip htmlFor="description">
             Description (max. 150 characters)*
-          </label>
-          <textarea
+          </StyledlabelAddTrip>
+          <StyledTextareaAddTrip
             rows="8"
             cols="30"
             maxLength="150"
@@ -91,10 +129,12 @@ export default function TripForm() {
             type="text"
             required
             placeholder="Enter your description"
-          ></textarea>
+          ></StyledTextareaAddTrip>
           <p>150 characters left</p>
         </StyledDescriptionAddTrip>
+
         <button type="submit">+ Add Trip</button>
+        <ConfirmationMessage button={"Cancel"} />
       </StyledFieldsetAddTrip>
       <p>* required form field</p>
     </StyledFormAddTrip>
