@@ -1,4 +1,5 @@
 import {
+  StyledButtonPostionAddTrip,
   StyledCityAddTrip,
   StyledCountryAddTrip,
   StyledDescriptionAddTrip,
@@ -132,10 +133,10 @@ export default function TripForm() {
           ></StyledTextareaAddTrip>
           <p>150 characters left</p>
         </StyledDescriptionAddTrip>
-        <div>
+        <StyledButtonPostionAddTrip>
           <button type="submit">+ Add Trip</button>
           <ConfirmationMessage button={"Cancel"} />
-        </div>
+        </StyledButtonPostionAddTrip>
       </StyledFieldsetAddTrip>
       <p>* required form field</p>
     </StyledFormAddTrip>

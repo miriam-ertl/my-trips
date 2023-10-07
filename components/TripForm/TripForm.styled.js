@@ -80,3 +80,10 @@ export const StyledInputAddTrip = styled.input`
 `;
 
 export const StyledlabelAddTrip = styled.label``;
+
+export const StyledButtonPostionAddTrip = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
