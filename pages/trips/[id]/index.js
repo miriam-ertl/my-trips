@@ -1,98 +1,26 @@
+import {
+  StyledBackButton,
+  StyledBackButtonArea,
+  StyledBody,
+  StyledContent,
+  StyledDateInformation,
+  StyledDetailPageContent,
+  StyledEditTripButton,
+  StyledHeaderDetailPage,
+  StyledImageTrip,
+  StyledInformation,
+  StyledPackingList,
+  StyledRightSideDetailPage,
+  StyledgoToPackingListButton,
+} from "./Index.styled";
+
 import ConfirmDelete from "@/components/ConfirmDelete";
-import Image from "next/image";
 import Link from "next/link";
 import PackingListForm from "@/components/PackingListForm";
-import styled from "styled-components";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useState } from "react";
 
-const StyledBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-width: 0.5rem;
-  margin: 1rem;
-  padding: 1rem;
-  width: 100%;
-  gap: 1rem;
-`;
-
-const StyledHeaderDetailPage = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 0.5rem;
-  padding: 0.5rem;
-`;
-
-const StyledRightSideDetailPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex-basis: 2rem;
-`;
-
-const StyledBackButtonArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-basis: 2rem;
-`;
-
-const StyledBackButton = styled.button``;
-
-const StyledEditTripButton = styled.button`
-  display: flex;
-`;
-const StyledgoToPackingListButton = styled.button``;
-
-const StyledDetailPageContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: solid;
-  border-width: 0.2rem;
-  border-radius: 3rem;
-`;
-const StyledImageTrip = styled(Image)`
-  border-radius: 3rem;
-  margin: 1rem;
-`;
-const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border-radius: 3rem;
-  padding: 1rem;
-  width: 100%;
-`;
-const StyledPackingList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  border: solid;
-  border-radius: 3rem;
-  padding: 1rem;
-  width: 100%;
-`;
-const StyledUL = styled.ul`
-  list-style: none;
-`;
-const StyledLi = styled.li``;
-const StyledInformation = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: left;
-`;
-
-const StyledDateInformation = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: left;
-`;
 export default function DetailsPage() {
   const router = useRouter();
   const { id } = router.query;
