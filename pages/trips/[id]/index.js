@@ -144,8 +144,8 @@ export default function DetailsPage() {
       <StyledHeaderDetailPage>
         <StyledBackButtonArea>
           <StyledBackButton>
-            <Link href="/" aria-label="Go back to hompage">
-              &larr;{" "}
+            <Link href="/" aria-label="Go back to homepage">
+              &larr;
             </Link>
           </StyledBackButton>
         </StyledBackButtonArea>
@@ -205,7 +205,7 @@ export default function DetailsPage() {
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
           <p>
-            Your packing list is empty.<br></br> Do you want to add something?
+            Your packing list is empty. <br></br> Do you want to add something?
           </p>
         ) : (
           <PackingList
