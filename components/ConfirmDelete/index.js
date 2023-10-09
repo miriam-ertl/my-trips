@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const StyledDeleteButton = styled.button`
+  border: solid;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: white;
   width: 100%;
 `;
 

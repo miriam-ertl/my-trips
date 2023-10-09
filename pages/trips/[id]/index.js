@@ -124,6 +124,7 @@ export default function DetailsPage() {
         <h1>My Trips</h1>
         <StyledRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+
           <StyledEditTripButton href={`/trips/${id}/edit`}>
             Edit Trip
           </StyledEditTripButton>

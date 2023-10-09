@@ -4,12 +4,17 @@ import styled from "styled-components";
 export const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
-  border-width: 0.5rem;
-  margin: 1rem;
-  padding: 1rem;
-  width: 100%;
   gap: 1rem;
 `;
+//
+// background-color: #bee5fd;
+// border-radius: 1.5rem;
+// border: none;
+// display: flex;
+// align-items: center;
+// justify-content: flex-start;
+// margin: 1rem 0rem 1rem 0rem;
+// width: 22rem;
 
 export const StyledHeaderDetailPage = styled.div`
   display: flex;
@@ -31,34 +36,51 @@ export const StyledBackButtonArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-basis: 2rem;
 `;
 
-export const StyledBackButton = styled.button``;
+export const StyledBackButton = styled.button`
+  border: solid;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: white;
+`;
 
 export const StyledEditTripButton = styled.button`
-  display: flex;
+  border: solid;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: white;
 `;
-export const StyledgoToPackingListButton = styled.button``;
+export const StyledgoToPackingListButton = styled.button`
+  border: solid;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: white;
+`;
 
 export const StyledDetailPageContent = styled.div`
+  background-color: #bee5fd;
+  border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  border: solid;
-  border-width: 0.2rem;
-  border-radius: 3rem;
+  align-items: center;
+  width: 22rem;
 `;
 export const StyledImageTrip = styled(Image)`
-  border-radius: 3rem;
+  border-radius: 1.5rem;
   margin: 1rem;
 `;
 export const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: 3rem;
   padding: 1rem;
-  width: 100%;
 `;
 export const StyledPackingList = styled.div`
   display: flex;
@@ -68,7 +90,6 @@ export const StyledPackingList = styled.div`
   border: solid;
   border-radius: 3rem;
   padding: 1rem;
-  width: 100%;
 `;
 
 export const StyledInformation = styled.div`
