@@ -30,7 +30,7 @@ export const StyledBackButtonArea = styled.div`
   justify-content: center;
 `;
 
-export const StyledBackButton = styled.button`
+export const StyledBackLink = styled(Link)`
   border: solid;
   text-decoration: none;
   font-size: 0.8rem;
@@ -47,13 +47,14 @@ export const StyledEditTripButton = styled(Link)`
   padding: 0.5rem;
   background-color: white;
 `;
-export const StyledgoToPackingListButton = styled.button`
+export const StyledgoToPackingListLink = styled(Link)`
   border: solid;
   text-decoration: none;
   font-size: 0.8rem;
   border-radius: 0.3rem;
   padding: 0.5rem;
   background-color: white;
+  font-size: 0.8rem;
 `;
 
 export const StyledDetailPageContent = styled.div`
@@ -84,14 +85,7 @@ export const StyledPackingList = styled.div`
   padding: 1rem;
 `;
 
-export const StyledInformation = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: left;
-`;
-
-export const StyledDateInformation = styled.div`
+export const StyledDateAndInformation = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;

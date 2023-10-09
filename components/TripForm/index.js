@@ -1,17 +1,11 @@
 import {
   StyledButtonPostionAddTrip,
-  StyledCityAddTrip,
-  StyledCountryAddTrip,
-  StyledDescriptionAddTrip,
-  StyledEndDateAddTrip,
+  StyledDIVAddTrip,
   StyledFieldsetAddTrip,
   StyledFormAddTrip,
-  StyledImageAddTrip,
   StyledInputAddTrip,
   StyledPNoteAddTrip,
-  StyledStartDateAddTrip,
   StyledTextareaAddTrip,
-  StyledTitleAddTrip,
   StyledlabelAddTrip,
 } from "./TripForm.styled";
 
@@ -44,7 +38,7 @@ export default function TripForm() {
   return (
     <StyledFormAddTrip onSubmit={handleSubmit}>
       <StyledFieldsetAddTrip>
-        <StyledTitleAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="title">
             Title (max. 30 characters)*
           </StyledlabelAddTrip>
@@ -55,9 +49,9 @@ export default function TripForm() {
             maxLength="30"
             required
           />
-        </StyledTitleAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledStartDateAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="startDate">
             Starting date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
@@ -67,9 +61,9 @@ export default function TripForm() {
             type="date"
             required
           />
-        </StyledStartDateAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledEndDateAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="endDate">
             Ending date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
@@ -79,9 +73,9 @@ export default function TripForm() {
             type="date"
             required
           />
-        </StyledEndDateAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledCityAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="city">
             City (max. 30 characters)*
           </StyledlabelAddTrip>
@@ -92,9 +86,9 @@ export default function TripForm() {
             maxLength="30"
             required
           />
-        </StyledCityAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledCountryAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="country">
             Country (max. 30 characters)*
           </StyledlabelAddTrip>
@@ -105,9 +99,9 @@ export default function TripForm() {
             maxLength="30"
             required
           />
-        </StyledCountryAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledImageAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="image">Image (URL)*</StyledlabelAddTrip>
           <StyledInputAddTrip
             id="image"
@@ -116,9 +110,9 @@ export default function TripForm() {
             placeholder="For example www.my-image.com"
             required
           />
-        </StyledImageAddTrip>
+        </StyledDIVAddTrip>
 
-        <StyledDescriptionAddTrip>
+        <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="description">
             Description (max. 150 characters)*
           </StyledlabelAddTrip>
@@ -133,7 +127,7 @@ export default function TripForm() {
             placeholder="Enter your description"
           ></StyledTextareaAddTrip>
           <p>150 characters left</p>
-        </StyledDescriptionAddTrip>
+        </StyledDIVAddTrip>
         <StyledButtonPostionAddTrip>
           <button type="submit">+ Add Trip</button>
           <ConfirmationMessage button={"Cancel"} />

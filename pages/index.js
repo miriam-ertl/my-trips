@@ -11,9 +11,7 @@ export default function HomePage() {
   return (
     <main>
       <StyledHeaderOverview>
-        <Styledtitle>
-          <h1>My Trips</h1>
-        </Styledtitle>
+        <h1>My Trips</h1>
         <StyledHeaderRightSideOverview>
           <StyledAddTripButtonOverview href="/addTrip">
             + Add Trip

@@ -1,21 +1,19 @@
 import {
-  StyledBackButton,
   StyledBackButtonArea,
+  StyledBackLink,
   StyledBody,
   StyledContent,
-  StyledDateInformation,
+  StyledDateAndInformation,
   StyledDetailPageContent,
   StyledEditTripButton,
   StyledHeaderDetailPage,
   StyledImageTrip,
-  StyledInformation,
   StyledPackingList,
   StyledRightSideDetailPage,
-  StyledgoToPackingListButton,
+  StyledgoToPackingListLink,
 } from "../../../components/Details/Details.styled";
 
 import ConfirmDelete from "@/components/ConfirmDelete";
-import Link from "next/link";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
@@ -143,11 +141,9 @@ export default function DetailsPage() {
     <StyledBody>
       <StyledHeaderDetailPage>
         <StyledBackButtonArea>
-          <StyledBackButton>
-            <Link href="/" aria-label="Go back to homepage">
-              &larr;
-            </Link>
-          </StyledBackButton>
+          <StyledBackLink href="/" aria-label="Go back to homepage">
+            &larr;
+          </StyledBackLink>
         </StyledBackButtonArea>
         <h1>My Trips</h1>
         <StyledRightSideDetailPage>
@@ -156,9 +152,9 @@ export default function DetailsPage() {
           <StyledEditTripButton href={`/trips/${id}/edit`}>
             Edit Trip
           </StyledEditTripButton>
-          <StyledgoToPackingListButton href="#packingList" type="button">
+          <StyledgoToPackingListLink href="#packingList" type="button">
             go to packing list
-          </StyledgoToPackingListButton>
+          </StyledgoToPackingListLink>
         </StyledRightSideDetailPage>
       </StyledHeaderDetailPage>
       <StyledDetailPageContent>
@@ -170,12 +166,12 @@ export default function DetailsPage() {
         />
         <StyledContent>
           <h2> {trip.title} </h2>
-          <StyledInformation>
+          <StyledDateAndInformation>
             {trip.city}, {trip.country}
-            <StyledDateInformation>
+            <StyledDateAndInformation>
               {trip.startDate} - {trip.endDate}
-            </StyledDateInformation>
-          </StyledInformation>
+            </StyledDateAndInformation>
+          </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>
             {trip.description}

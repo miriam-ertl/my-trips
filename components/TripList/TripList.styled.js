@@ -21,6 +21,6 @@ export const StyledAddTripButtonOverview = styled(Link)`
   border-radius: 0.3rem;
   padding: 0.5rem;
 `;
-export const Styledtitle = styled.div`
+export const Styledtitle = styled.h1`
   font-size: 1rem;
 `;
