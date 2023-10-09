@@ -80,7 +80,9 @@ export const StyledInputAddTrip = styled.input`
   border-width: 0.1rem;
 `;
 
-export const StyledlabelAddTrip = styled.label``;
+export const StyledlabelAddTrip = styled.label`
+  font-size: 1rem;
+`;
 
 export const StyledButtonPostionAddTrip = styled.div`
   display: flex;

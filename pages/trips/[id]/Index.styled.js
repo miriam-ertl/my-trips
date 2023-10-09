@@ -6,15 +6,6 @@ export const StyledBody = styled.div`
   flex-direction: column;
   gap: 1rem;
 `;
-//
-// background-color: #bee5fd;
-// border-radius: 1.5rem;
-// border: none;
-// display: flex;
-// align-items: center;
-// justify-content: flex-start;
-// margin: 1rem 0rem 1rem 0rem;
-// width: 22rem;
 
 export const StyledHeaderDetailPage = styled.div`
   display: flex;
