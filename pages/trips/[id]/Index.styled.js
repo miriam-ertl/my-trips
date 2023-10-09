@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
-
 export const StyledBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ export const StyledBackButton = styled.button`
   background-color: white;
 `;
 
-export const StyledEditTripButton = styled.button`
+export const StyledEditTripButton = styled(Link)`
   border: solid;
   text-decoration: none;
   font-size: 0.8rem;
