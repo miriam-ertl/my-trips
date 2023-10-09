@@ -12,7 +12,7 @@ import {
   StyledPackingList,
   StyledRightSideDetailPage,
   StyledgoToPackingListButton,
-} from "./Index.styled";
+} from "../../../components/Details/Details.styled";
 
 import ConfirmDelete from "@/components/ConfirmDelete";
 import Link from "next/link";
