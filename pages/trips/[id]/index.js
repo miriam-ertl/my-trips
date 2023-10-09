@@ -16,10 +16,10 @@ import {
 
 import ConfirmDelete from "@/components/ConfirmDelete";
 import Link from "next/link";
+import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { useState } from "react";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -29,10 +29,10 @@ export default function DetailsPage() {
     isLoading,
     mutate,
   } = useSWR(id ? `/api/trips/${id}` : null);
+
   if (!trip || isLoading) {
     return "... is loading";
   }
-
   async function handleDeleteTrip() {
     await fetch(`/api/trips/${id}`, {
       method: "DELETE",
@@ -86,6 +86,33 @@ export default function DetailsPage() {
     mutate();
   }
 
+  async function handleCompletePackingList(_id) {
+    const completeItems = trip.packingList.map((completeItem) =>
+      completeItem._id === _id
+        ? { ...completeItem, checked: !completeItem.checked }
+        : { ...completeItem }
+    );
+    const updatedTrip = {
+      ...trip,
+      packingList: [...completeItems],
+    };
+
+    const response = await fetch(`/api/trips/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTrip),
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+
+    mutate();
+  }
+
   async function handleEditFromPackingList(_id, name) {
     const updatedPackingList = trip.packingList.map((listItem) =>
       listItem._id === _id ? { ...listItem, name } : listItem
@@ -111,6 +138,7 @@ export default function DetailsPage() {
 
     mutate();
   }
+
   return (
     <StyledBody>
       <StyledHeaderDetailPage>
@@ -177,68 +205,62 @@ export default function DetailsPage() {
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
           <p>
-            Your packing list is empty. <br></br> Do you want to add something?
+            Your packing list is empty.<br></br> Do you want to add something?
           </p>
         ) : (
-          <ul>
-            {trip.packingList.map(({ _id: id, name }) => (
-              <li key={id}>
-                <PackingListEntry
-                  id={id}
-                  name={name}
-                  handleDeleteFromPackingList={handleDeleteFromPackingList}
-                  handleEditFromPackingList={handleEditFromPackingList}
-                />
-              </li>
-            ))}
-          </ul>
+          <PackingList
+            packingList={trip.packingList}
+            onCheck={handleCompletePackingList}
+            onEdit={handleEditFromPackingList}
+            onRemove={handleDeleteFromPackingList}
+          />
         )}
       </StyledPackingList>
     </StyledBody>
   );
 }
 
-function PackingListEntry({
-  id,
-  name,
-  handleDeleteFromPackingList,
-  handleEditFromPackingList,
-}) {
-  const [isEditing, setEditing] = useState(false);
+// function PackingListEntry({
+//   id,
+//   name,
+//   handleDeleteFromPackingList,
+//   handleEditFromPackingList,
+// }) {
+//   const [isEditing, setEditing] = useState(false);
 
-  function onSubmit(event) {
-    event.preventDefault();
-    handleEditFromPackingList(id, event.target.name.value);
-    setEditing(false);
-  }
+//   function onSubmit(event) {
+//     event.preventDefault();
+//     handleEditFromPackingList(id, event.target.name.value);
+//     setEditing(false);
+//   }
 
-  return (
-    <section>
-      {isEditing ? (
-        <form onSubmit={onSubmit}>
-          <label>
-            <input
-              name="name"
-              placeholder="Edit your item"
-              defaultValue={name}
-              required
-              autoFocus
-            />
-          </label>
-          <button>&#10003;</button>
-          <button type="button" onClick={() => setEditing(false)}>
-            &#10680;
-          </button>
-        </form>
-      ) : (
-        <span>
-          {name}
-          <button onClick={() => setEditing(true)}>&#9998;</button>
-          <button onClick={() => handleDeleteFromPackingList(id)}>
-            &#10060;
-          </button>
-        </span>
-      )}
-    </section>
-  );
-}
+//   return (
+//     <section>
+//       {isEditing ? (
+//         <form onSubmit={onSubmit}>
+//           <label>
+//             <input
+//               name="name"
+//               placeholder="Edit your item"
+//               defaultValue={name}
+//               required
+//               autoFocus
+//             />
+//           </label>
+//           <button>&#10003;</button>
+//           <button type="button" onClick={() => setEditing(false)}>
+//             &#10680;
+//           </button>
+//         </form>
+//       ) : (
+//         <span>
+//           {name}
+//           <button onClick={() => setEditing(true)}>&#9998;</button>
+//           <button onClick={() => handleDeleteFromPackingList(id)}>
+//             &#10060;
+//           </button>
+//         </span>
+//       )}
+//     </section>
+//   );
+// }
