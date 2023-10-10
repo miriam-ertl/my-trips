@@ -1,6 +1,19 @@
+import {
+  StyledBackButtonArea,
+  StyledBackLink,
+  StyledBody,
+  StyledContent,
+  StyledDateAndInformation,
+  StyledDetailPageContent,
+  StyledEditTripButton,
+  StyledHeaderDetailPage,
+  StyledImageTrip,
+  StyledPackingList,
+  StyledRightSideDetailPage,
+  StyledgoToPackingListLink,
+} from "../../../components/Details/Details.styled";
+
 import ConfirmDelete from "@/components/ConfirmDelete";
-import Image from "next/image";
-import Link from "next/link";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
@@ -125,33 +138,70 @@ export default function DetailsPage() {
   }
 
   return (
-    <main>
-      <Link href="/" aria-label="Go back to homepage">
-        &larr;
-      </Link>
-      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
-      <Link href={`/trips/${id}/edit`}>Edit Trip</Link>
-      <Link href="#packingList" type="button">
-        <button>go to packing list</button>
-      </Link>
-      <h1>My Trips</h1>
-      <section>
-        <Image
+    <StyledBody>
+      <StyledHeaderDetailPage>
+        <StyledBackButtonArea>
+          <StyledBackLink href="/" aria-label="Go back to homepage">
+            &larr;
+          </StyledBackLink>
+        </StyledBackButtonArea>
+        <h1>My Trips</h1>
+        <StyledRightSideDetailPage>
+          <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+
+          <StyledEditTripButton href={`/trips/${id}/edit`}>
+            Edit Trip
+          </StyledEditTripButton>
+          <StyledgoToPackingListLink href="#packingList" type="button">
+            go to packing list
+          </StyledgoToPackingListLink>
+        </StyledRightSideDetailPage>
+      </StyledHeaderDetailPage>
+      <StyledDetailPageContent>
+        <StyledImageTrip
           src={trip.image}
-          width={100}
-          height={50}
-          alt="Image of favorite Trip"
+          width={300}
+          height={200}
+          alt="Image of favourite Trip"
         />
-        <h2> {trip.title} </h2>
-        {trip.city}, {trip.country}
-        {trip.startDate} - {trip.endDate}
-        <h3>My plans</h3>
-        <p>{trip.description}</p>
+        <StyledContent>
+          <h2> {trip.title} </h2>
+          <StyledDateAndInformation>
+            {trip.city}, {trip.country}
+            <StyledDateAndInformation>
+              {trip.startDate} - {trip.endDate}
+            </StyledDateAndInformation>
+          </StyledDateAndInformation>
+          <h3>My plans</h3>
+          <p>
+            {trip.description}
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+            dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+            justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+            takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+        </StyledContent>
+      </StyledDetailPageContent>
+      <StyledPackingList>
         <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
           <p>
-            Your packing list is empty.<br></br> Do you want to add something?
+            Your packing list is empty. <br></br> Do you want to add something?
           </p>
         ) : (
           <PackingList
@@ -161,7 +211,7 @@ export default function DetailsPage() {
             onRemove={handleDeleteFromPackingList}
           />
         )}
-      </section>
-    </main>
+      </StyledPackingList>
+    </StyledBody>
   );
 }

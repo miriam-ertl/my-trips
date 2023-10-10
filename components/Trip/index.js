@@ -1,5 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
+import {
+  StyledContent,
+  StyledDestination,
+  StyledH2,
+  StyledImage,
+  StyledLink,
+  StyledPDate,
+  StyledTrip,
+} from "./Trip.styled";
 
 export default function Trip({
   id,
@@ -11,15 +18,19 @@ export default function Trip({
   country,
 }) {
   return (
-    <li>
-      <Link href={`/trips/${id}`}>
-        <Image src={image} width={100} height={50} alt="" />
-
-        <h2>{title}</h2>
-        <p>
-          {startDate} - {endDate} <br></br> {city}, {country}
-        </p>
-      </Link>
-    </li>
+    <StyledLink href={`/trips/${id}`}>
+      <StyledTrip>
+        <StyledImage src={image} width={70} height={70} alt="" />
+        <StyledContent>
+          <StyledH2>{title}</StyledH2>
+          <StyledPDate>
+            {startDate} - {endDate}{" "}
+          </StyledPDate>
+          <StyledDestination>
+            {city}, {country}
+          </StyledDestination>
+        </StyledContent>
+      </StyledTrip>
+    </StyledLink>
   );
 }

@@ -5,10 +5,15 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
+  
   }
 
   body {
-    margin: 0;
+    display: flex;
+  justify-content: center;
     font-family: system-ui;
   }
+ 
+ 
+
 `;

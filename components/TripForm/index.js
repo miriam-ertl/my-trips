@@ -1,3 +1,15 @@
+import {
+  StyledButtonPostionAddTrip,
+  StyledDIVAddTrip,
+  StyledFieldsetAddTrip,
+  StyledFormAddTrip,
+  StyledInputAddTrip,
+  StyledPNoteAddTrip,
+  StyledTextareaAddTrip,
+  StyledlabelAddTrip,
+} from "./TripForm.styled";
+
+import ConfirmationMessage from "../ConfirmationMessage";
 import { useRouter } from "next/router";
 
 export default function TripForm() {
@@ -24,43 +36,87 @@ export default function TripForm() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <label htmlFor="title">Title (max. 30 characters)*</label>
-          <input id="title" name="title" type="text" maxLength="30" required />
+    <StyledFormAddTrip onSubmit={handleSubmit}>
+      <StyledFieldsetAddTrip>
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="title">
+            Title (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="title"
+            name="title"
+            type="text"
+            maxLength="30"
+            required
+          />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
-          <input id="startDate" name="startDate" type="date" required />
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="startDate">
+            Starting date (dd/mm/yyyy)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="startDate"
+            name="startDate"
+            type="date"
+            required
+          />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
-          <input id="endDate" name="endDate" type="date" required />
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="endDate">
+            Ending date (dd/mm/yyyy)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="endDate"
+            name="endDate"
+            type="date"
+            required
+          />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="city">City (max. 30 characters)*</label>
-          <input id="city" name="city" type="text" maxLength="30" required />
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="city">
+            City (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
+            id="city"
+            name="city"
+            type="text"
+            maxLength="30"
+            required
+          />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="country">Country (max. 30 characters)*</label>
-          <input
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="country">
+            Country (max. 30 characters)*
+          </StyledlabelAddTrip>
+          <StyledInputAddTrip
             id="country"
             name="country"
             type="text"
             maxLength="30"
             required
           />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="image">Image (URL)*</label>
-          <input
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="image">Image (URL)*</StyledlabelAddTrip>
+          <StyledInputAddTrip
             id="image"
             name="image"
             type="text"
             placeholder="For example www.my-image.com"
             required
           />
+        </StyledDIVAddTrip>
 
-          <label htmlFor="description">
+        <StyledDIVAddTrip>
+          <StyledlabelAddTrip htmlFor="description">
             Description (max. 150 characters)*
-          </label>
-          <textarea
+          </StyledlabelAddTrip>
+          <StyledTextareaAddTrip
             rows="8"
             cols="30"
             maxLength="150"
@@ -69,13 +125,15 @@ export default function TripForm() {
             type="text"
             required
             placeholder="Enter your description"
-          ></textarea>
+          ></StyledTextareaAddTrip>
           <p>150 characters left</p>
-
+        </StyledDIVAddTrip>
+        <StyledButtonPostionAddTrip>
           <button type="submit">+ Add Trip</button>
-        </fieldset>
-        <p>* required form field</p>
-      </form>
-    </>
+          <ConfirmationMessage button={"Cancel"} />
+        </StyledButtonPostionAddTrip>
+      </StyledFieldsetAddTrip>
+      <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
+    </StyledFormAddTrip>
   );
 }

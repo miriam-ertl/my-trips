@@ -1,3 +1,8 @@
+import {
+  StyledAddItemButton,
+  StyledPackingListForm,
+} from "./PackingListForm.styled";
+
 export default function PackingListForm({ onHandleAddToPackingList }) {
   async function handleSubmit(event) {
     event.preventDefault();
@@ -8,10 +13,10 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Item Name:</label>
+    <StyledPackingListForm onSubmit={handleSubmit}>
+      <label htmlFor="name"></label>
       <input id="name" name="name" type="text" maxLength="30" required></input>
-      <button type="submit"> Add Item</button>
-    </form>
+      <StyledAddItemButton type="submit">Add</StyledAddItemButton>
+    </StyledPackingListForm>
   );
 }
