@@ -156,10 +156,10 @@ export default function DetailsPage() {
     );
 
     if (!countdown.includes("ago") && parsedCountdown < 30) {
-      return `starts ${countdownAdjusted}`;
+      return `. Starts ${countdownAdjusted}.`;
     }
     if (countdown.includes("ago") && parsedCountdown < 1) {
-      return "starts today";
+      return ". Starts today!";
     }
   }
   const duration = formatDistanceStrict(
@@ -202,9 +202,10 @@ export default function DetailsPage() {
           <StyledDateAndInformation>
             {trip.city}, {trip.country}
             <StyledDateAndInformation>
-              {trip.startDate} - {trip.endDate}
+              Start: {trip.startDate} <br></br>
+              End: {trip.endDate}
             </StyledDateAndInformation>
-            {duration}
+            Duration: {duration}
             <DisplayCountdown />
           </StyledDateAndInformation>
           <h3>My plans</h3>
