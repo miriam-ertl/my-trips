@@ -202,11 +202,17 @@ export default function DetailsPage() {
           <StyledDateAndInformation>
             {trip.city}, {trip.country}
             <StyledDateAndInformation>
-              Start: {trip.startDate} <br></br>
+              Start: {trip.startDate}
+            </StyledDateAndInformation>
+            <StyledDateAndInformation>
               End: {trip.endDate}
             </StyledDateAndInformation>
-            Duration: {duration}
-            <DisplayCountdown />
+            <StyledDateAndInformation>
+              Duration: {duration}
+            </StyledDateAndInformation>
+            <StyledDateAndInformation>
+              <DisplayCountdown />
+            </StyledDateAndInformation>
           </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>

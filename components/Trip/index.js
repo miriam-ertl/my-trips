@@ -46,7 +46,7 @@ export default function Trip({
         <StyledContent>
           <StyledH2>{title}</StyledH2>
           <StyledPDate>
-            {startDate} - {endDate}{" "}
+            {startDate} - {endDate}
           </StyledPDate>
           <StyledDestination>
             {city}, {country}
