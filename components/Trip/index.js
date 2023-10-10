@@ -18,20 +18,20 @@ export default function Trip({
   city,
   country,
 }) {
-  const countdown = formatDistanceToNowStrict(new Date(startDate), {
-    unit: "day",
-    roundingMethod: "floor",
-    addSuffix: true,
-  });
-
-  const parsedCountdown = countdown.replace(/[^0-9]/g, "");
-
-  const countdownAdjusted = formatDistanceToNowStrict(new Date(startDate), {
-    roundingMethod: "floor",
-    addSuffix: true,
-  });
-
   function DisplayCountdown() {
+    const countdown = formatDistanceToNowStrict(new Date(startDate), {
+      unit: "day",
+      roundingMethod: "floor",
+      addSuffix: true,
+    });
+
+    const parsedCountdown = countdown.replace(/[^0-9]/g, "");
+
+    const countdownAdjusted = formatDistanceToNowStrict(new Date(startDate), {
+      roundingMethod: "floor",
+      addSuffix: true,
+    });
+
     if (!countdown.includes("ago") && parsedCountdown < 30) {
       return `starts ${countdownAdjusted}`;
     }
