@@ -8,7 +8,6 @@ import { useState } from "react";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function EditTrip() {
-  const [Letters, setLetters] = useState(150);
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
   const { id } = router.query;
@@ -16,7 +15,7 @@ export default function EditTrip() {
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-
+  const [Letters, setLetters] = useState(150 - trips.description.length);
   if (!trips || isLoading) {
     return <h2>is Loading...</h2>;
   }
