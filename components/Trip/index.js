@@ -25,6 +25,11 @@ export default function Trip({
   });
 
   const parsedCountdown = countdown.replace(/[^0-9]/g, "");
+
+  const countdownAdjusted = formatDistanceToNowStrict(new Date(startDate), {
+    roundingMethod: "floor",
+    addSuffix: true,
+  });
   return (
     <StyledLink href={`/trips/${id}`}>
       <StyledTrip>
