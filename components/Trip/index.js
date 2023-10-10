@@ -30,6 +30,15 @@ export default function Trip({
     roundingMethod: "floor",
     addSuffix: true,
   });
+
+  function DisplayCountdown() {
+    if (!countdown.includes("ago") && parsedCountdown < 30) {
+      return `starts ${countdownAdjusted}`;
+    }
+    if (countdown.includes("ago") && parsedCountdown < 1) {
+      return "starts today";
+    }
+  }
   return (
     <StyledLink href={`/trips/${id}`}>
       <StyledTrip>
@@ -42,6 +51,7 @@ export default function Trip({
           <StyledDestination>
             {city}, {country}
           </StyledDestination>
+          <DisplayCountdown />
         </StyledContent>
       </StyledTrip>
     </StyledLink>
