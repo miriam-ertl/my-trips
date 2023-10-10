@@ -18,6 +18,8 @@ import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceStrict } from "date-fns";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -136,7 +138,38 @@ export default function DetailsPage() {
 
     mutate();
   }
+  function DisplayCountdown() {
+    const countdown = formatDistanceToNowStrict(new Date(trip.startDate), {
+      unit: "day",
+      roundingMethod: "floor",
+      addSuffix: true,
+    });
 
+    const parsedCountdown = countdown.replace(/[^0-9]/g, "");
+
+    const countdownAdjusted = formatDistanceToNowStrict(
+      new Date(trip.startDate),
+      {
+        roundingMethod: "floor",
+        addSuffix: true,
+      }
+    );
+
+    if (!countdown.includes("ago") && parsedCountdown < 30) {
+      return `starts ${countdownAdjusted}`;
+    }
+    if (countdown.includes("ago") && parsedCountdown < 1) {
+      return "starts today";
+    }
+  }
+  const duration = formatDistanceStrict(
+    new Date(trip.startDate),
+    new Date(trip.endDate),
+    {
+      unit: "day",
+      roundingMethod: "floor",
+    }
+  );
   return (
     <StyledBody>
       <StyledHeaderDetailPage>
@@ -171,6 +204,8 @@ export default function DetailsPage() {
             <StyledDateAndInformation>
               {trip.startDate} - {trip.endDate}
             </StyledDateAndInformation>
+            {duration}
+            <DisplayCountdown />
           </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>
