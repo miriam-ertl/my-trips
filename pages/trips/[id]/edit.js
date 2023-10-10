@@ -3,10 +3,12 @@ import ConfirmationMessage from "@/components/ConfirmationMessage";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function EditTrip() {
+  const [Letters, setLetters] = useState(150);
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
   const { id } = router.query;
@@ -43,6 +45,10 @@ export default function EditTrip() {
       method: "DELETE",
     });
     router.push("/");
+  }
+
+  function handleCountLetters(event) {
+    setLetters(150 - parseInt(event.target.value.length, 10));
   }
 
   return (
@@ -111,7 +117,7 @@ export default function EditTrip() {
           ></input>
 
           <label htmlFor="description">
-            Description (max. 150 characters)*
+            Description * 150/<span>{Letters}</span> characters left
           </label>
           <textarea
             rows="8"
@@ -123,8 +129,8 @@ export default function EditTrip() {
             required
             placeholder="Enter your description"
             defaultValue={trips.description}
+            onChange={handleCountLetters}
           ></textarea>
-          <p>150 characters left</p>
 
           <button type="submit">Edit trip</button>
         </fieldset>
