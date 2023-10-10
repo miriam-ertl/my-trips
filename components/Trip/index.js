@@ -7,6 +7,7 @@ import {
   StyledPDate,
   StyledTrip,
 } from "./Trip.styled";
+import { formatDistanceToNowStrict } from "date-fns";
 
 export default function Trip({
   id,
@@ -17,6 +18,13 @@ export default function Trip({
   city,
   country,
 }) {
+  const countdown = formatDistanceToNowStrict(new Date(startDate), {
+    unit: "day",
+    roundingMethod: "floor",
+    addSuffix: true,
+  });
+
+  const parsedCountdown = countdown.replace(/[^0-9]/g, "");
   return (
     <StyledLink href={`/trips/${id}`}>
       <StyledTrip>
