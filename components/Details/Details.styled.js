@@ -39,14 +39,6 @@ export const StyledBackLink = styled(Link)`
   background-color: white;
 `;
 
-export const StyledEditTripButton = styled(Link)`
-  border: solid;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
-  background-color: white;
-`;
 export const StyledgoToPackingListLink = styled(Link)`
   border: solid;
   text-decoration: none;
@@ -90,4 +82,7 @@ export const StyledDateAndInformation = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: left;
+`;
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

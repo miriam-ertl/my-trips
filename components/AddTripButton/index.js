@@ -1,10 +1,10 @@
 import {
   StyledAddButton,
   StyledAddTripLink,
-  StyledButtonTypo,
-} from "@/components/AddTripButton/AddTripLink.styled";
+} from "@/components/AddTripButton/AddTripButton.styled";
 
 import AddIcon from "./AddIcon.svg";
+import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 
 export default function AddTripButton() {
   return (

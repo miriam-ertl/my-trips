@@ -5,21 +5,22 @@ import {
   StyledContent,
   StyledDateAndInformation,
   StyledDetailPageContent,
-  StyledEditTripButton,
   StyledHeaderDetailPage,
   StyledImageTrip,
+  StyledLink,
   StyledPackingList,
   StyledRightSideDetailPage,
   StyledgoToPackingListLink,
 } from "../../../components/Details/Details.styled";
 
 import ConfirmDelete from "@/components/ConfirmDelete";
+import EditTripButton from "@/components/EditTripButton";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
+import { formatDistanceStrict } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { formatDistanceToNowStrict } from "date-fns";
-import { formatDistanceStrict } from "date-fns";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -191,9 +192,10 @@ export default function DetailsPage() {
         <StyledRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
 
-          <StyledEditTripButton href={`/trips/${id}/edit`}>
-            Edit Trip
-          </StyledEditTripButton>
+          <StyledLink href={`/trips/${id}/edit`}>
+            <EditTripButton />
+          </StyledLink>
+
           <StyledgoToPackingListLink href="#packingList" type="button">
             go to packing list
           </StyledgoToPackingListLink>
