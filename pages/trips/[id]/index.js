@@ -172,7 +172,7 @@ export default function DetailsPage() {
   );
   function oneDayTrip() {
     const parsedDuration = duration.replace(/[^0-9]/g, "");
-    console.log(parsedDuration);
+
     if (parsedDuration == 0) {
       return "1 day";
     } else {
