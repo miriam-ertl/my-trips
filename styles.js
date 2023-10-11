@@ -11,7 +11,7 @@ export default createGlobalStyle`
   body {
     display: flex;
   justify-content: center;
-    font-family: system-ui;
+    font-family: 'Roboto', sans-serif;
   }
  
  
