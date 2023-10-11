@@ -170,6 +170,15 @@ export default function DetailsPage() {
       roundingMethod: "floor",
     }
   );
+  function oneDayTrip() {
+    const parsedDuration = duration.replace(/[^0-9]/g, "");
+    console.log(parsedDuration);
+    if (parsedDuration == 0) {
+      return "1 day";
+    } else {
+      return duration;
+    }
+  }
   return (
     <StyledBody>
       <StyledHeaderDetailPage>
@@ -208,7 +217,7 @@ export default function DetailsPage() {
               End: {trip.endDate}
             </StyledDateAndInformation>
             <StyledDateAndInformation>
-              Duration: {duration}
+              Duration: {oneDayTrip()}
               {displayCountdown()}
             </StyledDateAndInformation>
             <StyledDateAndInformation></StyledDateAndInformation>
