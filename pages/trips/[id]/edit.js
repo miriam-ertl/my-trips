@@ -15,7 +15,7 @@ export default function EditTrip() {
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-  const [letters, setLetters] = useState(150 - trips.description.length);
+  // const [letters, setLetters] = useState(150 - trips.description.length);
   if (!trips || isLoading) {
     return <h2>is Loading...</h2>;
   }
@@ -46,9 +46,9 @@ export default function EditTrip() {
     router.push("/");
   }
 
-  function handleCountLetters(event) {
-    setLetters(150 - parseInt(event.target.value.length, 10));
-  }
+  // function handleCountLetters(event) {
+  //   setLetters(150 - parseInt(event.target.value.length, 10));
+  // }
 
   return (
     <main>
@@ -116,7 +116,7 @@ export default function EditTrip() {
           ></input>
 
           <label htmlFor="description">
-            Description * 150/<span>{letters}</span> characters left
+            Description * 150/<span>hallo</span> characters left
           </label>
           <textarea
             rows="8"
@@ -128,7 +128,7 @@ export default function EditTrip() {
             required
             placeholder="Enter your description"
             defaultValue={trips.description}
-            onChange={handleCountLetters}
+            //onChange={handleCountLetters}
           ></textarea>
 
           <button type="submit">Edit trip</button>
@@ -136,7 +136,7 @@ export default function EditTrip() {
         <p>* required form field</p>
       </form>
 
-      <ConfirmationMessage button={"Cancel"} />
+      <ConfirmationMessage button="Cancel" />
       <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
     </main>
   );
