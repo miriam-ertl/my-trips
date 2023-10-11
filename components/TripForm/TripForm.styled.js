@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledFormAddTrip = styled.div`
+export const StyledFormAddTrip = styled.form`
   display: grid;
   border-radius: 3rem;
   border: solid;

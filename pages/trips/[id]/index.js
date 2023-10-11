@@ -18,6 +18,8 @@ import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { formatDistanceToNowStrict } from "date-fns";
+import { formatDistanceStrict } from "date-fns";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -136,7 +138,47 @@ export default function DetailsPage() {
 
     mutate();
   }
+  function displayCountdown() {
+    const countdown = formatDistanceToNowStrict(new Date(trip.startDate), {
+      unit: "day",
+      roundingMethod: "floor",
+      addSuffix: true,
+    });
 
+    const parsedCountdown = countdown.replace(/[^0-9]/g, "");
+
+    const countdownAdjusted = formatDistanceToNowStrict(
+      new Date(trip.startDate),
+      {
+        roundingMethod: "floor",
+        addSuffix: true,
+      }
+    );
+
+    if (!countdown.includes("ago") && parsedCountdown < 30) {
+      return `. Starts ${countdownAdjusted}.`;
+    }
+    if (countdown.includes("ago") && parsedCountdown < 1) {
+      return ". Starts today!";
+    }
+  }
+  const duration = formatDistanceStrict(
+    new Date(trip.startDate),
+    new Date(trip.endDate),
+    {
+      unit: "day",
+      roundingMethod: "floor",
+    }
+  );
+  function oneDayTrip() {
+    const parsedDuration = duration.replace(/[^0-9]/g, "");
+
+    if (parsedDuration == 0) {
+      return "1 day";
+    } else {
+      return duration;
+    }
+  }
   return (
     <StyledBody>
       <StyledHeaderDetailPage>
@@ -169,8 +211,16 @@ export default function DetailsPage() {
           <StyledDateAndInformation>
             {trip.city}, {trip.country}
             <StyledDateAndInformation>
-              {trip.startDate} - {trip.endDate}
+              Start: {trip.startDate}
             </StyledDateAndInformation>
+            <StyledDateAndInformation>
+              End: {trip.endDate}
+            </StyledDateAndInformation>
+            <StyledDateAndInformation>
+              Duration: {oneDayTrip()}
+              {displayCountdown()}
+            </StyledDateAndInformation>
+            <StyledDateAndInformation></StyledDateAndInformation>
           </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>
