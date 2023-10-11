@@ -11,15 +11,17 @@ export default function EditTrip() {
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
   const { id } = router.query;
-  const { data: trips, isLoading } = useSWR(
+  const { data: trip, isLoading } = useSWR(
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-  // const [letters, setLetters] = useState(150 - trips.description.length);
-  if (!trips || isLoading) {
+  const [letters, setLetters] = useState(
+    trip ? 150 - trip.description.length : null
+  );
+  if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
-
+  console.log(trip.description);
   async function handleEdit(event) {
     event.preventDefault();
 
@@ -46,9 +48,9 @@ export default function EditTrip() {
     router.push("/");
   }
 
-  // function handleCountLetters(event) {
-  //   setLetters(150 - parseInt(event.target.value.length, 10));
-  // }
+  function handleCountLetters(event) {
+    setLetters(150 - parseInt(event.target.value.length, 10));
+  }
 
   return (
     <main>
@@ -64,7 +66,7 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.title}
+            defaultValue={trip.title}
           ></input>
 
           <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
@@ -73,7 +75,7 @@ export default function EditTrip() {
             name="startDate"
             type="date"
             required
-            defaultValue={trips.startDate}
+            defaultValue={trip.startDate}
           ></input>
 
           <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
@@ -82,7 +84,7 @@ export default function EditTrip() {
             name="endDate"
             type="date"
             required
-            defaultValue={trips.endDate}
+            defaultValue={trip.endDate}
           ></input>
 
           <label htmlFor="city">City (max. 30 characters)*</label>
@@ -92,7 +94,7 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.city}
+            defaultValue={trip.city}
           ></input>
 
           <label htmlFor="country">Country (max. 30 characters)*</label>
@@ -102,7 +104,7 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.country}
+            defaultValue={trip.country}
           ></input>
 
           <label htmlFor="image">Image (URL)*</label>
@@ -112,11 +114,11 @@ export default function EditTrip() {
             type="text"
             placeholder="For example www.my-image.com"
             required
-            defaultValue={trips.image}
+            defaultValue={trip.image}
           ></input>
 
           <label htmlFor="description">
-            Description * 150/<span>hallo</span> characters left
+            Description * 150/<span>{letters}</span> characters left
           </label>
           <textarea
             rows="8"
@@ -127,8 +129,8 @@ export default function EditTrip() {
             type="text"
             required
             placeholder="Enter your description"
-            defaultValue={trips.description}
-            //onChange={handleCountLetters}
+            defaultValue={trip.description}
+            onChange={handleCountLetters}
           ></textarea>
 
           <button type="submit">Edit trip</button>
