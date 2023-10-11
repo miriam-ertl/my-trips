@@ -138,7 +138,7 @@ export default function DetailsPage() {
 
     mutate();
   }
-  function DisplayCountdown() {
+  function displayCountdown() {
     const countdown = formatDistanceToNowStrict(new Date(trip.startDate), {
       unit: "day",
       roundingMethod: "floor",
@@ -209,10 +209,9 @@ export default function DetailsPage() {
             </StyledDateAndInformation>
             <StyledDateAndInformation>
               Duration: {duration}
+              {displayCountdown()}
             </StyledDateAndInformation>
-            <StyledDateAndInformation>
-              <DisplayCountdown />
-            </StyledDateAndInformation>
+            <StyledDateAndInformation></StyledDateAndInformation>
           </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>

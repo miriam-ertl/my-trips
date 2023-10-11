@@ -18,7 +18,7 @@ export default function Trip({
   city,
   country,
 }) {
-  function DisplayCountdown() {
+  function displayCountdown() {
     const countdown = formatDistanceToNowStrict(new Date(startDate), {
       unit: "day",
       roundingMethod: "floor",
@@ -33,16 +33,21 @@ export default function Trip({
     });
 
     if (!countdown.includes("ago") && parsedCountdown < 30) {
-      return `starts ${countdownAdjusted}`;
+      return <p>{`starts ${countdownAdjusted}`}</p>;
     }
     if (countdown.includes("ago") && parsedCountdown < 1) {
-      return "starts today";
+      return <p>starts today</p>;
     }
   }
   return (
     <StyledLink href={`/trips/${id}`}>
       <StyledTrip>
-        <StyledImage src={image} width={70} height={70} alt="" />
+        <StyledImage
+          src={image}
+          width={70}
+          height={70}
+          alt="{`Image for trip titled ${title}`}"
+        />
         <StyledContent>
           <StyledH2>{title}</StyledH2>
           <StyledPDate>
@@ -51,7 +56,7 @@ export default function Trip({
           <StyledDestination>
             {city}, {country}
           </StyledDestination>
-          <DisplayCountdown />
+          {displayCountdown()}
         </StyledContent>
       </StyledTrip>
     </StyledLink>
