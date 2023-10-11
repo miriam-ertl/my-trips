@@ -21,7 +21,7 @@ export default function EditTrip() {
   if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
-  console.log(trip.description);
+
   async function handleEdit(event) {
     event.preventDefault();
 
