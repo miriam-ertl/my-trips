@@ -15,7 +15,7 @@ export default function EditTrip() {
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-  const [Letters, setLetters] = useState(150 - trips.description.length);
+  const [letters, setLetters] = useState(150 - trips.description.length);
   if (!trips || isLoading) {
     return <h2>is Loading...</h2>;
   }
@@ -55,7 +55,7 @@ export default function EditTrip() {
       <Link href="/">&larr;</Link>
       <h1>My Trips</h1>
       <h2>Edit a Trip</h2>
-      <form onSubmit={handleEdit} defaultData={trips}>
+      <form onSubmit={handleEdit}>
         <fieldset>
           <label htmlFor="title">Title (max. 30 characters)*</label>
           <input
@@ -116,7 +116,7 @@ export default function EditTrip() {
           ></input>
 
           <label htmlFor="description">
-            Description * 150/<span>{Letters}</span> characters left
+            Description * 150/<span>{letters}</span> characters left
           </label>
           <textarea
             rows="8"
