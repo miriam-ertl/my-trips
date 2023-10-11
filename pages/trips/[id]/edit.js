@@ -36,7 +36,7 @@ export default function EditTrip() {
     if (response.ok) {
       mutate();
     }
-    router.push("/");
+    router.push(`/trips/${id}`);
   }
 
   async function handleDeleteTrip() {
