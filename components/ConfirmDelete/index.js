@@ -23,7 +23,7 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
   }
   return (
     <div>
-      <p>Do you really want to delete this trip?</p>
+      <p>Are you sure?</p>
       <button type="button" onClick={handleDeleteTrip}>
         Yes
       </button>
