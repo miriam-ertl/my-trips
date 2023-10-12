@@ -10,11 +10,11 @@ import {
   StyledLink,
   StyledPackingList,
   StyledRightSideDetailPage,
-  StyledgoToPackingListLink,
 } from "../../../components/Details/Details.styled";
 
 import ConfirmDelete from "@/components/ConfirmDelete";
 import EditTripButton from "@/components/EditTripButton";
+import GoToPackingListButton from "@/components/GoToPackingListButton/index";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
 import { formatDistanceStrict } from "date-fns";
@@ -196,9 +196,9 @@ export default function DetailsPage() {
             <EditTripButton />
           </StyledLink>
 
-          <StyledgoToPackingListLink href="#packingList" type="button">
-            go to packing list
-          </StyledgoToPackingListLink>
+          <StyledLink href="#packingList">
+            <GoToPackingListButton />
+          </StyledLink>
         </StyledRightSideDetailPage>
       </StyledHeaderDetailPage>
       <StyledDetailPageContent>

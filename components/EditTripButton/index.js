@@ -1,6 +1,6 @@
 import EditIcon from "./EditIcon.svg";
 import { StyledButtonDIV } from "./EditTripButton.styled";
-import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
+import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
 
 export default function EditTripButton() {
   return (
