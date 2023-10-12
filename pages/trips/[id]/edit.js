@@ -22,6 +22,7 @@ import EditTripButton from "@/components/EditTripButton";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -29,12 +30,14 @@ export default function EditTrip() {
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
   const { id } = router.query;
-  const { data: trips, isLoading } = useSWR(
+  const { data: trip, isLoading } = useSWR(
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-
-  if (!trips || isLoading) {
+  const [letters, setLetters] = useState(
+    trip ? 150 - trip.description.length : null
+  );
+  if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
 
@@ -54,7 +57,7 @@ export default function EditTrip() {
     if (response.ok) {
       mutate();
     }
-    router.push("/");
+    router.push(`/trips/${id}`);
   }
 
   async function handleDeleteTrip() {
@@ -62,6 +65,10 @@ export default function EditTrip() {
       method: "DELETE",
     });
     router.push("/");
+  }
+
+  function handleCountLetters(event) {
+    setLetters(150 - parseInt(event.target.value.length, 10));
   }
 
   return (
@@ -77,7 +84,7 @@ export default function EditTrip() {
       </StyledHeadAddTrip>
 
       <h2>Edit a Trip</h2>
-      <StyledFormAddTrip onSubmit={handleEdit} defaultData={trips}>
+      <StyledFormAddTrip onSubmit={handleEdit}>
         <StyledFieldsetAddTrip>
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="title">
@@ -89,32 +96,32 @@ export default function EditTrip() {
               type="text"
               maxLength="30"
               required
-              defaultValue={trips.title}
+              defaultValue={trip.title}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="startDate">
-              Start date (dd/mm/yyyy)*
+              Start Date (dd/mm/yyyy)*
             </StyledlabelAddTrip>
             <StyledInputAddTrip
               id="startDate"
               name="startDate"
               type="date"
               required
-              defaultValue={trips.startDate}
+              defaultValue={trip.startDate}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
 
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="endDate">
-              End date (dd/mm/yyyy)*
+              End Date (dd/mm/yyyy)*
             </StyledlabelAddTrip>
             <StyledInputAddTrip
               id="endDate"
               name="endDate"
               type="date"
               required
-              defaultValue={trips.endDate}
+              defaultValue={trip.endDate}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
 
@@ -128,7 +135,7 @@ export default function EditTrip() {
               type="text"
               maxLength="30"
               required
-              defaultValue={trips.city}
+              defaultValue={trip.city}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
 
@@ -142,7 +149,7 @@ export default function EditTrip() {
               type="text"
               maxLength="30"
               required
-              defaultValue={trips.country}
+              defaultValue={trip.country}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
 
@@ -156,13 +163,13 @@ export default function EditTrip() {
               type="text"
               placeholder="For example www.my-image.com"
               required
-              defaultValue={trips.image}
+              defaultValue={trip.image}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
 
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="description">
-              Description (max. 150 characters)*
+              Description (<span>{letters}</span> characters left)*
             </StyledlabelAddTrip>
             <StyledTextareaAddTrip
               rows="8"
@@ -173,9 +180,9 @@ export default function EditTrip() {
               type="text"
               required
               placeholder="Enter your description"
-              defaultValue={trips.description}
+              defaultValue={trip.description}
+              onChange={handleCountLetters}
             ></StyledTextareaAddTrip>
-            <p>150 characters left</p>
           </StyledDIVAddTrip>
 
           <StyledButtonPostionAddTrip>
