@@ -18,6 +18,8 @@ export default function EditTrip() {
   const [letters, setLetters] = useState(
     trip ? 150 - trip.description.length : null
   );
+  const [showFileInput, setShowFileInput] = useState(false);
+
   if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
@@ -106,17 +108,23 @@ export default function EditTrip() {
             required
             defaultValue={trip.country}
           ></input>
-
-          <label htmlFor="image">Image (URL)*</label>
-          <input
-            id="image"
-            name="image"
-            type="text"
-            placeholder="For example www.my-image.com"
-            required
-            defaultValue={trip.image}
-          ></input>
-
+          {showFileInput ? (
+            <>
+              <label htmlFor="image">Image (URL)*</label>
+              <input
+                id="image"
+                name="image"
+                type="file"
+                //      placeholder="For example www.my-image.com"
+                required
+                //defaultValue={trip.image.url}
+              ></input>
+            </>
+          ) : (
+            <button type="button" onClick={() => setShowFileInput(true)}>
+              Upload Image
+            </button>
+          )}
           <label htmlFor="description">
             Description (<span>{letters}</span> characters left)*
           </label>
