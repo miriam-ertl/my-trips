@@ -17,6 +17,10 @@ import {
 import BackIcon from "@/components/BackButton/BackIcon.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
+import EditIcon from "@/components/EditTripButton/EditIcon.svg";
+import EditTripButton from "@/components/EditTripButton";
+import { StyledAddButton } from "@/components/AddTripButton/AddTripButton.styled";
+import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -91,7 +95,7 @@ export default function EditTrip() {
           </StyledDIVAddTrip>
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="startDate">
-              Starting date (dd/mm/yyyy)*
+              Start date (dd/mm/yyyy)*
             </StyledlabelAddTrip>
             <StyledInputAddTrip
               id="startDate"
@@ -104,7 +108,7 @@ export default function EditTrip() {
 
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="endDate">
-              Ending date (dd/mm/yyyy)*
+              End date (dd/mm/yyyy)*
             </StyledlabelAddTrip>
             <StyledInputAddTrip
               id="endDate"
@@ -174,9 +178,15 @@ export default function EditTrip() {
             ></StyledTextareaAddTrip>
             <p>150 characters left</p>
           </StyledDIVAddTrip>
+
           <StyledButtonPostionAddTrip>
-            <button type="submit">Edit trip</button>
+            <button type="submit">
+              <EditIcon width={15} height={15} />
+              <StyledButtonTypo>EDIT TRIP</StyledButtonTypo>
+            </button>
+
             <ConfirmationMessage button={"Cancel"} />
+
             <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
           </StyledButtonPostionAddTrip>
         </StyledFieldsetAddTrip>
