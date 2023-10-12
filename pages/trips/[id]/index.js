@@ -1,6 +1,5 @@
 import {
   StyledBackButtonArea,
-  StyledBackLink,
   StyledBody,
   StyledContent,
   StyledDateAndInformation,
@@ -12,11 +11,13 @@ import {
   StyledRightSideDetailPage,
 } from "../../../components/Details/Details.styled";
 
+import BackIcon from "@/components/BackButton/BackIcon.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import EditTripButton from "@/components/EditTripButton";
 import GoToPackingListButton from "@/components/GoToPackingListButton/index";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
+import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
 import { formatDistanceStrict } from "date-fns";
 import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
@@ -184,9 +185,11 @@ export default function DetailsPage() {
     <StyledBody>
       <StyledHeaderDetailPage>
         <StyledBackButtonArea>
-          <StyledBackLink href="/" aria-label="Go back to homepage">
-            &larr;
-          </StyledBackLink>
+          <StyledLink href="/" aria-label="Go back to homepage">
+            <StyledBackButton>
+              <BackIcon width={15} height={15} />
+            </StyledBackButton>
+          </StyledLink>
         </StyledBackButtonArea>
         <h1>My Trips</h1>
         <StyledRightSideDetailPage>
