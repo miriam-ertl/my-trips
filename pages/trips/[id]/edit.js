@@ -3,6 +3,7 @@ import ConfirmationMessage from "@/components/ConfirmationMessage";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -10,12 +11,14 @@ export default function EditTrip() {
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
   const { id } = router.query;
-  const { data: trips, isLoading } = useSWR(
+  const { data: trip, isLoading } = useSWR(
     id ? `/api/trips/${id}` : null,
     fetcher
   );
-
-  if (!trips || isLoading) {
+  const [letters, setLetters] = useState(
+    trip ? 150 - trip.description.length : null
+  );
+  if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
 
@@ -35,7 +38,7 @@ export default function EditTrip() {
     if (response.ok) {
       mutate();
     }
-    router.push("/");
+    router.push(`/trips/${id}`);
   }
 
   async function handleDeleteTrip() {
@@ -45,12 +48,16 @@ export default function EditTrip() {
     router.push("/");
   }
 
+  function handleCountLetters(event) {
+    setLetters(150 - parseInt(event.target.value.length, 10));
+  }
+
   return (
     <main>
       <Link href="/">&larr;</Link>
       <h1>My Trips</h1>
       <h2>Edit a Trip</h2>
-      <form onSubmit={handleEdit} defaultData={trips}>
+      <form onSubmit={handleEdit}>
         <fieldset>
           <label htmlFor="title">Title (max. 30 characters)*</label>
           <input
@@ -59,25 +66,25 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.title}
+            defaultValue={trip.title}
           ></input>
 
-          <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
+          <label htmlFor="startDate">Start Date (dd/mm/yyyy)*</label>
           <input
             id="startDate"
             name="startDate"
             type="date"
             required
-            defaultValue={trips.startDate}
+            defaultValue={trip.startDate}
           ></input>
 
-          <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
+          <label htmlFor="endDate">End Date (dd/mm/yyyy)*</label>
           <input
             id="endDate"
             name="endDate"
             type="date"
             required
-            defaultValue={trips.endDate}
+            defaultValue={trip.endDate}
           ></input>
 
           <label htmlFor="city">City (max. 30 characters)*</label>
@@ -87,7 +94,7 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.city}
+            defaultValue={trip.city}
           ></input>
 
           <label htmlFor="country">Country (max. 30 characters)*</label>
@@ -97,7 +104,7 @@ export default function EditTrip() {
             type="text"
             maxLength="30"
             required
-            defaultValue={trips.country}
+            defaultValue={trip.country}
           ></input>
 
           <label htmlFor="image">Image (URL)*</label>
@@ -107,11 +114,11 @@ export default function EditTrip() {
             type="text"
             placeholder="For example www.my-image.com"
             required
-            defaultValue={trips.image}
+            defaultValue={trip.image}
           ></input>
 
           <label htmlFor="description">
-            Description (max. 150 characters)*
+            Description (<span>{letters}</span> characters left)*
           </label>
           <textarea
             rows="8"
@@ -122,16 +129,16 @@ export default function EditTrip() {
             type="text"
             required
             placeholder="Enter your description"
-            defaultValue={trips.description}
+            defaultValue={trip.description}
+            onChange={handleCountLetters}
           ></textarea>
-          <p>150 characters left</p>
 
           <button type="submit">Edit trip</button>
         </fieldset>
         <p>* required form field</p>
       </form>
 
-      <ConfirmationMessage button={"Cancel"} />
+      <ConfirmationMessage button="Cancel" />
       <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
     </main>
   );

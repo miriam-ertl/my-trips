@@ -11,8 +11,10 @@ import {
 
 import ConfirmationMessage from "../ConfirmationMessage";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function TripForm() {
+  const [letters, setLetters] = useState(150);
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -35,6 +37,10 @@ export default function TripForm() {
     router.push("/confirmation");
   }
 
+  function handleCountLetters(event) {
+    setLetters(150 - parseInt(event.target.value.length, 10));
+  }
+
   return (
     <StyledFormAddTrip onSubmit={handleSubmit}>
       <StyledFieldsetAddTrip>
@@ -53,7 +59,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="startDate">
-            Starting date (dd/mm/yyyy)*
+            Start Date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
           <StyledInputAddTrip
             id="startDate"
@@ -65,7 +71,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="endDate">
-            Ending date (dd/mm/yyyy)*
+            End Date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
           <StyledInputAddTrip
             id="endDate"
@@ -114,7 +120,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="description">
-            Description (max. 150 characters)*
+            Description (<span>{letters}</span> characters left)*
           </StyledlabelAddTrip>
           <StyledTextareaAddTrip
             rows="8"
@@ -125,8 +131,8 @@ export default function TripForm() {
             type="text"
             required
             placeholder="Enter your description"
+            onChange={handleCountLetters}
           ></StyledTextareaAddTrip>
-          <p>150 characters left</p>
         </StyledDIVAddTrip>
         <StyledButtonPostionAddTrip>
           <button type="submit">+ Add Trip</button>
