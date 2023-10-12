@@ -26,13 +26,13 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
             autoFocus
           />
 
-          <WhiteButton type="submit">
+          <button type="submit">
             <OKIconGrey width={15} height={15} />
-          </WhiteButton>
+          </button>
 
-          <WhiteButton type="button" onClick={() => setItemToEdit(null)}>
+          <button type="button" onClick={() => setItemToEdit(null)}>
             <CancelIconGrey width={15} height={15} />
-          </WhiteButton>
+          </button>
         </StyledPackingListForm>
       ) : (
         <StyledList>
