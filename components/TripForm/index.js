@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function TripForm() {
-  const [Letters, setLetters] = useState(150);
+  const [letters, setLetters] = useState(150);
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -59,7 +59,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="startDate">
-            Starting date (dd/mm/yyyy)*
+            Start Date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
           <StyledInputAddTrip
             id="startDate"
@@ -71,7 +71,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="endDate">
-            Ending date (dd/mm/yyyy)*
+            End Date (dd/mm/yyyy)*
           </StyledlabelAddTrip>
           <StyledInputAddTrip
             id="endDate"
@@ -120,7 +120,7 @@ export default function TripForm() {
 
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="description">
-            Description 150/<span>{Letters}</span> characters left*
+            Description (<span>{letters}</span> characters left)*
           </StyledlabelAddTrip>
           <StyledTextareaAddTrip
             rows="8"

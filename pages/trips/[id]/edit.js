@@ -69,7 +69,7 @@ export default function EditTrip() {
             defaultValue={trip.title}
           ></input>
 
-          <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
+          <label htmlFor="startDate">Start Date (dd/mm/yyyy)*</label>
           <input
             id="startDate"
             name="startDate"
@@ -78,7 +78,7 @@ export default function EditTrip() {
             defaultValue={trip.startDate}
           ></input>
 
-          <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
+          <label htmlFor="endDate">End Date (dd/mm/yyyy)*</label>
           <input
             id="endDate"
             name="endDate"
@@ -118,7 +118,7 @@ export default function EditTrip() {
           ></input>
 
           <label htmlFor="description">
-            Description * 150/<span>{letters}</span> characters left
+            Description (<span>{letters}</span> characters left)*
           </label>
           <textarea
             rows="8"

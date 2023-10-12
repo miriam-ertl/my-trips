@@ -8,7 +8,7 @@ export default function TripList() {
     return <h2>... is loading</h2>;
   }
 
-  const sortedtrips = trips
+  const sortedTrips = trips
     .slice()
     .sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
 
@@ -16,7 +16,7 @@ export default function TripList() {
     <h2>Where are you heading to? Please add a new trip.</h2>
   ) : (
     <StyledList>
-      {sortedtrips.map((trip) => {
+      {sortedTrips.map((trip) => {
         return (
           <Trip
             key={trip._id}
