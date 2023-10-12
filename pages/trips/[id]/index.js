@@ -201,10 +201,10 @@ export default function DetailsPage() {
       </StyledHeaderDetailPage>
       <StyledDetailPageContent>
         <StyledImageTrip
-          src={trip.image}
+          src={trip.image.url}
           width={300}
           height={200}
-          alt="Image of favourite Trip"
+          alt={`Image for trip`}
         />
         <StyledContent>
           <h2> {trip.title} </h2>
