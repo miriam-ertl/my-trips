@@ -19,7 +19,6 @@ import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 import EditIcon from "@/components/EditTripButton/EditIcon.svg";
 import EditTripButton from "@/components/EditTripButton";
-import { StyledAddButton } from "@/components/AddTripButton/AddTripButton.styled";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
