@@ -16,10 +16,7 @@ export default function ConfirmationMessage({ button }) {
 
   return (
     <div>
-      <p>
-        Do you want to cancel adding a new trip? If yes, your input will be
-        cleared.
-      </p>
+      <p>Are you sure?</p>
       <Link href="/">
         <button type="button">Yes</button>
       </Link>
