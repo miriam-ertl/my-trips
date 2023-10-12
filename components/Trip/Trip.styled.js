@@ -40,6 +40,3 @@ export const StyledContent = styled.div`
   margin-right: 1rem;
   text-align: left;
 `;
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-`;

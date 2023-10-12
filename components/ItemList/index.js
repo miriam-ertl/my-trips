@@ -1,5 +1,9 @@
+import CancelIconGrey from "@/components/Icons/CancelIconGrey.svg";
+import OKIconGrey from "@/components/Icons/OKIconGrey.svg";
 import { StyledInputAddTrip } from "../TripForm/TripForm.styled";
+import { StyledList } from "@/components/TripList/TripList.styled";
 import { StyledPackingListForm } from "../PackingListForm/PackingListForm.styled";
+import { WhiteButton } from "../WhiteButton/WhiteButton.styled";
 import { useState } from "react";
 
 export default function ItemList({ items, onCheck, onRemove, onEdit }) {
@@ -22,13 +26,16 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
             autoFocus
           />
 
-          <button type="submit">&#10003;</button>
-          <button type="button" onClick={() => setItemToEdit(null)}>
-            &#10680;
-          </button>
+          <WhiteButton type="submit">
+            <OKIconGrey width={15} height={15} />
+          </WhiteButton>
+
+          <WhiteButton type="button" onClick={() => setItemToEdit(null)}>
+            <CancelIconGrey width={15} height={15} />
+          </WhiteButton>
         </StyledPackingListForm>
       ) : (
-        <ul>
+        <StyledList>
           {items.map((item) => (
             <li key={item._id}>
               <input
@@ -43,13 +50,15 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
               >
                 {item.name}
               </span>
-              <button onClick={() => setItemToEdit(item)}>&#9998;</button>
-              <button type="button" onClick={() => onRemove(item._id)}>
+              <WhiteButton onClick={() => setItemToEdit(item)}>
+                &#9998;
+              </WhiteButton>
+              <WhiteButton type="button" onClick={() => onRemove(item._id)}>
                 &#10060;
-              </button>
+              </WhiteButton>
             </li>
           ))}
-        </ul>
+        </StyledList>
       )}
     </section>
   );

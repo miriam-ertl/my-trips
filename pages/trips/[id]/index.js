@@ -11,7 +11,7 @@ import {
   StyledRightSideDetailPage,
 } from "../../../components/Details/Details.styled";
 
-import BackIcon from "@/components/BackButton/BackIcon.svg";
+import BackIconW from "@/components/Icons/BackIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import EditTripButton from "@/components/EditTripButton";
 import GoToPackingListButton from "@/components/GoToPackingListButton/index";
@@ -187,11 +187,12 @@ export default function DetailsPage() {
         <StyledBackButtonArea>
           <StyledLink href="/" aria-label="Go back to homepage">
             <StyledBackButton>
-              <BackIcon width={15} height={15} />
+              <BackIconW width={15} height={15} />
             </StyledBackButton>
           </StyledLink>
         </StyledBackButtonArea>
         <h1>My Trips</h1>
+
         <StyledRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
 
@@ -204,6 +205,7 @@ export default function DetailsPage() {
           </StyledLink>
         </StyledRightSideDetailPage>
       </StyledHeaderDetailPage>
+
       <StyledDetailPageContent>
         <StyledImageTrip
           src={trip.image}
@@ -228,29 +230,10 @@ export default function DetailsPage() {
             <StyledDateAndInformation></StyledDateAndInformation>
           </StyledDateAndInformation>
           <h3>My plans</h3>
-          <p>
-            {trip.description}
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-            justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-            takimata sanctus est Lorem ipsum dolor sit amet.
-          </p>
+          <p>{trip.description}</p>
         </StyledContent>
       </StyledDetailPageContent>
+
       <StyledPackingListArea>
         <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />

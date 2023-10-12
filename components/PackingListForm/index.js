@@ -7,8 +7,9 @@ import {
   StyledlabelAddTrip,
 } from "../TripForm/TripForm.styled";
 
-import AddIcon from "@/components/PackingListForm/AddIcon.svg";
+import AddIconW from "@/components/Icons/AddIconW.svg";
 import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
+
 export default function PackingListForm({ onHandleAddToPackingList }) {
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,7 +30,7 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
         required
       ></StyledInputAddTrip>
       <StyledAddItemButton type="submit">
-        <AddIcon width={15} height={15} />
+        <AddIconW width={15} height={15} />
         <StyledButtonTypo>ADD</StyledButtonTypo>
       </StyledAddItemButton>
     </StyledPackingListForm>

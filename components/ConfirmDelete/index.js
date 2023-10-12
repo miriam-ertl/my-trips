@@ -1,19 +1,7 @@
+import DeleteIconW from "@/components/Icons/DeleteIconW.svg";
 import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
-import styled from "styled-components";
+import { StyledDeleteButton } from "@/components/ConfirmDelete/ConfirmDelete.styled.js";
 import { useState } from "react";
-
-const StyledDeleteButton = styled.button`
-  width: 5.6875rem;
-  height: 1.3125rem;
-  border-radius: 1.44rem;
-  box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.06) inset,
-    0px 0px 8px 2px rgba(70, 120, 176, 0.35);
-  border: none;
-  background-color: #4678b0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 export default function ConfirmDelete({ handleDeleteTrip }) {
   const [showMessage, setShowMessage] = useState(false);
@@ -21,7 +9,8 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
   if (!showMessage) {
     return (
       <StyledDeleteButton type="button" onClick={() => setShowMessage(true)}>
-        <StyledButtonTypo>DELETE TRIP</StyledButtonTypo>
+        <DeleteIconW width={15} height={15} />
+        <StyledButtonTypo>DELETEB</StyledButtonTypo>
       </StyledDeleteButton>
     );
   }

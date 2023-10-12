@@ -14,11 +14,11 @@ import {
   StyledlabelAddTrip,
 } from "@/components/TripForm/TripForm.styled";
 
-import BackIcon from "@/components/BackButton/BackIcon.svg";
+import BackIconW from "@/components/Icons/BackIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
-import EditIcon from "@/components/EditTripButton/EditIcon.svg";
 import EditTripButton from "@/components/EditTripButton";
+import OKIconGrey from "@/components/Icons/OKIconGrey.svg";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
@@ -76,7 +76,7 @@ export default function EditTrip() {
       <StyledHeadAddTrip>
         <StyledLink href="/">
           <StyledBackButton>
-            <BackIcon width={15} height={15} />
+            <BackIconW width={15} height={15} />
           </StyledBackButton>
         </StyledLink>
 
@@ -187,8 +187,8 @@ export default function EditTrip() {
 
           <StyledButtonPostionAddTrip>
             <button type="submit">
-              <EditIcon width={15} height={15} />
-              <StyledButtonTypo>EDIT TRIP</StyledButtonTypo>
+              <OKIconGrey width={15} height={15} />
+              <StyledButtonTypo>OK</StyledButtonTypo>
             </button>
 
             <ConfirmationMessage button={"Cancel"} />

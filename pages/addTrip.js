@@ -1,7 +1,5 @@
 import BackIcon from "@/components/BackButton/BackIcon.svg";
-import ConfirmationMessage from "@/components/ConfirmationMessage";
 import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
-import { StyledBackLink } from "@/components/Details/Details.styled";
 import { StyledHeadAddTrip } from "@/components/TripForm/TripForm.styled";
 import { StyledLink } from "@/components/BackButton/BackButton.styled";
 import TripForm from "@/components/TripForm";

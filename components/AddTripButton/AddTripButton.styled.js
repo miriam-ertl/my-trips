@@ -12,7 +12,3 @@ export const StyledAddButton = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-export const StyledAddTripLink = styled(Link)`
-  text-decoration: none;
-`;

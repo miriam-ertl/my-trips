@@ -3,7 +3,7 @@ import {
   StyledAddTripLink,
 } from "@/components/AddTripButton/AddTripButton.styled";
 
-import AddIcon from "./AddIcon.svg";
+import AddIconW from "@/components/Icons/AddIconW.svg";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 
 export default function AddTripButton() {
@@ -11,7 +11,7 @@ export default function AddTripButton() {
     <main>
       <StyledAddTripLink href="/addTrip">
         <StyledAddButton>
-          <AddIcon width={15} height={15} />
+          <AddIconW width={15} height={15} />
           <StyledButtonTypo>ADD TRIP</StyledButtonTypo>
         </StyledAddButton>
       </StyledAddTripLink>
