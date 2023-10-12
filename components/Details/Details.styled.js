@@ -54,7 +54,7 @@ export const StyledContent = styled.div`
   justify-content: space-around;
   padding: 1rem;
 `;
-export const StyledPackingList = styled.div`
+export const StyledPackingListArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -63,7 +63,7 @@ export const StyledPackingList = styled.div`
   border-width: 1px;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 3rem;
+  border-radius: 1.5rem;
   padding: 1rem;
 `;
 

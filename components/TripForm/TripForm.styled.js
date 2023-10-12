@@ -21,9 +21,9 @@ export const StyledTextareaAddTrip = styled.textarea`
   border-radius: 1rem;
   margin-top: 0.5rem;
   padding: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  border: solid;
-  border-width: 0.1rem;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const StyledDIVAddTrip = styled.div`
@@ -43,10 +43,10 @@ export const StyledHeadAddTrip = styled.div`
 export const StyledInputAddTrip = styled.input`
   margin-top: 0.5rem;
   padding: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 1rem;
-  border: solid;
-  border-width: 0.1rem;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 export const StyledlabelAddTrip = styled.label`

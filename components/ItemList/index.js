@@ -1,3 +1,5 @@
+import { StyledInputAddTrip } from "../TripForm/TripForm.styled";
+import { StyledPackingListForm } from "../PackingListForm/PackingListForm.styled";
 import { useState } from "react";
 
 export default function ItemList({ items, onCheck, onRemove, onEdit }) {
@@ -12,8 +14,8 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
   return (
     <section>
       {itemToEdit ? (
-        <form onSubmit={onSubmit}>
-          <input
+        <StyledPackingListForm onSubmit={onSubmit}>
+          <StyledInputAddTrip
             name="name"
             defaultValue={itemToEdit.name}
             required
@@ -24,7 +26,7 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
           <button type="button" onClick={() => setItemToEdit(null)}>
             &#10680;
           </button>
-        </form>
+        </StyledPackingListForm>
       ) : (
         <ul>
           {items.map((item) => (

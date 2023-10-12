@@ -7,7 +7,7 @@ import {
   StyledHeaderDetailPage,
   StyledImageTrip,
   StyledLink,
-  StyledPackingList,
+  StyledPackingListArea,
   StyledRightSideDetailPage,
 } from "../../../components/Details/Details.styled";
 
@@ -251,7 +251,7 @@ export default function DetailsPage() {
           </p>
         </StyledContent>
       </StyledDetailPageContent>
-      <StyledPackingList>
+      <StyledPackingListArea>
         <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
@@ -266,7 +266,7 @@ export default function DetailsPage() {
             onRemove={handleDeleteFromPackingList}
           />
         )}
-      </StyledPackingList>
+      </StyledPackingListArea>
     </StyledBody>
   );
 }
