@@ -1,17 +1,22 @@
 import {
+  StyledBackButton,
+  StyledLink,
+} from "@/components/BackButton/BackButton.styled";
+import {
   StyledButtonPostionAddTrip,
   StyledDIVAddTrip,
   StyledFieldsetAddTrip,
   StyledFormAddTrip,
+  StyledHeadAddTrip,
   StyledInputAddTrip,
   StyledPNoteAddTrip,
   StyledTextareaAddTrip,
   StyledlabelAddTrip,
 } from "@/components/TripForm/TripForm.styled";
 
+import BackIcon from "@/components/BackButton/BackIcon.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 
@@ -58,8 +63,16 @@ export default function EditTrip() {
 
   return (
     <main>
-      <Link href="/">&larr;</Link>
-      <h1>My Trips</h1>
+      <StyledHeadAddTrip>
+        <StyledLink href="/">
+          <StyledBackButton>
+            <BackIcon width={15} height={15} />
+          </StyledBackButton>
+        </StyledLink>
+
+        <h1>My Trips</h1>
+      </StyledHeadAddTrip>
+
       <h2>Edit a Trip</h2>
       <StyledFormAddTrip onSubmit={handleEdit} defaultData={trips}>
         <StyledFieldsetAddTrip>

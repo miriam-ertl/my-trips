@@ -4,7 +4,9 @@ export const StyledFormAddTrip = styled.form`
   display: grid;
   border-radius: 3rem;
   border: solid;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem 1rem;

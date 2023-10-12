@@ -3,9 +3,11 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledTrip = styled.div`
-  background-color: #bee5fd;
+  border: solid;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1.5rem;
-  border: none;
   display: flex;  
   align-items: center;
   justify-content: flex-start;

@@ -31,7 +31,10 @@ export const StyledBackButtonArea = styled.div`
 `;
 
 export const StyledDetailPageContent = styled.div`
-  background-color: #bee5fd;
+  border: solid;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -57,6 +60,9 @@ export const StyledPackingList = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   border: solid;
+  border-width: 1px;
+  border-color: #afafaf;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3rem;
   padding: 1rem;
 `;
