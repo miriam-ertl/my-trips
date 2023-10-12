@@ -1,3 +1,14 @@
+import {
+  StyledButtonPostionAddTrip,
+  StyledDIVAddTrip,
+  StyledFieldsetAddTrip,
+  StyledFormAddTrip,
+  StyledInputAddTrip,
+  StyledPNoteAddTrip,
+  StyledTextareaAddTrip,
+  StyledlabelAddTrip,
+} from "@/components/TripForm/TripForm.styled";
+
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 import Link from "next/link";
@@ -50,89 +61,114 @@ export default function EditTrip() {
       <Link href="/">&larr;</Link>
       <h1>My Trips</h1>
       <h2>Edit a Trip</h2>
-      <form onSubmit={handleEdit} defaultData={trips}>
-        <fieldset>
-          <label htmlFor="title">Title (max. 30 characters)*</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trips.title}
-          ></input>
+      <StyledFormAddTrip onSubmit={handleEdit} defaultData={trips}>
+        <StyledFieldsetAddTrip>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="title">
+              Title (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="title"
+              name="title"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trips.title}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="startDate">
+              Starting date (dd/mm/yyyy)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="startDate"
+              name="startDate"
+              type="date"
+              required
+              defaultValue={trips.startDate}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="startDate">Starting date (dd/mm/yyyy)*</label>
-          <input
-            id="startDate"
-            name="startDate"
-            type="date"
-            required
-            defaultValue={trips.startDate}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="endDate">
+              Ending date (dd/mm/yyyy)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="endDate"
+              name="endDate"
+              type="date"
+              required
+              defaultValue={trips.endDate}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="endDate">Ending date (dd/mm/yyyy)*</label>
-          <input
-            id="endDate"
-            name="endDate"
-            type="date"
-            required
-            defaultValue={trips.endDate}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="city">
+              City (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="city"
+              name="city"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trips.city}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="city">City (max. 30 characters)*</label>
-          <input
-            id="city"
-            name="city"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trips.city}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="country">
+              Country (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="country"
+              name="country"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trips.country}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="country">Country (max. 30 characters)*</label>
-          <input
-            id="country"
-            name="country"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trips.country}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="image">
+              Image (URL)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="image"
+              name="image"
+              type="text"
+              placeholder="For example www.my-image.com"
+              required
+              defaultValue={trips.image}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="image">Image (URL)*</label>
-          <input
-            id="image"
-            name="image"
-            type="text"
-            placeholder="For example www.my-image.com"
-            required
-            defaultValue={trips.image}
-          ></input>
-
-          <label htmlFor="description">
-            Description (max. 150 characters)*
-          </label>
-          <textarea
-            rows="8"
-            cols="30"
-            maxLength="150"
-            id="description"
-            name="description"
-            type="text"
-            required
-            placeholder="Enter your description"
-            defaultValue={trips.description}
-          ></textarea>
-          <p>150 characters left</p>
-
-          <button type="submit">Edit trip</button>
-        </fieldset>
-        <p>* required form field</p>
-      </form>
-
-      <ConfirmationMessage button={"Cancel"} />
-      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="description">
+              Description (max. 150 characters)*
+            </StyledlabelAddTrip>
+            <StyledTextareaAddTrip
+              rows="8"
+              cols="30"
+              maxLength="150"
+              id="description"
+              name="description"
+              type="text"
+              required
+              placeholder="Enter your description"
+              defaultValue={trips.description}
+            ></StyledTextareaAddTrip>
+            <p>150 characters left</p>
+          </StyledDIVAddTrip>
+          <StyledButtonPostionAddTrip>
+            <button type="submit">Edit trip</button>
+            <ConfirmationMessage button={"Cancel"} />
+            <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+          </StyledButtonPostionAddTrip>
+        </StyledFieldsetAddTrip>
+        <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
+      </StyledFormAddTrip>
     </main>
   );
 }
