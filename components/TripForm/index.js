@@ -68,10 +68,6 @@ export default function TripForm() {
     setLetters(150 - parseInt(event.target.value.length, 10));
   }
 
-  function handleCountLetters(event) {
-    setLetters(150 - parseInt(event.target.value.length, 10));
-  }
-
   return (
     <StyledFormAddTrip onSubmit={handleSubmit}>
       <StyledFieldsetAddTrip>
