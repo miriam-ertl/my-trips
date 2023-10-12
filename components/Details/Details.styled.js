@@ -30,25 +30,6 @@ export const StyledBackButtonArea = styled.div`
   justify-content: center;
 `;
 
-export const StyledBackLink = styled(Link)`
-  border: solid;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
-  background-color: white;
-`;
-
-export const StyledgoToPackingListLink = styled(Link)`
-  border: solid;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
-  background-color: white;
-  font-size: 0.8rem;
-`;
-
 export const StyledDetailPageContent = styled.div`
   background-color: #bee5fd;
   border-radius: 1.5rem;
@@ -59,7 +40,10 @@ export const StyledDetailPageContent = styled.div`
 `;
 export const StyledImageTrip = styled(Image)`
   border-radius: 1.5rem;
-  margin: 1rem;
+  margin: 1.38rem 2.06rem 0rem 2.06rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 14.25rem;
+  height: 8.6875rem;
 `;
 export const StyledContent = styled.div`
   display: flex;
