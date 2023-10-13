@@ -4,7 +4,7 @@ export const StyledFormAddTrip = styled.form`
   display: grid;
   border-radius: 3rem;
   border: solid;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 600px;
@@ -21,7 +21,7 @@ export const StyledTextareaAddTrip = styled.textarea`
   border-radius: 1rem;
   margin-top: 0.5rem;
   padding: 0.5rem;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
@@ -44,7 +44,7 @@ export const StyledInputAddTrip = styled.input`
   margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;

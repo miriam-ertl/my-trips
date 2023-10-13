@@ -10,6 +10,7 @@ import {
 } from "./TripForm.styled";
 
 import ConfirmationMessage from "../ConfirmationMessage";
+import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -136,7 +137,9 @@ export default function TripForm() {
         </StyledDIVAddTrip>
         <StyledButtonPostionAddTrip>
           <button type="submit">+ Add Trip</button>
-          <ConfirmationMessage button={"Cancel"} />
+          <ConfirmationMessage>
+            <StyledButtonTypo>CANCEL</StyledButtonTypo>
+          </ConfirmationMessage>
         </StyledButtonPostionAddTrip>
       </StyledFieldsetAddTrip>
       <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>

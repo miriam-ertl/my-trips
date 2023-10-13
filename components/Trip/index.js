@@ -3,10 +3,11 @@ import {
   StyledDestination,
   StyledH2,
   StyledImage,
-  StyledLink,
   StyledPDate,
   StyledTrip,
 } from "./Trip.styled";
+
+import { StyledLink } from "@/components/Details/Details.styled";
 import { formatDistanceToNowStrict } from "date-fns";
 
 export default function Trip({

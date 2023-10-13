@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+//weiß DIV
 export const StyledBackButton = styled.div`
   width: 1.6875rem;
   height: 1.625rem;
@@ -10,4 +10,7 @@ export const StyledBackButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-color: #afafaf;
+  border: solid;
+  border-width: 0.01rem;
 `;

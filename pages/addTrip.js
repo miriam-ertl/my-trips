@@ -1,7 +1,7 @@
-import BackIcon from "@/components/BackButton/BackIcon.svg";
+import BackIconW from "@/components/Icons/BackIconW.svg";
 import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
 import { StyledHeadAddTrip } from "@/components/TripForm/TripForm.styled";
-import { StyledLink } from "@/components/BackButton/BackButton.styled";
+import { StyledLink } from "@/components/Details/Details.styled.js";
 import TripForm from "@/components/TripForm";
 
 export default function AddTrip() {
@@ -10,7 +10,7 @@ export default function AddTrip() {
       <StyledHeadAddTrip>
         <StyledLink href="/" aria-label="Go back to homepage">
           <StyledBackButton>
-            <BackIcon width={15} height={15} />
+            <BackIconW width={15} height={15} />
           </StyledBackButton>
         </StyledLink>
         <h1>My Trips</h1>

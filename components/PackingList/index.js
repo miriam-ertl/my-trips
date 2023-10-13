@@ -1,4 +1,5 @@
-import ItemList from "../ItemList";
+import ItemList from "@/components/ItemList/index";
+//
 
 export default function PackingList({
   packingList,
@@ -20,13 +21,13 @@ export default function PackingList({
             onRemove={onRemove}
           />
           {checkedItems.length === packingList.length ? (
-            <p>Congratulations, you have checked everything!</p>
+            <h3>Congratulations, you have checked everything!</h3>
           ) : null}
         </section>
       ) : null}
       {checkedItems.length ? (
         <section>
-          <h2>Done:</h2>
+          <h3>Done:</h3>
           <ItemList
             items={checkedItems}
             onCheck={onCheck}

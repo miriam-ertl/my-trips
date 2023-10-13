@@ -9,7 +9,7 @@ import {
   StyledLink,
   StyledPackingListArea,
   StyledRightSideDetailPage,
-} from "../../../components/Details/Details.styled";
+} from "@/components/Details/Details.styled";
 
 import BackIconW from "@/components/Icons/BackIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";

@@ -1,4 +1,11 @@
+import {
+  ButtonareaPackingList,
+  PackingListItem,
+} from "@/components/PackingList/PackingList.styled";
+
 import CancelIconGrey from "@/components/Icons/CancelIconGrey.svg";
+import DeleteIconGrey from "@/components/Icons/DeleteIconGrey.svg";
+import EditIconGrey from "@/components/Icons/EditIconGrey.svg";
 import OKIconGrey from "@/components/Icons/OKIconGrey.svg";
 import { StyledInputAddTrip } from "../TripForm/TripForm.styled";
 import { StyledList } from "@/components/TripList/TripList.styled";
@@ -16,7 +23,7 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
   }
 
   return (
-    <section>
+    <>
       {itemToEdit ? (
         <StyledPackingListForm onSubmit={onSubmit}>
           <StyledInputAddTrip
@@ -26,18 +33,18 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
             autoFocus
           />
 
-          <button type="submit">
+          <WhiteButton type="submit">
             <OKIconGrey width={15} height={15} />
-          </button>
+          </WhiteButton>
 
-          <button type="button" onClick={() => setItemToEdit(null)}>
+          <WhiteButton type="button" onClick={() => setItemToEdit(null)}>
             <CancelIconGrey width={15} height={15} />
-          </button>
+          </WhiteButton>
         </StyledPackingListForm>
       ) : (
         <StyledList>
           {items.map((item) => (
-            <li key={item._id}>
+            <PackingListItem key={item._id}>
               <input
                 type="checkbox"
                 defaultChecked={item.checked}
@@ -50,16 +57,18 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
               >
                 {item.name}
               </span>
-              <WhiteButton onClick={() => setItemToEdit(item)}>
-                &#9998;
-              </WhiteButton>
-              <WhiteButton type="button" onClick={() => onRemove(item._id)}>
-                &#10060;
-              </WhiteButton>
-            </li>
+              <ButtonareaPackingList>
+                <WhiteButton onClick={() => setItemToEdit(item)}>
+                  <EditIconGrey width={15} height={15} />
+                </WhiteButton>
+                <WhiteButton type="button" onClick={() => onRemove(item._id)}>
+                  <DeleteIconGrey width={15} height={15} />
+                </WhiteButton>
+              </ButtonareaPackingList>
+            </PackingListItem>
           ))}
         </StyledList>
       )}
-    </section>
+    </>
   );
 }

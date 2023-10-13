@@ -1,8 +1,4 @@
 import {
-  StyledBackButton,
-  StyledLink,
-} from "@/components/BackButton/BackButton.styled";
-import {
   StyledButtonPostionAddTrip,
   StyledDIVAddTrip,
   StyledFieldsetAddTrip,
@@ -18,8 +14,11 @@ import BackIconW from "@/components/Icons/BackIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 import EditTripButton from "@/components/EditTripButton";
-import OKIconGrey from "@/components/Icons/OKIconGrey.svg";
+import OKIconW from "@/components/Icons/OKIconW.svg";
+import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
+import { StyledDeleteButton } from "@/components/ConfirmDelete/ConfirmDelete.styled";
+import { StyledLink } from "@/components/Details/Details.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useState } from "react";
@@ -186,10 +185,10 @@ export default function EditTrip() {
           </StyledDIVAddTrip>
 
           <StyledButtonPostionAddTrip>
-            <button type="submit">
-              <OKIconGrey width={15} height={15} />
+            <StyledDeleteButton type="submit">
+              <OKIconW width={15} height={15} />
               <StyledButtonTypo>OK</StyledButtonTypo>
-            </button>
+            </StyledDeleteButton>
 
             <ConfirmationMessage button={"Cancel"} />
 

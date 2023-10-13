@@ -32,7 +32,7 @@ export const StyledBackButtonArea = styled.div`
 
 export const StyledDetailPageContent = styled.div`
   border: solid;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1.5rem;
@@ -53,18 +53,20 @@ export const StyledContent = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 1rem;
+  width: 22rem;
 `;
 export const StyledPackingListArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: left;
   border: solid;
-  border-width: 1px;
+  border-width: 0.01rem;
   border-color: #afafaf;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1.5rem;
   padding: 1rem;
+  width: 22rem;
 `;
 
 export const StyledDateAndInformation = styled.div`
