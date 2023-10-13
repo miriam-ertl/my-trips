@@ -33,7 +33,7 @@ export const StyledImage = styled(Image)`
   border-radius: 1rem;
   margin: 0rem 0.7rem 0rem 0.7rem;
 `;
-export const StyledContent = styled.div`
+export const StyledDIVContent = styled.div`
   display: block;
   margin-left: 0.2rem;
   margin-right: 1rem;

@@ -1,5 +1,5 @@
 import {
-  StyledContent,
+  StyledDIVContent,
   StyledDestination,
   StyledH2,
   StyledImage,
@@ -49,7 +49,7 @@ export default function Trip({
           height={70}
           alt={`Image for ${title}`}
         />
-        <StyledContent>
+        <StyledDIVContent>
           <StyledH2>{title}</StyledH2>
           <StyledPDate>
             {startDate} - {endDate}
@@ -58,7 +58,7 @@ export default function Trip({
             {city}, {country}
           </StyledDestination>
           {displayCountdown()}
-        </StyledContent>
+        </StyledDIVContent>
       </StyledTrip>
     </StyledLink>
   );

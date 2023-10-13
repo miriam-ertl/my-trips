@@ -1,6 +1,6 @@
 import {
   StyledBody,
-  StyledContent,
+  StyledDIVContent,
   StyledDIVWhiteQuadArea,
   StyledDateAndInformation,
   StyledDetailPageContent,
@@ -213,7 +213,7 @@ export default function DetailsPage() {
           height={200}
           alt={`Image for trip`}
         />
-        <StyledContent>
+        <StyledDIVContent>
           <h2> {trip.title} </h2>
           <StyledDateAndInformation>
             {trip.city}, {trip.country}
@@ -231,7 +231,7 @@ export default function DetailsPage() {
           </StyledDateAndInformation>
           <h3>My plans</h3>
           <p>{trip.description}</p>
-        </StyledContent>
+        </StyledDIVContent>
       </StyledDetailPageContent>
 
       <StyledPackingListArea>

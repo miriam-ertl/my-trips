@@ -21,7 +21,6 @@ export const StyledRightSideDetailPage = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  flex-basis: 2rem;
 `;
 
 export const StyledDIVWhiteQuadArea = styled.div`
@@ -48,7 +47,7 @@ export const StyledImageTrip = styled(Image)`
   width: 14.25rem;
   height: 8.6875rem;
 `;
-export const StyledContent = styled.div`
+export const StyledDIVContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
