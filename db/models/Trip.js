@@ -24,7 +24,11 @@ const tripSchema = new Schema(
       required: true,
     },
     image: {
-      type: String,
+      type: new Schema({
+        width: Number,
+        height: Number,
+        url: String,
+      }),
       required: true,
     },
     description: {
