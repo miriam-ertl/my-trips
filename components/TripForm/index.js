@@ -9,7 +9,10 @@ import {
   StyledlabelAddTrip,
 } from "./TripForm.styled";
 
+import AddIconW from "@/components/Icons/AddIconW.svg";
+import CancelIconW from "@/components/Icons/CancelIconW.svg";
 import ConfirmationMessage from "../ConfirmationMessage";
+import { StyledButtonBlue } from "../ConfirmDelete/ConfirmDelete.styled";
 import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -136,8 +139,13 @@ export default function TripForm() {
           ></StyledTextareaAddTrip>
         </StyledDIVAddTrip>
         <StyledButtonPostionAddTrip>
-          <button type="submit">+ Add Trip</button>
+          <StyledButtonBlue type="submit">
+            <AddIconW width={15} height={15} />
+            <StyledButtonTypo>ADD TRIP</StyledButtonTypo>
+          </StyledButtonBlue>
+
           <ConfirmationMessage>
+            <CancelIconW width={12} height={12} />
             <StyledButtonTypo>CANCEL</StyledButtonTypo>
           </ConfirmationMessage>
         </StyledButtonPostionAddTrip>

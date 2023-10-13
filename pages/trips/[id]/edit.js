@@ -11,13 +11,14 @@ import {
 } from "@/components/TripForm/TripForm.styled";
 
 import BackIconW from "@/components/Icons/BackIconW.svg";
+import CancelIconW from "@/components/Icons/CancelIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
 import EditTripButton from "@/components/EditTripButton";
 import OKIconW from "@/components/Icons/OKIconW.svg";
-import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
+import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
 import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
-import { StyledDeleteButton } from "@/components/ConfirmDelete/ConfirmDelete.styled";
+import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
 import { StyledLink } from "@/components/Details/Details.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
@@ -74,9 +75,9 @@ export default function EditTrip() {
     <main>
       <StyledHeadAddTrip>
         <StyledLink href="/">
-          <StyledBackButton>
+          <StyledDIVWhiteQuad>
             <BackIconW width={15} height={15} />
-          </StyledBackButton>
+          </StyledDIVWhiteQuad>
         </StyledLink>
 
         <h1>My Trips</h1>
@@ -185,13 +186,15 @@ export default function EditTrip() {
           </StyledDIVAddTrip>
 
           <StyledButtonPostionAddTrip>
-            <StyledDeleteButton type="submit">
+            <StyledButtonBlue type="submit">
               <OKIconW width={15} height={15} />
               <StyledButtonTypo>OK</StyledButtonTypo>
-            </StyledDeleteButton>
+            </StyledButtonBlue>
 
-            <ConfirmationMessage button={"Cancel"} />
-
+            <ConfirmationMessage>
+              <CancelIconW width={12} height={12} />
+              <StyledButtonTypo>CANCEL</StyledButtonTypo>
+            </ConfirmationMessage>
             <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
           </StyledButtonPostionAddTrip>
         </StyledFieldsetAddTrip>

@@ -1,5 +1,5 @@
+import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
 import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
-import { StyledDeleteButton } from "@/components/ConfirmDelete/ConfirmDelete.styled";
 import { StyledLink } from "../Details/Details.styled";
 import { useState } from "react";
 
@@ -8,11 +8,9 @@ export default function ConfirmationMessage({ children }) {
 
   if (!showMessage) {
     return (
-      <div>
-        <StyledDeleteButton type="button" onClick={() => setShowMessage(true)}>
-          {children}
-        </StyledDeleteButton>
-      </div>
+      <StyledButtonBlue type="button" onClick={() => setShowMessage(true)}>
+        {children}
+      </StyledButtonBlue>
     );
   }
 
@@ -20,11 +18,17 @@ export default function ConfirmationMessage({ children }) {
     <div>
       <p>Are you sure?</p>
       <StyledLink href="/">
-        <StyledDeleteButton type="button">Yes</StyledDeleteButton>
+        <div>
+          <StyledButtonBlue type="button">
+            <StyledButtonTypo>YES</StyledButtonTypo>
+          </StyledButtonBlue>
+        </div>
       </StyledLink>
-      <StyledDeleteButton type="button" onClick={() => setShowMessage(false)}>
-        No
-      </StyledDeleteButton>
+      <div>
+        <StyledButtonBlue type="button" onClick={() => setShowMessage(false)}>
+          <StyledButtonTypo>NO</StyledButtonTypo>
+        </StyledButtonBlue>
+      </div>
     </div>
   );
 }

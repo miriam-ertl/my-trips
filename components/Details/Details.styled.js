@@ -24,7 +24,7 @@ export const StyledRightSideDetailPage = styled.div`
   flex-basis: 2rem;
 `;
 
-export const StyledBackButtonArea = styled.div`
+export const StyledDIVWhiteQuadArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

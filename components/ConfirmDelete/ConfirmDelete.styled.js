@@ -1,6 +1,6 @@
 import styled from "styled-components";
 //BLLAUUUER BUTTON////
-export const StyledDeleteButton = styled.button`
+export const StyledButtonBlue = styled.button`
   width: 5.6875rem;
   height: 1.3125rem;
   border-radius: 1.44rem;

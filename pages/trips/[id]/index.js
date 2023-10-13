@@ -1,7 +1,7 @@
 import {
-  StyledBackButtonArea,
   StyledBody,
   StyledContent,
+  StyledDIVWhiteQuadArea,
   StyledDateAndInformation,
   StyledDetailPageContent,
   StyledHeaderDetailPage,
@@ -17,7 +17,7 @@ import EditTripButton from "@/components/EditTripButton";
 import GoToPackingListButton from "@/components/GoToPackingListButton/index";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
-import { StyledBackButton } from "@/components/BackButton/BackButton.styled";
+import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
 import { formatDistanceStrict } from "date-fns";
 import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
@@ -184,13 +184,13 @@ export default function DetailsPage() {
   return (
     <StyledBody>
       <StyledHeaderDetailPage>
-        <StyledBackButtonArea>
+        <StyledDIVWhiteQuadArea>
           <StyledLink href="/" aria-label="Go back to homepage">
-            <StyledBackButton>
+            <StyledDIVWhiteQuad>
               <BackIconW width={15} height={15} />
-            </StyledBackButton>
+            </StyledDIVWhiteQuad>
           </StyledLink>
-        </StyledBackButtonArea>
+        </StyledDIVWhiteQuadArea>
         <h1>My Trips</h1>
 
         <StyledRightSideDetailPage>

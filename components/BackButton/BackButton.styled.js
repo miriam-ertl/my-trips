@@ -1,6 +1,6 @@
 import styled from "styled-components";
 //weiß DIV
-export const StyledBackButton = styled.div`
+export const StyledDIVWhiteQuad = styled.div`
   width: 1.6875rem;
   height: 1.625rem;
   background-color: #ffffff;
