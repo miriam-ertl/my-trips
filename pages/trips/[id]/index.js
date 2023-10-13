@@ -1,14 +1,14 @@
 import {
-  StyledBody,
+  StyledDIVBody,
   StyledDIVContent,
+  StyledDIVDateAndInformation,
+  StyledDIVDetailPageContent,
+  StyledDIVHeaderDetailPage,
+  StyledDIVPackingListArea,
+  StyledDIVRightSideDetailPage,
   StyledDIVWhiteQuadArea,
-  StyledDateAndInformation,
-  StyledDetailPageContent,
-  StyledHeaderDetailPage,
   StyledImageTrip,
   StyledLink,
-  StyledPackingListArea,
-  StyledRightSideDetailPage,
 } from "@/components/Details/Details.styled";
 
 import BackIconW from "@/components/Icons/BackIconW.svg";
@@ -182,8 +182,8 @@ export default function DetailsPage() {
     }
   }
   return (
-    <StyledBody>
-      <StyledHeaderDetailPage>
+    <StyledDIVBody>
+      <StyledDIVHeaderDetailPage>
         <StyledDIVWhiteQuadArea>
           <StyledLink href="/" aria-label="Go back to homepage">
             <StyledDIVWhiteQuad>
@@ -193,7 +193,7 @@ export default function DetailsPage() {
         </StyledDIVWhiteQuadArea>
         <h1>My Trips</h1>
 
-        <StyledRightSideDetailPage>
+        <StyledDIVRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
 
           <StyledLink href={`/trips/${id}/edit`}>
@@ -203,10 +203,10 @@ export default function DetailsPage() {
           <StyledLink href="#packingList">
             <GoToPackingListButton />
           </StyledLink>
-        </StyledRightSideDetailPage>
-      </StyledHeaderDetailPage>
+        </StyledDIVRightSideDetailPage>
+      </StyledDIVHeaderDetailPage>
 
-      <StyledDetailPageContent>
+      <StyledDIVDetailPageContent>
         <StyledImageTrip
           src={trip.image?.url}
           width={300}
@@ -215,26 +215,26 @@ export default function DetailsPage() {
         />
         <StyledDIVContent>
           <h2> {trip.title} </h2>
-          <StyledDateAndInformation>
+          <StyledDIVDateAndInformation>
             {trip.city}, {trip.country}
-            <StyledDateAndInformation>
+            <StyledDIVDateAndInformation>
               Start: {trip.startDate}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation>
               End: {trip.endDate}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation>
               Duration: {oneDayTrip()}
               {displayCountdown()}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation></StyledDateAndInformation>
-          </StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation></StyledDIVDateAndInformation>
+          </StyledDIVDateAndInformation>
           <h3>My plans</h3>
           <p>{trip.description}</p>
         </StyledDIVContent>
-      </StyledDetailPageContent>
+      </StyledDIVDetailPageContent>
 
-      <StyledPackingListArea>
+      <StyledDIVPackingListArea>
         <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
@@ -249,7 +249,7 @@ export default function DetailsPage() {
             onRemove={handleDeleteFromPackingList}
           />
         )}
-      </StyledPackingListArea>
-    </StyledBody>
+      </StyledDIVPackingListArea>
+    </StyledDIVBody>
   );
 }

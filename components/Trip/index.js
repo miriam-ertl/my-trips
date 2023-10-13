@@ -1,10 +1,10 @@
 import {
   StyledDIVContent,
-  StyledDestination,
+  StyledDIVTrip,
   StyledH2,
   StyledImage,
   StyledPDate,
-  StyledTrip,
+  StyledPDestination,
 } from "./Trip.styled";
 
 import { StyledLink } from "@/components/Details/Details.styled";
@@ -42,7 +42,7 @@ export default function Trip({
   }
   return (
     <StyledLink href={`/trips/${id}`}>
-      <StyledTrip>
+      <StyledDIVTrip>
         <StyledImage
           src={image?.url}
           width={70}
@@ -54,12 +54,12 @@ export default function Trip({
           <StyledPDate>
             {startDate} - {endDate}
           </StyledPDate>
-          <StyledDestination>
+          <StyledPDestination>
             {city}, {country}
-          </StyledDestination>
+          </StyledPDestination>
           {displayCountdown()}
         </StyledDIVContent>
-      </StyledTrip>
+      </StyledDIVTrip>
     </StyledLink>
   );
 }

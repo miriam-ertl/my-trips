@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledPackingListForm = styled.form`
+export const StyledFormPackingList = styled.form`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,7 +9,7 @@ export const StyledPackingListForm = styled.form`
   padding: 5px;
   align-items: baseline;
 `;
-export const StyledAddItemButton = styled.button`
+export const StyledButtonBlueAddItem = styled.button`
   width: 3.25rem;
   height: 1.5rem;
   border-radius: 1.1875rem;

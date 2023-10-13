@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-export const StyledTrip = styled.div`
+export const StyledDIVTrip = styled.div`
   border: solid;
   border-width: 1px;
   border-color: #afafaf;
@@ -23,7 +23,7 @@ export const StyledPDate = styled.p`
   margin-bottom: 0.3rem;
   margin-top: 0.3rem;
 `;
-export const StyledDestination = styled.p`
+export const StyledPDestination = styled.p`
   font-size: 0.9rem;
   margin: 0rem 0rem 1rem 0rem;
 `;

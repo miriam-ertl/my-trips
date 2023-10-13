@@ -1,4 +1,4 @@
-import { StyledList } from "./TripList.styled";
+import { StyledUList } from "./TripList.styled";
 import Trip from "../Trip";
 import useSWR from "swr";
 
@@ -15,7 +15,7 @@ export default function TripList() {
   return trips.length === 0 ? (
     <h2>Where are you heading to? Please add a new trip.</h2>
   ) : (
-    <StyledList>
+    <StyledUList>
       {sortedTrips.map((trip) => {
         return (
           <Trip
@@ -30,6 +30,6 @@ export default function TripList() {
           />
         );
       })}
-    </StyledList>
+    </StyledUList>
   );
 }

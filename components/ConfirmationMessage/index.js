@@ -1,6 +1,6 @@
 import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
-import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
 import { StyledLink } from "../Details/Details.styled";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
 import { useState } from "react";
 
 export default function ConfirmationMessage({ children }) {
@@ -20,13 +20,13 @@ export default function ConfirmationMessage({ children }) {
       <StyledLink href="/">
         <div>
           <StyledButtonBlue type="button">
-            <StyledButtonTypo>YES</StyledButtonTypo>
+            <StyledPButtonTypo>YES</StyledPButtonTypo>
           </StyledButtonBlue>
         </div>
       </StyledLink>
       <div>
         <StyledButtonBlue type="button" onClick={() => setShowMessage(false)}>
-          <StyledButtonTypo>NO</StyledButtonTypo>
+          <StyledPButtonTypo>NO</StyledPButtonTypo>
         </StyledButtonBlue>
       </div>
     </div>

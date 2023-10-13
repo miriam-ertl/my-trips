@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButtonTypo = styled.p`
+export const StyledPButtonTypo = styled.p`
   font-size: 0.625rem;
   font-weight: 400;
   color: #ffffff;

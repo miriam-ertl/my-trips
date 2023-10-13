@@ -1,6 +1,6 @@
 import styled from "styled-components";
-//blau DIV
-export const StyledButtonDIV = styled.div`
+
+export const StyledDIVBoxBlue = styled.div`
   border-radius: 1.44rem;
   box-shadow: 0px 0px 7px 4px rgba(0, 0, 0, 0.06) inset,
     0px 0px 8px 2px rgba(70, 120, 176, 0.35);

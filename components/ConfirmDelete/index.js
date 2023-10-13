@@ -1,6 +1,6 @@
 import DeleteIconW from "@/components/Icons/DeleteIconW.svg";
 import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled.js";
-import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
 import { useState } from "react";
 
 export default function ConfirmDelete({ handleDeleteTrip }) {
@@ -10,7 +10,7 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
     return (
       <StyledButtonBlue type="button" onClick={() => setShowMessage(true)}>
         <DeleteIconW width={15} height={15} />
-        <StyledButtonTypo>DELETE</StyledButtonTypo>
+        <StyledPButtonTypo>DELETE</StyledPButtonTypo>
       </StyledButtonBlue>
     );
   }
@@ -18,10 +18,10 @@ export default function ConfirmDelete({ handleDeleteTrip }) {
     <div>
       <p>Are you sure?</p>
       <StyledButtonBlue type="button" onClick={handleDeleteTrip}>
-        <StyledButtonTypo>YES</StyledButtonTypo>
+        <StyledPButtonTypo>YES</StyledPButtonTypo>
       </StyledButtonBlue>
       <StyledButtonBlue type="button" onClick={() => setShowMessage(false)}>
-        <StyledButtonTypo>NO</StyledButtonTypo>
+        <StyledPButtonTypo>NO</StyledPButtonTypo>
       </StyledButtonBlue>
     </div>
   );

@@ -1,7 +1,7 @@
 import AddIconW from "@/components/Icons/AddIconW.svg";
-import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { StyledDIVLinkBlue } from "@/components/AddTripButton/AddTripButton.styled";
 import { StyledLink } from "../Details/Details.styled";
+import { StyledPButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 
 export default function AddTripButton() {
   return (
@@ -9,7 +9,7 @@ export default function AddTripButton() {
       <StyledLink href="/addTrip">
         <StyledDIVLinkBlue>
           <AddIconW width={15} height={15} />
-          <StyledButtonTypo>ADD TRIP</StyledButtonTypo>
+          <StyledPButtonTypo>ADD TRIP</StyledPButtonTypo>
         </StyledDIVLinkBlue>
       </StyledLink>
     </main>

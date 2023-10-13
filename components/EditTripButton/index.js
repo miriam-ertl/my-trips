@@ -1,12 +1,12 @@
 import EditIconW from "@/components/Icons/EditIconW.svg";
-import { StyledButtonDIV } from "./EditTripButton.styled";
-import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
+import { StyledDIVBoxBlue } from "./EditTripButton.styled";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
 
 export default function EditTripButton() {
   return (
-    <StyledButtonDIV>
+    <StyledDIVBoxBlue>
       <EditIconW width={15} height={15} />
-      <StyledButtonTypo>EDIT TRIP</StyledButtonTypo>
-    </StyledButtonDIV>
+      <StyledPButtonTypo>EDIT TRIP</StyledPButtonTypo>
+    </StyledDIVBoxBlue>
   );
 }

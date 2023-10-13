@@ -8,7 +8,7 @@ export const PackingListItem = styled.li`
   justify-content: space-between;
 `;
 
-export const ButtonareaPackingList = styled.div`
+export const StyledDIVButtonareaPackingList = styled.div`
   display: flex;
   flex-direction: row;
   align-content: space-around;

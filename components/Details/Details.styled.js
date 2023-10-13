@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 
-export const StyledBody = styled.div`
+export const StyledDIVBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `;
 
-export const StyledHeaderDetailPage = styled.div`
+export const StyledDIVHeaderDetailPage = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -16,7 +16,7 @@ export const StyledHeaderDetailPage = styled.div`
   padding: 0.5rem;
 `;
 
-export const StyledRightSideDetailPage = styled.div`
+export const StyledDIVRightSideDetailPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -29,7 +29,7 @@ export const StyledDIVWhiteQuadArea = styled.div`
   justify-content: center;
 `;
 
-export const StyledDetailPageContent = styled.div`
+export const StyledDIVDetailPageContent = styled.div`
   border: solid;
   border-width: 0.01rem;
   border-color: #afafaf;
@@ -54,7 +54,7 @@ export const StyledDIVContent = styled.div`
   padding: 1rem;
   width: 22rem;
 `;
-export const StyledPackingListArea = styled.div`
+export const StyledDIVPackingListArea = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -68,7 +68,7 @@ export const StyledPackingListArea = styled.div`
   width: 22rem;
 `;
 
-export const StyledDateAndInformation = styled.div`
+export const StyledDIVDateAndInformation = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;

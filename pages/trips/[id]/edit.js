@@ -1,12 +1,12 @@
 import {
-  StyledButtonPostionAddTrip,
   StyledDIVAddTrip,
-  StyledFieldsetAddTrip,
+  StyledDIVButtonPositionAddTrip,
+  StyledDIVHeadAddTrip,
+  StyledFieldset,
   StyledFormAddTrip,
-  StyledHeadAddTrip,
   StyledInputAddTrip,
   StyledPNoteAddTrip,
-  StyledTextareaAddTrip,
+  StyledTextarea,
   StyledlabelAddTrip,
 } from "@/components/TripForm/TripForm.styled";
 
@@ -17,9 +17,9 @@ import ConfirmationMessage from "@/components/ConfirmationMessage";
 import EditTripButton from "@/components/EditTripButton";
 import OKIconW from "@/components/Icons/OKIconW.svg";
 import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
-import { StyledButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
 import { StyledLink } from "@/components/Details/Details.styled";
+import { StyledPButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useState } from "react";
@@ -96,7 +96,7 @@ export default function EditTrip() {
 
   return (
     <main>
-      <StyledHeadAddTrip>
+      <StyledDIVHeadAddTrip>
         <StyledLink href="/">
           <StyledDIVWhiteQuad>
             <BackIconW width={15} height={15} />
@@ -104,11 +104,11 @@ export default function EditTrip() {
         </StyledLink>
 
         <h1>My Trips</h1>
-      </StyledHeadAddTrip>
+      </StyledDIVHeadAddTrip>
 
       <h2>Edit a Trip</h2>
       <StyledFormAddTrip onSubmit={handleEdit}>
-        <StyledFieldsetAddTrip>
+        <StyledFieldset>
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="title">
               Title (max. 30 characters)*
@@ -196,7 +196,7 @@ export default function EditTrip() {
             <StyledlabelAddTrip htmlFor="description">
               Description (<span>{letters}</span> characters left)*
             </StyledlabelAddTrip>
-            <StyledTextareaAddTrip
+            <StyledTextarea
               rows="8"
               cols="30"
               maxLength="150"
@@ -207,21 +207,21 @@ export default function EditTrip() {
               placeholder="Enter your description"
               defaultValue={trip.description}
               onChange={handleCountLetters}
-            ></StyledTextareaAddTrip>
+            ></StyledTextarea>
           </StyledDIVAddTrip>
-          <StyledButtonPostionAddTrip>
+          <StyledDIVButtonPositionAddTrip>
             <StyledButtonBlue type="submit">
               <OKIconW width={15} height={15} />
-              <StyledButtonTypo>OK</StyledButtonTypo>
+              <StyledPButtonTypo>OK</StyledPButtonTypo>
             </StyledButtonBlue>
 
             <ConfirmationMessage>
               <CancelIconW width={12} height={12} />
-              <StyledButtonTypo>CANCEL</StyledButtonTypo>
+              <StyledPButtonTypo>CANCEL</StyledPButtonTypo>
             </ConfirmationMessage>
             <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
-          </StyledButtonPostionAddTrip>
-        </StyledFieldsetAddTrip>
+          </StyledDIVButtonPositionAddTrip>
+        </StyledFieldset>
         <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
       </StyledFormAddTrip>
     </main>

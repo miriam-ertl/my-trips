@@ -1,6 +1,6 @@
 import {
-  StyledHeaderOverview,
-  StyledHeaderRightSideOverview,
+  StyledDIVHeaderOverview,
+  StyledDIVHeaderRightSideOverview,
 } from "@/components/TripList/TripList.styled";
 
 import AddTripButton from "@/components/AddTripButton";
@@ -9,12 +9,12 @@ import TripList from "@/components/TripList";
 export default function HomePage() {
   return (
     <main>
-      <StyledHeaderOverview>
+      <StyledDIVHeaderOverview>
         <h1>My Trips</h1>
-        <StyledHeaderRightSideOverview>
+        <StyledDIVHeaderRightSideOverview>
           <AddTripButton />
-        </StyledHeaderRightSideOverview>
-      </StyledHeaderOverview>
+        </StyledDIVHeaderRightSideOverview>
+      </StyledDIVHeaderOverview>
       <TripList />
     </main>
   );

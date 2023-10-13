@@ -1,6 +1,6 @@
 import {
-  StyledAddItemButton,
-  StyledPackingListForm,
+  StyledButtonBlueAddItem,
+  StyledFormPackingList,
 } from "./PackingListForm.styled";
 import {
   StyledInputAddTrip,
@@ -8,7 +8,7 @@ import {
 } from "../TripForm/TripForm.styled";
 
 import AddIconW from "@/components/Icons/AddIconW.svg";
-import { StyledButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
 
 export default function PackingListForm({ onHandleAddToPackingList }) {
   async function handleSubmit(event) {
@@ -20,7 +20,7 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
   }
 
   return (
-    <StyledPackingListForm onSubmit={handleSubmit}>
+    <StyledFormPackingList onSubmit={handleSubmit}>
       <StyledlabelAddTrip htmlFor="name"></StyledlabelAddTrip>
       <StyledInputAddTrip
         id="name"
@@ -29,10 +29,10 @@ export default function PackingListForm({ onHandleAddToPackingList }) {
         maxLength="30"
         required
       ></StyledInputAddTrip>
-      <StyledAddItemButton type="submit">
+      <StyledButtonBlueAddItem type="submit">
         <AddIconW width={15} height={15} />
-        <StyledButtonTypo>ADD</StyledButtonTypo>
-      </StyledAddItemButton>
-    </StyledPackingListForm>
+        <StyledPButtonTypo>ADD</StyledPButtonTypo>
+      </StyledButtonBlueAddItem>
+    </StyledFormPackingList>
   );
 }

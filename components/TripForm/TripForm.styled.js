@@ -13,11 +13,11 @@ export const StyledFormAddTrip = styled.form`
   padding-bottom: 0;
 `;
 
-export const StyledFieldsetAddTrip = styled.fieldset`
+export const StyledFieldset = styled.fieldset`
   border: none;
   padding: 0.5rem;
 `;
-export const StyledTextareaAddTrip = styled.textarea`
+export const StyledTextarea = styled.textarea`
   border-radius: 1rem;
   margin-top: 0.5rem;
   padding: 0.5rem;
@@ -32,7 +32,7 @@ export const StyledDIVAddTrip = styled.div`
   justify-content: stretch;
 `;
 
-export const StyledHeadAddTrip = styled.div`
+export const StyledDIVHeadAddTrip = styled.div`
   display: flex;
   flex-direction: row;
   justify-items: flex-start;
@@ -53,7 +53,7 @@ export const StyledlabelAddTrip = styled.label`
   font-size: 1rem;
 `;
 
-export const StyledButtonPostionAddTrip = styled.div`
+export const StyledDIVButtonPositionAddTrip = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
