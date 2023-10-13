@@ -44,10 +44,10 @@ export default function Trip({
     <StyledLink href={`/trips/${id}`}>
       <StyledTrip>
         <StyledImage
-          src={image}
+          src={image?.url}
           width={70}
           height={70}
-          alt="{`Image for trip titled ${title}`}"
+          alt={`Image for ${title}`}
         />
         <StyledContent>
           <StyledH2>{title}</StyledH2>

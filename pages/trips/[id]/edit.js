@@ -26,6 +26,24 @@ import { useState } from "react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
+const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const UPLOAD_PRESET = "ml_default";
+
+async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", UPLOAD_PRESET);
+  const response = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+  const { url, width, height } = await response.json();
+  return { url, width, height };
+}
+
 export default function EditTrip() {
   const { mutate } = useSWR("/api/trips");
   const router = useRouter();
@@ -37,13 +55,18 @@ export default function EditTrip() {
   const [letters, setLetters] = useState(
     trip ? 150 - trip.description.length : null
   );
+  const [showFileInput, setShowFileInput] = useState(false);
+
   if (!trip || isLoading) {
     return <h2>is Loading...</h2>;
   }
 
   async function handleEdit(event) {
     event.preventDefault();
-
+    let image;
+    if (showFileInput) {
+      image = await uploadImage(event.target.image.files[0]);
+    }
     const formData = new FormData(event.target);
     const tripData = Object.fromEntries(formData);
     const response = await fetch(`/api/trips/${id}`, {
@@ -51,7 +74,7 @@ export default function EditTrip() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(tripData),
+      body: JSON.stringify({ ...tripData, image }),
     });
 
     if (response.ok) {
@@ -152,6 +175,8 @@ export default function EditTrip() {
               defaultValue={trip.country}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
+          {showFileInput ? (
+              <>
 
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="image">
@@ -160,12 +185,16 @@ export default function EditTrip() {
             <StyledInputAddTrip
               id="image"
               name="image"
-              type="text"
-              placeholder="For example www.my-image.com"
+              type="file"
+              
               required
               defaultValue={trip.image}
             ></StyledInputAddTrip>
-          </StyledDIVAddTrip>
+          </StyledDIVAddTrip>) : (
+            <button type="button" onClick={() => setShowFileInput(true)}>
+              Upload Image
+            </button>
+          )}
 
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="description">
