@@ -1,17 +1,20 @@
-import ConfirmationMessage from "@/components/ConfirmationMessage";
-import { StyledHeadAddTrip } from "@/components/TripForm/TripForm.styled";
+import BackIconW from "@/components/Icons/BackIconW.svg";
+import { StyledDIVHeadAddTrip } from "@/components/TripForm/TripForm.styled";
+import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
+import { StyledLink } from "@/components/Details/Details.styled.js";
 import TripForm from "@/components/TripForm";
-import { StyledBackLink } from "@/components/Details/Details.styled";
 
 export default function AddTrip() {
   return (
     <main>
-      <StyledHeadAddTrip>
-        <StyledBackLink href="/" aria-label="Go back to homepage">
-          &larr;
-        </StyledBackLink>
+      <StyledDIVHeadAddTrip>
+        <StyledLink href="/" aria-label="Go back to homepage">
+          <StyledDIVWhiteQuad>
+            <BackIconW width={15} height={15} />
+          </StyledDIVWhiteQuad>
+        </StyledLink>
         <h1>My Trips</h1>
-      </StyledHeadAddTrip>
+      </StyledDIVHeadAddTrip>
       <h2>Add a trip</h2>
       <TripForm />
     </main>

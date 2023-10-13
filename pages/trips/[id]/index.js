@@ -1,25 +1,27 @@
 import {
-  StyledBackButtonArea,
-  StyledBackLink,
-  StyledBody,
-  StyledContent,
-  StyledDateAndInformation,
-  StyledDetailPageContent,
-  StyledEditTripButton,
-  StyledHeaderDetailPage,
+  StyledDIVBody,
+  StyledDIVContent,
+  StyledDIVDateAndInformation,
+  StyledDIVDetailPageContent,
+  StyledDIVHeaderDetailPage,
+  StyledDIVPackingListArea,
+  StyledDIVRightSideDetailPage,
+  StyledDIVWhiteQuadArea,
   StyledImageTrip,
-  StyledPackingList,
-  StyledRightSideDetailPage,
-  StyledgoToPackingListLink,
-} from "../../../components/Details/Details.styled";
+  StyledLink,
+} from "@/components/Details/Details.styled";
 
+import BackIconW from "@/components/Icons/BackIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
+import EditTripButton from "@/components/EditTripButton";
+import GoToPackingListButton from "@/components/GoToPackingListButton/index";
 import PackingList from "@/components/PackingList";
 import PackingListForm from "@/components/PackingListForm";
+import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
+import { formatDistanceStrict } from "date-fns";
+import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import { formatDistanceToNowStrict } from "date-fns";
-import { formatDistanceStrict } from "date-fns";
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -180,53 +182,59 @@ export default function DetailsPage() {
     }
   }
   return (
-    <StyledBody>
-      <StyledHeaderDetailPage>
-        <StyledBackButtonArea>
-          <StyledBackLink href="/" aria-label="Go back to homepage">
-            &larr;
-          </StyledBackLink>
-        </StyledBackButtonArea>
+    <StyledDIVBody>
+      <StyledDIVHeaderDetailPage>
+        <StyledDIVWhiteQuadArea>
+          <StyledLink href="/" aria-label="Go back to homepage">
+            <StyledDIVWhiteQuad>
+              <BackIconW width={15} height={15} />
+            </StyledDIVWhiteQuad>
+          </StyledLink>
+        </StyledDIVWhiteQuadArea>
         <h1>My Trips</h1>
-        <StyledRightSideDetailPage>
+
+        <StyledDIVRightSideDetailPage>
           <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
 
-          <StyledEditTripButton href={`/trips/${id}/edit`}>
-            Edit Trip
-          </StyledEditTripButton>
-          <StyledgoToPackingListLink href="#packingList" type="button">
-            go to packing list
-          </StyledgoToPackingListLink>
-        </StyledRightSideDetailPage>
-      </StyledHeaderDetailPage>
-      <StyledDetailPageContent>
+          <StyledLink href={`/trips/${id}/edit`}>
+            <EditTripButton />
+          </StyledLink>
+
+          <StyledLink href="#packingList">
+            <GoToPackingListButton />
+          </StyledLink>
+        </StyledDIVRightSideDetailPage>
+      </StyledDIVHeaderDetailPage>
+
+      <StyledDIVDetailPageContent>
         <StyledImageTrip
           src={trip.image?.url}
           width={300}
           height={200}
           alt={`Image for trip`}
         />
-        <StyledContent>
+        <StyledDIVContent>
           <h2> {trip.title} </h2>
-          <StyledDateAndInformation>
+          <StyledDIVDateAndInformation>
             {trip.city}, {trip.country}
-            <StyledDateAndInformation>
+            <StyledDIVDateAndInformation>
               Start: {trip.startDate}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation>
               End: {trip.endDate}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation>
               Duration: {oneDayTrip()}
               {displayCountdown()}
-            </StyledDateAndInformation>
-            <StyledDateAndInformation></StyledDateAndInformation>
-          </StyledDateAndInformation>
+            </StyledDIVDateAndInformation>
+            <StyledDIVDateAndInformation></StyledDIVDateAndInformation>
+          </StyledDIVDateAndInformation>
           <h3>My plans</h3>
           <p>{trip.description}</p>
-        </StyledContent>
-      </StyledDetailPageContent>
-      <StyledPackingList>
+        </StyledDIVContent>
+      </StyledDIVDetailPageContent>
+
+      <StyledDIVPackingListArea>
         <h3 id="packingList">{trip.title} packing list:</h3>
         <PackingListForm onHandleAddToPackingList={handleAddToPackingList} />
         {trip.packingList.length === 0 ? (
@@ -241,7 +249,7 @@ export default function DetailsPage() {
             onRemove={handleDeleteFromPackingList}
           />
         )}
-      </StyledPackingList>
-    </StyledBody>
+      </StyledDIVPackingListArea>
+    </StyledDIVBody>
   );
 }

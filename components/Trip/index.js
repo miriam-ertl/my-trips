@@ -1,12 +1,13 @@
 import {
-  StyledContent,
-  StyledDestination,
+  StyledDIVContent,
+  StyledDIVTrip,
   StyledH2,
   StyledImage,
-  StyledLink,
   StyledPDate,
-  StyledTrip,
+  StyledPDestination,
 } from "./Trip.styled";
+
+import { StyledLink } from "@/components/Details/Details.styled";
 import { formatDistanceToNowStrict } from "date-fns";
 
 export default function Trip({
@@ -41,24 +42,24 @@ export default function Trip({
   }
   return (
     <StyledLink href={`/trips/${id}`}>
-      <StyledTrip>
+      <StyledDIVTrip>
         <StyledImage
           src={image?.url}
           width={70}
           height={70}
           alt={`Image for ${title}`}
         />
-        <StyledContent>
+        <StyledDIVContent>
           <StyledH2>{title}</StyledH2>
           <StyledPDate>
             {startDate} - {endDate}
           </StyledPDate>
-          <StyledDestination>
+          <StyledPDestination>
             {city}, {country}
-          </StyledDestination>
+          </StyledPDestination>
           {displayCountdown()}
-        </StyledContent>
-      </StyledTrip>
+        </StyledDIVContent>
+      </StyledDIVTrip>
     </StyledLink>
   );
 }

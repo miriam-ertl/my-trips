@@ -1,6 +1,24 @@
+import {
+  StyledDIVAddTrip,
+  StyledDIVButtonPositionAddTrip,
+  StyledDIVHeadAddTrip,
+  StyledFieldset,
+  StyledFormAddTrip,
+  StyledInputAddTrip,
+  StyledPNoteAddTrip,
+  StyledTextarea,
+  StyledlabelAddTrip,
+} from "@/components/TripForm/TripForm.styled";
+
+import BackIconW from "@/components/Icons/BackIconW.svg";
+import CancelIconW from "@/components/Icons/CancelIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
-import Link from "next/link";
+import OKIconW from "@/components/Icons/OKIconW.svg";
+import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
+import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";
+import { StyledLink } from "@/components/Details/Details.styled";
+import { StyledPButtonTypo } from "@/components/PButtonTypo/PButtonTypo.styled";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { useState } from "react";
@@ -77,91 +95,134 @@ export default function EditTrip() {
 
   return (
     <main>
-      <Link href="/">&larr;</Link>
-      <h1>My Trips</h1>
+      <StyledDIVHeadAddTrip>
+        <StyledLink href="/">
+          <StyledDIVWhiteQuad>
+            <BackIconW width={15} height={15} />
+          </StyledDIVWhiteQuad>
+        </StyledLink>
+
+        <h1>My Trips</h1>
+      </StyledDIVHeadAddTrip>
+
       <h2>Edit a Trip</h2>
-      <form onSubmit={handleEdit}>
-        <fieldset>
-          <label htmlFor="title">Title (max. 30 characters)*</label>
-          <input
-            id="title"
-            name="title"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trip.title}
-          ></input>
+      <StyledFormAddTrip onSubmit={handleEdit}>
+        <StyledFieldset>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="title">
+              Title (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="title"
+              name="title"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trip.title}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="startDate">
+              Start Date (dd/mm/yyyy)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="startDate"
+              name="startDate"
+              type="date"
+              required
+              defaultValue={trip.startDate}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="startDate">Start Date (dd/mm/yyyy)*</label>
-          <input
-            id="startDate"
-            name="startDate"
-            type="date"
-            required
-            defaultValue={trip.startDate}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="endDate">
+              End Date (dd/mm/yyyy)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="endDate"
+              name="endDate"
+              type="date"
+              required
+              defaultValue={trip.endDate}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
 
-          <label htmlFor="endDate">End Date (dd/mm/yyyy)*</label>
-          <input
-            id="endDate"
-            name="endDate"
-            type="date"
-            required
-            defaultValue={trip.endDate}
-          ></input>
-
-          <label htmlFor="city">City (max. 30 characters)*</label>
-          <input
-            id="city"
-            name="city"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trip.city}
-          ></input>
-
-          <label htmlFor="country">Country (max. 30 characters)*</label>
-          <input
-            id="country"
-            name="country"
-            type="text"
-            maxLength="30"
-            required
-            defaultValue={trip.country}
-          ></input>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="city">
+              City (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="city"
+              name="city"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trip.city}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="country">
+              Country (max. 30 characters)*
+            </StyledlabelAddTrip>
+            <StyledInputAddTrip
+              id="country"
+              name="country"
+              type="text"
+              maxLength="30"
+              required
+              defaultValue={trip.country}
+            ></StyledInputAddTrip>
+          </StyledDIVAddTrip>
           {showFileInput ? (
-            <>
-              <label htmlFor="image">Image (URL)*</label>
-              <input id="image" name="image" type="file" required></input>
-            </>
+            <StyledDIVAddTrip>
+              <StyledlabelAddTrip htmlFor="image">
+                Image (URL)*
+              </StyledlabelAddTrip>
+              <StyledInputAddTrip
+                id="image"
+                name="image"
+                type="file"
+                required
+                defaultValue={trip.image}
+              ></StyledInputAddTrip>
+            </StyledDIVAddTrip>
           ) : (
             <button type="button" onClick={() => setShowFileInput(true)}>
               Upload Image
             </button>
           )}
-          <label htmlFor="description">
-            Description (<span>{letters}</span> characters left)*
-          </label>
-          <textarea
-            rows="8"
-            cols="30"
-            maxLength="150"
-            id="description"
-            name="description"
-            type="text"
-            required
-            placeholder="Enter your description"
-            defaultValue={trip.description}
-            onChange={handleCountLetters}
-          ></textarea>
+          <StyledDIVAddTrip>
+            <StyledlabelAddTrip htmlFor="description">
+              Description (<span>{letters}</span> characters left)*
+            </StyledlabelAddTrip>
+            <StyledTextarea
+              rows="8"
+              cols="30"
+              maxLength="150"
+              id="description"
+              name="description"
+              type="text"
+              required
+              placeholder="Enter your description"
+              defaultValue={trip.description}
+              onChange={handleCountLetters}
+            ></StyledTextarea>
+          </StyledDIVAddTrip>
+          <StyledDIVButtonPositionAddTrip>
+            <StyledButtonBlue type="submit">
+              <OKIconW width={15} height={15} />
+              <StyledPButtonTypo>OK</StyledPButtonTypo>
+            </StyledButtonBlue>
 
-          <button type="submit">Edit trip</button>
-        </fieldset>
-        <p>* required form field</p>
-      </form>
-
-      <ConfirmationMessage button="Cancel" />
-      <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+            <ConfirmationMessage>
+              <CancelIconW width={12} height={12} />
+              <StyledPButtonTypo>CANCEL</StyledPButtonTypo>
+            </ConfirmationMessage>
+            <ConfirmDelete handleDeleteTrip={handleDeleteTrip} />
+          </StyledDIVButtonPositionAddTrip>
+        </StyledFieldset>
+        <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
+      </StyledFormAddTrip>
     </main>
   );
 }

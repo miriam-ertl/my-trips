@@ -1,35 +1,28 @@
-import styled from "styled-components";
+import DeleteIconW from "@/components/Icons/DeleteIconW.svg";
+import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled.js";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled.js";
 import { useState } from "react";
-
-const StyledDeleteButton = styled.button`
-  border: solid;
-  text-decoration: none;
-  font-size: 0.8rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem;
-  background-color: white;
-  width: 100%;
-`;
 
 export default function ConfirmDelete({ handleDeleteTrip }) {
   const [showMessage, setShowMessage] = useState(false);
 
   if (!showMessage) {
     return (
-      <StyledDeleteButton type="button" onClick={() => setShowMessage(true)}>
-        Delete
-      </StyledDeleteButton>
+      <StyledButtonBlue type="button" onClick={() => setShowMessage(true)}>
+        <DeleteIconW width={15} height={15} />
+        <StyledPButtonTypo>DELETE</StyledPButtonTypo>
+      </StyledButtonBlue>
     );
   }
   return (
     <div>
       <p>Are you sure?</p>
-      <button type="button" onClick={handleDeleteTrip}>
-        Yes
-      </button>
-      <button type="button" onClick={() => setShowMessage(false)}>
-        No
-      </button>
+      <StyledButtonBlue type="button" onClick={handleDeleteTrip}>
+        <StyledPButtonTypo>YES</StyledPButtonTypo>
+      </StyledButtonBlue>
+      <StyledButtonBlue type="button" onClick={() => setShowMessage(false)}>
+        <StyledPButtonTypo>NO</StyledPButtonTypo>
+      </StyledButtonBlue>
     </div>
   );
 }

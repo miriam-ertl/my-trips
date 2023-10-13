@@ -1,18 +1,22 @@
 import {
-  StyledButtonPostionAddTrip,
   StyledDIVAddTrip,
-  StyledFieldsetAddTrip,
+  StyledDIVButtonPositionAddTrip,
+  StyledFieldset,
   StyledFormAddTrip,
   StyledInputAddTrip,
   StyledPNoteAddTrip,
-  StyledTextareaAddTrip,
+  StyledTextarea,
   StyledlabelAddTrip,
 } from "./TripForm.styled";
 
+import AddIconW from "@/components/Icons/AddIconW.svg";
+import CancelIconW from "@/components/Icons/CancelIconW.svg";
 import ConfirmationMessage from "../ConfirmationMessage";
+import { StyledButtonBlue } from "../ConfirmDelete/ConfirmDelete.styled";
+import { StyledPButtonTypo } from "../PButtonTypo/PButtonTypo.styled";
+import { mutate } from "swr";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { mutate } from "swr";
 
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 const UPLOAD_PRESET = "ml_default";
@@ -69,7 +73,7 @@ export default function TripForm() {
 
   return (
     <StyledFormAddTrip onSubmit={handleSubmit}>
-      <StyledFieldsetAddTrip>
+      <StyledFieldset>
         <StyledDIVAddTrip>
           <StyledlabelAddTrip htmlFor="title">
             Title (max. 30 characters)*
@@ -142,7 +146,7 @@ export default function TripForm() {
           <StyledlabelAddTrip htmlFor="description">
             Description (<span>{letters}</span> characters left)*
           </StyledlabelAddTrip>
-          <StyledTextareaAddTrip
+          <StyledTextarea
             rows="8"
             cols="30"
             maxLength="150"
@@ -152,13 +156,20 @@ export default function TripForm() {
             required
             placeholder="Enter your description"
             onChange={handleCountLetters}
-          ></StyledTextareaAddTrip>
+          ></StyledTextarea>
         </StyledDIVAddTrip>
-        <StyledButtonPostionAddTrip>
-          <button type="submit">+ Add Trip</button>
-          <ConfirmationMessage button={"Cancel"} />
-        </StyledButtonPostionAddTrip>
-      </StyledFieldsetAddTrip>
+        <StyledDIVButtonPositionAddTrip>
+          <StyledButtonBlue type="submit">
+            <AddIconW width={15} height={15} />
+            <StyledPButtonTypo>ADD TRIP</StyledPButtonTypo>
+          </StyledButtonBlue>
+
+          <ConfirmationMessage>
+            <CancelIconW width={12} height={12} />
+            <StyledPButtonTypo>CANCEL</StyledPButtonTypo>
+          </ConfirmationMessage>
+        </StyledDIVButtonPositionAddTrip>
+      </StyledFieldset>
       <StyledPNoteAddTrip>* required form field</StyledPNoteAddTrip>
     </StyledFormAddTrip>
   );
