@@ -161,7 +161,6 @@ export default function EditTrip() {
               defaultValue={trip.city}
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
-
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="country">
               Country (max. 30 characters)*
@@ -176,26 +175,23 @@ export default function EditTrip() {
             ></StyledInputAddTrip>
           </StyledDIVAddTrip>
           {showFileInput ? (
-              <>
-
-          <StyledDIVAddTrip>
-            <StyledlabelAddTrip htmlFor="image">
-              Image (URL)*
-            </StyledlabelAddTrip>
-            <StyledInputAddTrip
-              id="image"
-              name="image"
-              type="file"
-              
-              required
-              defaultValue={trip.image}
-            ></StyledInputAddTrip>
-          </StyledDIVAddTrip>) : (
+            <StyledDIVAddTrip>
+              <StyledlabelAddTrip htmlFor="image">
+                Image (URL)*
+              </StyledlabelAddTrip>
+              <StyledInputAddTrip
+                id="image"
+                name="image"
+                type="file"
+                required
+                defaultValue={trip.image}
+              ></StyledInputAddTrip>
+            </StyledDIVAddTrip>
+          ) : (
             <button type="button" onClick={() => setShowFileInput(true)}>
               Upload Image
             </button>
           )}
-
           <StyledDIVAddTrip>
             <StyledlabelAddTrip htmlFor="description">
               Description (<span>{letters}</span> characters left)*
@@ -213,7 +209,6 @@ export default function EditTrip() {
               onChange={handleCountLetters}
             ></StyledTextareaAddTrip>
           </StyledDIVAddTrip>
-
           <StyledButtonPostionAddTrip>
             <StyledButtonBlue type="submit">
               <OKIconW width={15} height={15} />
