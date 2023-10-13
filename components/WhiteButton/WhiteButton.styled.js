@@ -1,6 +1,6 @@
 import styled from "styled-components";
-//Weißer BUTTON////
-export const WhiteButton = styled.button`
+
+export const StyledButtonWhite = styled.button`
   width: 1.6875rem;
   height: 1.625rem;
   background-color: #ffffff;

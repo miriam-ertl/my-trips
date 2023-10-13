@@ -14,7 +14,6 @@ import BackIconW from "@/components/Icons/BackIconW.svg";
 import CancelIconW from "@/components/Icons/CancelIconW.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import ConfirmationMessage from "@/components/ConfirmationMessage";
-import EditTripButton from "@/components/EditTripButton";
 import OKIconW from "@/components/Icons/OKIconW.svg";
 import { StyledButtonBlue } from "@/components/ConfirmDelete/ConfirmDelete.styled";
 import { StyledDIVWhiteQuad } from "@/components/BackButton/BackButton.styled";

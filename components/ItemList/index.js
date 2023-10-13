@@ -7,10 +7,10 @@ import CancelIconGrey from "@/components/Icons/CancelIconGrey.svg";
 import DeleteIconGrey from "@/components/Icons/DeleteIconGrey.svg";
 import EditIconGrey from "@/components/Icons/EditIconGrey.svg";
 import OKIconGrey from "@/components/Icons/OKIconGrey.svg";
-import { StyledFormPackingList } from "../PackingListForm/PackingListForm.styled";
-import { StyledInputAddTrip } from "../TripForm/TripForm.styled";
+import { StyledButtonWhite } from "@/components/WhiteButton/WhiteButton.styled";
+import { StyledFormPackingList } from "@/components/PackingListForm/PackingListForm.styled";
+import { StyledInputAddTrip } from "@/components/TripForm/TripForm.styled";
 import { StyledUList } from "@/components/TripList/TripList.styled";
-import { WhiteButton } from "../WhiteButton/WhiteButton.styled";
 import { useState } from "react";
 
 export default function ItemList({ items, onCheck, onRemove, onEdit }) {
@@ -33,13 +33,13 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
             autoFocus
           />
 
-          <WhiteButton type="submit">
+          <StyledButtonWhite type="submit">
             <OKIconGrey width={15} height={15} />
-          </WhiteButton>
+          </StyledButtonWhite>
 
-          <WhiteButton type="button" onClick={() => setItemToEdit(null)}>
+          <StyledButtonWhite type="button" onClick={() => setItemToEdit(null)}>
             <CancelIconGrey width={15} height={15} />
-          </WhiteButton>
+          </StyledButtonWhite>
         </StyledFormPackingList>
       ) : (
         <StyledUList>
@@ -58,12 +58,15 @@ export default function ItemList({ items, onCheck, onRemove, onEdit }) {
                 {item.name}
               </span>
               <StyledDIVButtonareaPackingList>
-                <WhiteButton onClick={() => setItemToEdit(item)}>
+                <StyledButtonWhite onClick={() => setItemToEdit(item)}>
                   <EditIconGrey width={15} height={15} />
-                </WhiteButton>
-                <WhiteButton type="button" onClick={() => onRemove(item._id)}>
+                </StyledButtonWhite>
+                <StyledButtonWhite
+                  type="button"
+                  onClick={() => onRemove(item._id)}
+                >
                   <DeleteIconGrey width={15} height={15} />
-                </WhiteButton>
+                </StyledButtonWhite>
               </StyledDIVButtonareaPackingList>
             </PackingListItem>
           ))}
