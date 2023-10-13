@@ -57,7 +57,6 @@ export default function TripForm() {
         image,
       });
 
-      mutate("/api/trips");
       router.push("/confirmation");
     } catch (error) {
       alert("Error creating trip");
