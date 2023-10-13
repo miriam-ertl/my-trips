@@ -183,7 +183,6 @@ export default function EditTrip() {
                 name="image"
                 type="file"
                 required
-                defaultValue={trip.image}
               ></StyledInputAddTrip>
             </StyledDIVAddTrip>
           ) : (
