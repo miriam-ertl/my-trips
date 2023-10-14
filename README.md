@@ -1,37 +1,46 @@
-# New Next Project
+## Our Project: My Trips
 
-This project was created from the neue fische `next` template.
+Team: [Bonnie](https://github.com/B-Baumeister), [Miriam](https://github.com/miriam-ertl), [David](https://github.com/DaveKrauss), [Stephan](https://github.com/StephanBergmann)
 
-You can [🔗 **use this template on CodeSandbox**](https://codesandbox.io/p/sandbox/github/neuefische/web-exercises/tree/main/templates/next?file=/README.md) or locally by running this command in your Terminal:
+My Trips is a personal App, designed for frequent travellers to plan, customize and keep track about their journeys. The app provides features as: creating a trip with a start and end date, adding a description and a personal picture - as well as an individual packing list for each trip - to make planning even easier!
 
-```bash
-npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
-```
+![Screenshots](/public/image/mytrips.png)
 
-## Development
+## Demo
 
-### Local Development
+You can find the hosted version on [Vercel](https://my-trips-weld-sigma.vercel.app/)
+**Important the project is optimized for mobile screen.**
 
-To work locally, please install the dependencies using `npm i` first.
+## Included Tech Stack
 
-Run `npm run dev` to start a development server and open the displayed URL in a browser.
+- React
+- Next.js
+- Node.js
+- JavaScript
+- Styled Components
+- useSWR
+- Date-fns
+- mongoose
+- MongoDB Atlas
+- Cloudinary
 
-Use `npm run test` to run the tests.
+## How to Setup?
 
-### CodeSandbox Cloud
-
-Select the "Preview: 3000" tab to view this project.
-
-Select the "Tests: logs" tab to view the tests.
-
-> The `npm run dev` and `npm run test` scripts run automatically.
-
-### Scripts
-
-You can use the following commands:
-
-- `npm run dev` to start a development server
-- `npm run build` to build the project
-- `npm run start` to start a production server
-- `npm run test` to run the tests
-- `npm run lint` to run the linter
+- Clone this repository
+- Install all dependencies with `npm i`
+- Create a `MongoDB account` and follow this instruction:
+  - Create a collection and copy the schema from the db/models/Trip.js
+  - Create a .env.local file at the root of your project with the following content:
+    `MONGODB_URI=mongodb+srv://<user>:<password>@<cluster-name>/<example-database>?retryWrites=true&w=majority`
+  - `user` is the name of the database user you have created in the MongoDB Atlas interface
+  - `password` is the password you have chosen for this user
+  - `cluster-name` is the name of your cluster: this value can vary and will look something like `cluster0.mu12zrz.mongodb.net.`
+  - `example-database` is the name of your database
+  - Replace the placeholders, including the `<` and `>` characters, with the actual values
+  - Install `npm i mongoose`
+    <br></br>
+- Create a `Cloudinary account` and follow this instruction:
+  - If you are signed up in Cloudinary note down the Cloud Name from the console
+  - Then go to the `settings` page, into the `Upload` section and edit the ml_default signing mode to `Unsigned`
+  - Inside your `.env.local` file add the following content: `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=<cloudname>`
+  - Install `npm i cloudinary`
